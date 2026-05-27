@@ -1,6 +1,8 @@
 [
   {
     "id": 1,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Votre entreprise veut éviter les coûts initiaux liés à l’achat de serveurs. Quel avantage cloud correspond à ce besoin ?",
     "answers": [
       "Modèle basé sur la consommation",
@@ -13,6 +15,8 @@
   },
   {
     "id": 2,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Une application doit ajouter automatiquement des ressources pendant les pics de trafic puis les réduire ensuite. Quel concept est utilisé ?",
     "answers": [
       "Élasticité",
@@ -25,6 +29,8 @@
   },
   {
     "id": 3,
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Général",
     "question": "Une application a besoin de plus de capacité. Vous ajoutez deux machines virtuelles supplémentaires. De quel type de mise à l’échelle s’agit-il ?",
     "answers": [
       "Horizontale",
@@ -37,6 +43,8 @@
   },
   {
     "id": 4,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Gouvernance",
     "question": "Une entreprise ajoute davantage de RAM à une machine virtuelle existante. Quel type de mise à l’échelle est utilisé ?",
     "answers": [
       "Verticale",
@@ -49,6 +57,8 @@
   },
   {
     "id": 5,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Gouvernance",
     "question": "Quel modèle de service cloud laisse au client la responsabilité de gérer le système d’exploitation ?",
     "answers": [
       "IaaS",
@@ -61,6 +71,8 @@
   },
   {
     "id": 6,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Gouvernance",
     "question": "Quel modèle correspond le mieux à une application prête à l’emploi facturée par abonnement ?",
     "answers": [
       "SaaS",
@@ -73,6 +85,8 @@
   },
   {
     "id": 7,
+    "module": "Module 2 - Services Azure",
+    "category": "Compute",
     "question": "Une équipe veut héberger une application web sans gérer l’OS ni le serveur. Quel service Azure est le plus adapté ?",
     "answers": [
       "Azure App Service",
@@ -85,6 +99,8 @@
   },
   {
     "id": 8,
+    "module": "Module 2 - Services Azure",
+    "category": "Compute",
     "question": "Vous devez exécuter du code déclenché par un événement sans gérer d’infrastructure. Quel service choisir ?",
     "answers": [
       "Azure Functions",
@@ -97,6 +113,8 @@
   },
   {
     "id": 9,
+    "module": "Module 2 - Services Azure",
+    "category": "Compute",
     "question": "Vous devez déployer et mettre à l’échelle un ensemble de machines virtuelles identiques. Quel service utiliser ?",
     "answers": [
       "Virtual Machine Scale Sets",
@@ -109,6 +127,8 @@
   },
   {
     "id": 10,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Quel composant Azure sert de conteneur logique pour organiser les ressources d’une solution ?",
     "answers": [
       "Groupe de ressources",
@@ -121,6 +141,8 @@
   },
   {
     "id": 11,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Quel service Azure est responsable de la création, mise à jour et suppression des ressources ?",
     "answers": [
       "Azure Resource Manager",
@@ -133,6 +155,8 @@
   },
   {
     "id": 12,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Gouvernance",
     "question": "Vous devez appliquer une règle de gouvernance à plusieurs abonnements Azure. Que devez-vous utiliser ?",
     "answers": [
       "Groupes d’administration",
@@ -145,6 +169,8 @@
   },
   {
     "id": 13,
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Général",
     "question": "Vous voulez empêcher la suppression accidentelle d’une base de données critique. Quelle fonctionnalité utiliser ?",
     "answers": [
       "Resource Lock",
@@ -157,6 +183,8 @@
   },
   {
     "id": 14,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Vous voulez empêcher la création de ressources dans certaines régions. Quel service utiliser ?",
     "answers": [
       "Azure Policy",
@@ -169,6 +197,8 @@
   },
   {
     "id": 15,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Vous voulez autoriser un utilisateur à lire les ressources d’un groupe de ressources sans les modifier. Que devez-vous utiliser ?",
     "answers": [
       "Azure RBAC",
@@ -181,6 +211,8 @@
   },
   {
     "id": 16,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Quelle fonctionnalité est la plus adaptée pour catégoriser les coûts par environnement, service ou département ?",
     "answers": [
       "Tags",
@@ -193,6 +225,8 @@
   },
   {
     "id": 17,
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Cloud",
     "question": "Une panne touche un datacenter dans une région. Quelle fonctionnalité aide à maintenir les services dans la même région ?",
     "answers": [
       "Zones de disponibilité",
@@ -205,6 +239,8 @@
   },
   {
     "id": 18,
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Cloud",
     "question": "Vous voulez préparer une continuité d’activité en cas de sinistre régional. Quel concept Azure aide à cela ?",
     "answers": [
       "Paires de régions",
@@ -217,6 +253,8 @@
   },
   {
     "id": 19,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Vous devez connecter deux réseaux virtuels Azure pour que leurs ressources communiquent. Que configurez-vous ?",
     "answers": [
       "Peering de réseaux virtuels",
@@ -229,6 +267,8 @@
   },
   {
     "id": 20,
+    "module": "Module 2 - Services Azure",
+    "category": "Réseau",
     "question": "Vous devez connecter un datacenter local à Azure via une connexion privée dédiée. Quel service utiliser ?",
     "answers": [
       "ExpressRoute",
@@ -241,6 +281,8 @@
   },
   {
     "id": 21,
+    "module": "Module 2 - Services Azure",
+    "category": "Réseau",
     "question": "Vous devez connecter un réseau local à Azure via un VPN site à site. Quel service utiliser ?",
     "answers": [
       "VPN Gateway",
@@ -253,6 +295,8 @@
   },
   {
     "id": 22,
+    "module": "Module 2 - Services Azure",
+    "category": "Réseau",
     "question": "Quel service permet d’administrer une VM via le portail Azure sans exposer RDP/SSH publiquement ?",
     "answers": [
       "Azure Bastion",
@@ -265,6 +309,8 @@
   },
   {
     "id": 23,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Vous devez filtrer le trafic entrant et sortant d’un sous-réseau. Que devez-vous utiliser ?",
     "answers": [
       "Network Security Group",
@@ -277,6 +323,8 @@
   },
   {
     "id": 24,
+    "module": "Module 2 - Services Azure",
+    "category": "Stockage",
     "question": "Vous devez stocker des images et documents non structurés accessibles depuis une application web. Quel service choisir ?",
     "answers": [
       "Azure Blob Storage",
@@ -289,6 +337,8 @@
   },
   {
     "id": 25,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Gouvernance",
     "question": "Vous devez créer un partage de fichiers cloud accessible via SMB. Quel service utiliser ?",
     "answers": [
       "Azure Files",
@@ -301,6 +351,8 @@
   },
   {
     "id": 26,
+    "module": "Module 2 - Services Azure",
+    "category": "Stockage",
     "question": "Des données doivent être consultées très souvent avec un accès rapide. Quel niveau Blob choisir ?",
     "answers": [
       "Hot",
@@ -313,6 +365,8 @@
   },
   {
     "id": 27,
+    "module": "Module 2 - Services Azure",
+    "category": "Stockage",
     "question": "Des données doivent être conservées longtemps mais rarement consultées. Quel niveau Blob est souvent le moins cher en stockage ?",
     "answers": [
       "Archive",
@@ -325,6 +379,8 @@
   },
   {
     "id": 28,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Quel service gère l’authentification et les identités dans Azure ?",
     "answers": [
       "Microsoft Entra ID",
@@ -337,6 +393,8 @@
   },
   {
     "id": 29,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Une entreprise veut obliger les utilisateurs à utiliser leur téléphone lors de la connexion. Quelle fonctionnalité utiliser ?",
     "answers": [
       "MFA",
@@ -349,6 +407,8 @@
   },
   {
     "id": 30,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Une entreprise veut exiger MFA uniquement depuis certains emplacements. Quelle fonctionnalité utiliser ?",
     "answers": [
       "Accès conditionnel",
@@ -361,6 +421,8 @@
   },
   {
     "id": 31,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Une entreprise veut synchroniser ses utilisateurs Active Directory locaux avec Microsoft Entra ID. Quel outil utiliser ?",
     "answers": [
       "Microsoft Entra Connect",
@@ -373,6 +435,8 @@
   },
   {
     "id": 32,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Une application a besoin de fonctionnalités AD DS dans Azure sans gérer de contrôleurs de domaine. Quel service choisir ?",
     "answers": [
       "Microsoft Entra Domain Services",
@@ -385,6 +449,8 @@
   },
   {
     "id": 33,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Quel principe de sécurité consiste à utiliser plusieurs couches de protection ?",
     "answers": [
       "Défense en profondeur",
@@ -397,6 +463,8 @@
   },
   {
     "id": 34,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Quel outil utiliser pour estimer le coût mensuel d’une solution Azure avant son déploiement ?",
     "answers": [
       "Azure Pricing Calculator",
@@ -409,6 +477,8 @@
   },
   {
     "id": 35,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Quel outil utiliser pour comparer le coût d’un datacenter local avec une migration vers Azure ?",
     "answers": [
       "TCO Calculator",
@@ -421,6 +491,8 @@
   },
   {
     "id": 36,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Quel service utiliser pour analyser les dépenses Azure existantes et créer des budgets ?",
     "answers": [
       "Azure Cost Management",
@@ -433,6 +505,8 @@
   },
   {
     "id": 37,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Une VM n’est utilisée que pendant les heures de bureau. Que faire pour réduire les coûts de calcul sans perdre les disques ?",
     "answers": [
       "La désallouer hors horaires",
@@ -445,6 +519,8 @@
   },
   {
     "id": 38,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Une charge de travail VM est stable et prévisible sur plusieurs années. Quelle option peut réduire les coûts ?",
     "answers": [
       "Reserved Instances",
@@ -457,6 +533,8 @@
   },
   {
     "id": 39,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Coûts",
     "question": "Quel service donne des recommandations pour réduire les coûts, améliorer la sécurité et les performances ?",
     "answers": [
       "Azure Advisor",
@@ -469,6 +547,8 @@
   },
   {
     "id": 40,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Monitoring",
     "question": "Quel service permet de surveiller les métriques, logs et alertes des ressources Azure ?",
     "answers": [
       "Azure Monitor",
@@ -481,6 +561,8 @@
   },
   {
     "id": 41,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Monitoring",
     "question": "Vous voulez interroger des journaux Azure pour rechercher des erreurs applicatives. Quel outil utiliser ?",
     "answers": [
       "Log Analytics",
@@ -493,6 +575,8 @@
   },
   {
     "id": 42,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Monitoring",
     "question": "Vous voulez recevoir une notification quand l’utilisation CPU dépasse 90 %. Quelle fonctionnalité utiliser ?",
     "answers": [
       "Alertes Azure",
@@ -505,6 +589,8 @@
   },
   {
     "id": 43,
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Sécurité",
     "question": "Quel service peut aider à identifier des faiblesses de sécurité sur des ressources Azure ?",
     "answers": [
       "Microsoft Defender for Cloud",
@@ -517,6 +603,8 @@
   },
   {
     "id": 44,
+    "module": "Module 2 - Services Azure",
+    "category": "Compute",
     "question": "Quel service convient le mieux pour automatiser un workflow avec des connecteurs prédéfinis sans beaucoup de code ?",
     "answers": [
       "Azure Logic Apps",
@@ -529,6 +617,8 @@
   },
   {
     "id": 45,
+    "module": "Module 2 - Services Azure",
+    "category": "Compute",
     "question": "Quel service est le plus adapté pour orchestrer de nombreux conteneurs en production ?",
     "answers": [
       "Azure Kubernetes Service",

@@ -228,7 +228,7 @@ function Quiz() {
               <h2>Mode entraînement</h2>
               <p>
                 Les questions sont mélangées et tournent en boucle parmi 
-                {trainingQuestions.length} questions.
+                 {trainingQuestions.length} questions.
               </p>
 
               <div className="mode-stats">
