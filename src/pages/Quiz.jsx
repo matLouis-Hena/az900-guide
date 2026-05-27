@@ -29,10 +29,37 @@ function Quiz() {
   const [trainingAttempts, setTrainingAttempts] = useState(0);
   const [bestExamScore, setBestExamScore] = useState(0);
   const [completedExam, setCompletedExam] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(EXAM_DURATION_SECONDS);
+  const [selectedModule, setSelectedModule] = useState('Tous');
+  const [selectedCategory, setSelectedCategory] = useState('Toutes');
 
   const examUnlocked = trainingCorrectAnswers >= REQUIRED_CORRECT_ANSWERS;
+  
   const currentQuestion = questions[currentQuestionIndex];
+  const modules = [
+    'Tous',
+    ...new Set(questionsData.map((question) => question.module)),
+  ];
+
+  const categories = [
+    'Toutes',
+    ...new Set(
+      questionsData
+        .filter((question) => {
+          return selectedModule === 'Tous' || question.module === selectedModule;
+        })
+        .map((question) => question.category)
+    ),
+  ];
+
+  const filteredTrainingQuestions = questionsData.filter((question) => {
+    const matchesModule =
+      selectedModule === 'Tous' || question.module === selectedModule;
+
+    const matchesCategory =
+      selectedCategory === 'Toutes' || question.category === selectedCategory;
+
+    return matchesModule && matchesCategory;
+  });
 
   const unlockProgress = Math.min(
     (trainingCorrectAnswers / REQUIRED_CORRECT_ANSWERS) * 100,
@@ -70,7 +97,12 @@ function Quiz() {
   }
 
   function startQuiz() {
-    setQuestions(shuffleArray(questionsData));
+    const sourceQuestions =
+      mode === 'training'
+        ? filteredTrainingQuestions
+        : questionsData;
+
+    setQuestions(shuffleArray(sourceQuestions));
     setTimeLeft(EXAM_DURATION_SECONDS);
     resetQuizState();
     setHasStarted(true);
@@ -164,7 +196,7 @@ function Quiz() {
     const nextIndex = (currentQuestionIndex + 1) % questions.length;
 
     if (nextIndex === 0) {
-      setQuestions(shuffleArray(questionsData));
+      setQuestions(shuffleArray(filteredTrainingQuestions));
     }
 
     setCurrentQuestionIndex(nextIndex);
@@ -312,6 +344,43 @@ function Quiz() {
                 Certaines questions peuvent avoir plusieurs bonnes réponses.
               </p>
 
+              <div className="training-filters">
+                <div>
+                  <label>Module</label>
+                  <select
+                    value={selectedModule}
+                    onChange={(event) => {
+                      setSelectedModule(event.target.value);
+                      setSelectedCategory('Toutes');
+                    }}
+                  >
+                    {modules.map((module) => (
+                      <option value={module} key={module}>
+                        {module}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label>Catégorie</label>
+                  <select
+                    value={selectedCategory}
+                    onChange={(event) => setSelectedCategory(event.target.value)}
+                  >
+                    {categories.map((category) => (
+                      <option value={category} key={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <p className="filter-summary">
+                {filteredTrainingQuestions.length} question(s) disponible(s) avec ce filtre.
+              </p>
+
               <div className="mode-stats">
                 <div>
                   <span>Bonnes réponses</span>
@@ -351,8 +420,12 @@ function Quiz() {
                 </div>
               </div>
 
-              <button className="primary-button" onClick={startQuiz}>
-                Commencer l’examen blanc
+              <button
+                className="primary-button"
+                onClick={startQuiz}
+                disabled={filteredTrainingQuestions.length === 0}
+              >
+                Commencer l’entraînement
               </button>
             </div>
           )}

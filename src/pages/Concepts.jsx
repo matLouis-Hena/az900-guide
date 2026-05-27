@@ -13,15 +13,26 @@ function Concepts() {
     setOpenedConcepts(savedConcepts);
   }, []);
 
+  const sortedConcepts = [...concepts].sort((a, b) =>
+    a.title.localeCompare(b.title, 'fr', { sensitivity: 'base' })
+  );
+
   const categories = [
     'Toutes',
-    ...new Set(concepts.map((concept) => concept.category)),
-  ];
+    ...new Set(sortedConcepts.map((concept) => concept.category)),
+  ].sort((a, b) => {
+    if (a === 'Toutes') return -1;
+    if (b === 'Toutes') return 1;
+    return a.localeCompare(b, 'fr', { sensitivity: 'base' });
+  });
 
-  const filteredConcepts = concepts.filter((concept) => {
+  const filteredConcepts = sortedConcepts.filter((concept) => {
+    const searchValue = search.toLowerCase();
+
     const matchesSearch =
-      concept.title.toLowerCase().includes(search.toLowerCase()) ||
-      concept.definition.toLowerCase().includes(search.toLowerCase());
+      concept.title.toLowerCase().includes(searchValue) ||
+      concept.definition.toLowerCase().includes(searchValue) ||
+      concept.category.toLowerCase().includes(searchValue);
 
     const matchesCategory =
       selectedCategory === 'Toutes' ||
@@ -40,10 +51,7 @@ function Concepts() {
     }
 
     setOpenedConcepts(updatedConcepts);
-    localStorage.setItem(
-      'viewedConcepts',
-      JSON.stringify(updatedConcepts)
-    );
+    localStorage.setItem('viewedConcepts', JSON.stringify(updatedConcepts));
   }
 
   return (
@@ -84,11 +92,7 @@ function Concepts() {
 
           return (
             <article
-              className={
-                isOpened
-                  ? 'concept-card opened'
-                  : 'concept-card'
-              }
+              className={isOpened ? 'concept-card opened' : 'concept-card'}
               key={concept.id}
             >
               <div
