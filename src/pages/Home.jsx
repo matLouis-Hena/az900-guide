@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import concepts from '../data/concepts.json';
 import trainingQuestions from '../data/trainingQuestions.json';
 import examQuestions from '../data/examQuestions.json';
 
 function Home() {
   const totalQuestions = trainingQuestions.length + examQuestions.length;
-  
+
   return (
     <section className="home-page">
       <div className="hero">
