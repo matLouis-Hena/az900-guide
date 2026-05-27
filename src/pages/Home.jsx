@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import concepts from '../data/concepts.json';
-import trainingQuestions from '../data/trainingQuestions.json';
-import examQuestions from '../data/examQuestions.json';
+import questionsData from '../data/questions.json';
 
 function Home() {
   const totalQuestions = trainingQuestions.length + examQuestions.length;
@@ -40,9 +39,7 @@ function Home() {
 
           <ul className="hero-list">
             <li>{concepts.length} notions fondamentales d’Azure</li>
-            <li>{trainingQuestions.length} questions d’entraînement</li>
-            <li>{examQuestions.length} questions d’examen blanc</li>
-            <li>{totalQuestions} questions au total</li>
+            <li>{questionsData.length} questions d’entraînement</li>
             <li>Un suivi de progression personnalisé</li>
           </ul>
         </div>

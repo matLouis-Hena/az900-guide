@@ -1,0 +1,1950 @@
+[
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Cloud public",
+    "question": "Quelles caractéristiques décrivent un cloud public ?",
+    "answers": [
+      "Les services sont accessibles via Internet",
+      "Les ressources sont détenues et gérées par un fournisseur cloud tiers",
+      "Le matériel est obligatoirement situé dans le datacenter local du client",
+      "Les ressources sont réservées à une seule organisation"
+    ],
+    "correctAnswers": [
+      "Les services sont accessibles via Internet",
+      "Les ressources sont détenues et gérées par un fournisseur cloud tiers"
+    ],
+    "explanation": "Dans un cloud public, le fournisseur cloud possède et gère l’infrastructure, et les services sont accessibles via Internet.",
+    "id": 1
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Cloud privé",
+    "question": "Quels éléments correspondent à un cloud privé ?",
+    "answers": [
+      "Le matériel doit être acheté ou maintenu par l’organisation",
+      "Le paiement est toujours uniquement basé sur la consommation",
+      "Les services sont disponibles publiquement pour tout client",
+      "L’organisation contrôle les ressources physiques"
+    ],
+    "correctAnswers": [
+      "L’organisation contrôle les ressources physiques",
+      "Le matériel doit être acheté ou maintenu par l’organisation"
+    ],
+    "explanation": "Un cloud privé est dédié à une seule organisation, qui garde généralement le contrôle du matériel et de la sécurité.",
+    "id": 2
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Cloud hybride",
+    "question": "Une entreprise conserve certains serveurs localement et migre d’autres applications vers Azure. Quel modèle de déploiement utilise-t-elle ?",
+    "answers": [
+      "Cloud privé uniquement",
+      "Cloud hybride",
+      "Cloud public uniquement",
+      "SaaS"
+    ],
+    "correctAnswers": [
+      "Cloud hybride"
+    ],
+    "explanation": "Un cloud hybride combine une infrastructure locale ou privée avec des ressources de cloud public comme Azure.",
+    "id": 3
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Modèle basé sur la consommation",
+    "question": "Quelles affirmations décrivent le modèle basé sur la consommation ?",
+    "answers": [
+      "Le client doit toujours acheter les serveurs physiques",
+      "Une ressource inutilisée peut arrêter de générer des coûts si elle est supprimée ou arrêtée selon le service",
+      "Les coûts dépendent de l’utilisation réelle",
+      "Les coûts sont toujours fixes, même sans utilisation"
+    ],
+    "correctAnswers": [
+      "Les coûts dépendent de l’utilisation réelle",
+      "Une ressource inutilisée peut arrêter de générer des coûts si elle est supprimée ou arrêtée selon le service"
+    ],
+    "explanation": "Le modèle basé sur la consommation facture les ressources selon leur usage au lieu d’imposer un achat matériel initial.",
+    "id": 4
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "CapEx et OpEx",
+    "question": "Quel type de dépense correspond à l’achat initial de serveurs physiques ?",
+    "answers": [
+      "RBAC (contrôle d’accès en fonction du rôle)",
+      "CapEx (dépenses en capital)",
+      "SLA (contrat de niveau de service)",
+      "OpEx (dépenses opérationnelles)"
+    ],
+    "correctAnswers": [
+      "CapEx (dépenses en capital)"
+    ],
+    "explanation": "L’achat de matériel est une dépense en capital, car le coût est engagé avant l’utilisation du service.",
+    "id": 5
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "CapEx et OpEx",
+    "question": "Quel type de dépense correspond à une facturation mensuelle selon l’utilisation des ressources Azure ?",
+    "answers": [
+      "OpEx (dépenses opérationnelles)",
+      "Zone de disponibilité",
+      "CapEx (dépenses en capital)",
+      "Réseau virtuel"
+    ],
+    "correctAnswers": [
+      "OpEx (dépenses opérationnelles)"
+    ],
+    "explanation": "Les services cloud sont généralement facturés comme des dépenses opérationnelles, car le client paie au fil de l’utilisation.",
+    "id": 6
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Services cloud de base",
+    "question": "Quels services de base sont fournis par tous les grands fournisseurs de cloud ?",
+    "answers": [
+      "Développement de code applicatif à la place du client",
+      "Gestion des employés du client",
+      "Stockage",
+      "Calcul"
+    ],
+    "correctAnswers": [
+      "Calcul",
+      "Stockage"
+    ],
+    "explanation": "Les fournisseurs cloud proposent au minimum des capacités de calcul et de stockage pour exécuter et conserver des données.",
+    "id": 7
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Responsabilité partagée",
+    "question": "Dans Azure, de quoi Microsoft est-il responsable pour des machines virtuelles IaaS ?",
+    "answers": [
+      "Le datacenter physique",
+      "Les applications installées dans la machine virtuelle",
+      "Le matériel physique",
+      "Le système d’exploitation invité installé par le client"
+    ],
+    "correctAnswers": [
+      "Le matériel physique",
+      "Le datacenter physique"
+    ],
+    "explanation": "En IaaS, Microsoft gère l’infrastructure physique, tandis que le client gère le système d’exploitation invité et ses applications.",
+    "id": 8
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Responsabilité partagée",
+    "question": "Dans un modèle SaaS, quelles responsabilités restent généralement côté client ?",
+    "answers": [
+      "La gestion des accès utilisateurs",
+      "Les données",
+      "Les serveurs physiques",
+      "Le système d’exploitation du serveur"
+    ],
+    "correctAnswers": [
+      "Les données",
+      "La gestion des accès utilisateurs"
+    ],
+    "explanation": "Dans SaaS, le fournisseur gère l’application et l’infrastructure, mais le client reste responsable de ses données et de l’accès à celles-ci.",
+    "id": 9
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Responsabilité partagée",
+    "question": "Dans quel modèle le client garde-t-il le plus de responsabilités techniques ?",
+    "answers": [
+      "SaaS (Software as a Service)",
+      "PaaS (Platform as a Service)",
+      "Serverless uniquement",
+      "IaaS (Infrastructure as a Service)"
+    ],
+    "correctAnswers": [
+      "IaaS (Infrastructure as a Service)"
+    ],
+    "explanation": "IaaS laisse au client la gestion du système d’exploitation, des applications, des données et d’une partie de la configuration réseau.",
+    "id": 10
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Avantages cloud",
+    "question": "Quel avantage du cloud permet de déployer rapidement des ressources quand les besoins changent ?",
+    "answers": [
+      "Accès physique aux serveurs",
+      "Agilité",
+      "CapEx",
+      "Cloud privé"
+    ],
+    "correctAnswers": [
+      "Agilité"
+    ],
+    "explanation": "L’agilité correspond à la capacité de créer, configurer ou modifier rapidement des ressources cloud.",
+    "id": 11
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Avantages cloud",
+    "question": "Quel avantage du cloud permet d’ajouter ou retirer automatiquement des ressources selon la demande ?",
+    "answers": [
+      "Cloud privé",
+      "Colocation",
+      "Élasticité",
+      "CapEx"
+    ],
+    "correctAnswers": [
+      "Élasticité"
+    ],
+    "explanation": "L’élasticité adapte automatiquement les ressources à la charge, par exemple en ajoutant des instances pendant un pic d’utilisation.",
+    "id": 12
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Scalabilité",
+    "question": "Ajouter des machines virtuelles supplémentaires à une application correspond à quel type de mise à l’échelle ?",
+    "answers": [
+      "Gouvernance",
+      "Mise à l’échelle verticale",
+      "Reprise après sinistre",
+      "Mise à l’échelle horizontale"
+    ],
+    "correctAnswers": [
+      "Mise à l’échelle horizontale"
+    ],
+    "explanation": "La mise à l’échelle horizontale augmente la capacité en ajoutant plusieurs instances de ressources.",
+    "id": 13
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Scalabilité",
+    "question": "Ajouter plus de processeur ou de mémoire à une machine virtuelle existante correspond à quel type de mise à l’échelle ?",
+    "answers": [
+      "Géo-redondance",
+      "Mise à l’échelle verticale",
+      "Mise à l’échelle horizontale",
+      "Peering"
+    ],
+    "correctAnswers": [
+      "Mise à l’échelle verticale"
+    ],
+    "explanation": "La mise à l’échelle verticale renforce une ressource existante au lieu d’ajouter de nouvelles instances.",
+    "id": 14
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Haute disponibilité",
+    "question": "La haute disponibilité d’un service cloud est généralement exprimée à travers quel document ou engagement ?",
+    "answers": [
+      "Groupe de ressources",
+      "SLA (contrat de niveau de service)",
+      "CapEx",
+      "Adresse IP privée"
+    ],
+    "correctAnswers": [
+      "SLA (contrat de niveau de service)"
+    ],
+    "explanation": "Un SLA indique le niveau de disponibilité ou de performance que le fournisseur s’engage à fournir pour un service.",
+    "id": 15
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Reprise après sinistre",
+    "question": "Quels mécanismes aident à préparer une reprise après sinistre ?",
+    "answers": [
+      "Sauvegarde",
+      "Désactivation des régions secondaires",
+      "Réplication des données",
+      "Suppression des journaux"
+    ],
+    "correctAnswers": [
+      "Sauvegarde",
+      "Réplication des données"
+    ],
+    "explanation": "La sauvegarde et la réplication permettent de restaurer les données ou services si un incident majeur se produit.",
+    "id": 16
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Géo-distribution",
+    "question": "Déployer une application dans plusieurs régions proches des utilisateurs sert principalement à :",
+    "answers": [
+      "Améliorer la disponibilité",
+      "Éviter toute facturation",
+      "Supprimer le besoin d’identité",
+      "Améliorer les performances perçues"
+    ],
+    "correctAnswers": [
+      "Améliorer les performances perçues",
+      "Améliorer la disponibilité"
+    ],
+    "explanation": "La géo-distribution rapproche les services des utilisateurs et réduit l’impact d’une panne régionale.",
+    "id": 17
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Prévisibilité",
+    "question": "Quel avantage du cloud permet d’obtenir un comportement attendu en matière de coût et de performance ?",
+    "answers": [
+      "Achat matériel obligatoire",
+      "Absence de supervision",
+      "Prévisibilité",
+      "Accès physique aux serveurs"
+    ],
+    "correctAnswers": [
+      "Prévisibilité"
+    ],
+    "explanation": "La prévisibilité permet d’anticiper les performances et les coûts grâce aux outils de suivi, SLA et modèles de tarification.",
+    "id": 18
+  },
+  {
+    "module": "Module 1 - Concepts du cloud",
+    "category": "Économies d’échelle",
+    "question": "Pourquoi les fournisseurs cloud peuvent-ils proposer des coûts compétitifs ?",
+    "answers": [
+      "Ils achètent et exploitent l’infrastructure à très grande échelle",
+      "Ils imposent un achat de serveur à chaque client",
+      "Ils transfèrent toujours toute la maintenance physique au client",
+      "Ils n’utilisent pas de datacenters"
+    ],
+    "correctAnswers": [
+      "Ils achètent et exploitent l’infrastructure à très grande échelle"
+    ],
+    "explanation": "Les économies d’échelle permettent au fournisseur cloud de réduire les coûts unitaires grâce à de très grands volumes d’infrastructure.",
+    "id": 19
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Régions Azure",
+    "question": "Qu’est-ce qu’une région Azure ?",
+    "answers": [
+      "Une machine virtuelle",
+      "Un rôle d’accès",
+      "Une zone géographique contenant un ou plusieurs datacenters Azure",
+      "Un abonnement de facturation"
+    ],
+    "correctAnswers": [
+      "Une zone géographique contenant un ou plusieurs datacenters Azure"
+    ],
+    "explanation": "Une région Azure correspond à un emplacement géographique dans lequel Microsoft héberge des datacenters Azure.",
+    "id": 20
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Zones de disponibilité",
+    "question": "Que sont les zones de disponibilité Azure ?",
+    "answers": [
+      "Des groupes de ressources séparés par service",
+      "Des rôles RBAC",
+      "Des datacenters physiquement séparés dans une même région",
+      "Des modèles de facturation"
+    ],
+    "correctAnswers": [
+      "Des datacenters physiquement séparés dans une même région"
+    ],
+    "explanation": "Les zones de disponibilité isolent physiquement l’alimentation, le réseau et le refroidissement dans une même région.",
+    "id": 21
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Paires de régions",
+    "question": "Quel est l’intérêt des paires de régions Azure ?",
+    "answers": [
+      "Permettre la réplication vers une région associée",
+      "Supprimer les groupes de ressources",
+      "Remplacer les abonnements",
+      "Faciliter la continuité d’activité"
+    ],
+    "correctAnswers": [
+      "Faciliter la continuité d’activité",
+      "Permettre la réplication vers une région associée"
+    ],
+    "explanation": "Les paires de régions servent à renforcer la résilience en associant deux régions d’une même géographie.",
+    "id": 22
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Géographies Azure",
+    "question": "Dans Azure, une géographie sert principalement à :",
+    "answers": [
+      "Respecter les exigences de résidence des données",
+      "Remplacer Microsoft Entra ID",
+      "Créer automatiquement des comptes utilisateurs",
+      "Supprimer les coûts réseau"
+    ],
+    "correctAnswers": [
+      "Respecter les exigences de résidence des données"
+    ],
+    "explanation": "Une géographie Azure regroupe des régions et aide à répondre aux besoins de résidence et de conformité des données.",
+    "id": 23
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Ressources Azure",
+    "question": "Qu’est-ce qu’une ressource Azure ?",
+    "answers": [
+      "Un datacenter physique complet",
+      "Uniquement un utilisateur Microsoft Entra",
+      "Un élément gérable dans Azure, comme une VM ou un compte de stockage",
+      "Uniquement une facture"
+    ],
+    "correctAnswers": [
+      "Un élément gérable dans Azure, comme une VM ou un compte de stockage"
+    ],
+    "explanation": "Une ressource Azure est un élément que l’on peut créer, configurer et gérer dans Azure.",
+    "id": 24
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Groupes de ressources",
+    "question": "Quel élément Azure sert de conteneur logique pour organiser des ressources ?",
+    "answers": [
+      "Groupe de ressources",
+      "SLA",
+      "Azure Advisor",
+      "Zone de disponibilité"
+    ],
+    "correctAnswers": [
+      "Groupe de ressources"
+    ],
+    "explanation": "Un groupe de ressources regroupe des ressources Azure pour faciliter leur gestion commune.",
+    "id": 25
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Groupes de ressources",
+    "question": "Une ressource Azure peut appartenir à combien de groupes de ressources à la fois ?",
+    "answers": [
+      "Deux obligatoirement",
+      "Autant que nécessaire",
+      "Un seul",
+      "Aucun"
+    ],
+    "correctAnswers": [
+      "Un seul"
+    ],
+    "explanation": "Une ressource Azure appartient à un seul groupe de ressources à un instant donné.",
+    "id": 26
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Abonnements",
+    "question": "À quoi sert principalement un abonnement Azure ?",
+    "answers": [
+      "Héberger physiquement un datacenter",
+      "Remplacer les groupes de ressources",
+      "Créer une zone de disponibilité",
+      "Fournir une limite de facturation et de gestion pour les ressources"
+    ],
+    "correctAnswers": [
+      "Fournir une limite de facturation et de gestion pour les ressources"
+    ],
+    "explanation": "Un abonnement Azure sert notamment de limite de facturation, d’accès et d’organisation des ressources.",
+    "id": 27
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Abonnements",
+    "question": "Quel élément produit des rapports de facturation distincts par défaut ?",
+    "answers": [
+      "Groupe de ressources",
+      "Tag Azure",
+      "Abonnement Azure",
+      "Zone de disponibilité"
+    ],
+    "correctAnswers": [
+      "Abonnement Azure"
+    ],
+    "explanation": "Azure associe la facturation principalement aux abonnements, ce qui permet de séparer les coûts.",
+    "id": 28
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Groupes d’administration",
+    "question": "Quel élément permet d’appliquer des règles de gouvernance à plusieurs abonnements Azure ?",
+    "answers": [
+      "Machine virtuelle",
+      "Groupe d’administration",
+      "Compte de stockage",
+      "Azure Bastion"
+    ],
+    "correctAnswers": [
+      "Groupe d’administration"
+    ],
+    "explanation": "Les groupes d’administration permettent d’organiser plusieurs abonnements et d’y appliquer des stratégies de gouvernance.",
+    "id": 29
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Hiérarchie Azure",
+    "question": "Quelle hiérarchie Azure est correcte ?",
+    "answers": [
+      "Groupe d’administration > Abonnement > Groupe de ressources > Ressource",
+      "Groupe de ressources > Groupe d’administration > Ressource > Abonnement",
+      "Zone de disponibilité > Tag > Abonnement > Ressource",
+      "Ressource > Abonnement > Groupe d’administration > Groupe de ressources"
+    ],
+    "correctAnswers": [
+      "Groupe d’administration > Abonnement > Groupe de ressources > Ressource"
+    ],
+    "explanation": "Les ressources sont placées dans des groupes de ressources, eux-mêmes dans des abonnements qui peuvent être organisés par groupes d’administration.",
+    "id": 30
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure Resource Manager",
+    "question": "Quel est le rôle d’ARM (Azure Resource Manager) ?",
+    "answers": [
+      "Remplacer Azure Monitor",
+      "Créer uniquement des utilisateurs",
+      "Déployer et gérer les ressources Azure",
+      "Fournir un antivirus local"
+    ],
+    "correctAnswers": [
+      "Déployer et gérer les ressources Azure"
+    ],
+    "explanation": "ARM est la couche de gestion utilisée pour créer, modifier, supprimer et organiser les ressources Azure.",
+    "id": 31
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Modèles ARM",
+    "question": "À quoi sert un modèle ARM (Azure Resource Manager template) ?",
+    "answers": [
+      "Créer une licence Microsoft 365",
+      "Remplacer les mots de passe",
+      "Déployer une infrastructure Azure de manière déclarative",
+      "Analyser uniquement les journaux"
+    ],
+    "correctAnswers": [
+      "Déployer une infrastructure Azure de manière déclarative"
+    ],
+    "explanation": "Un modèle ARM décrit les ressources à créer afin de déployer une infrastructure de manière reproductible.",
+    "id": 32
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Machines virtuelles",
+    "question": "Qu’est-ce qu’une machine virtuelle Azure ?",
+    "answers": [
+      "Un outil de facturation",
+      "Une émulation logicielle d’un ordinateur physique",
+      "Un service SaaS uniquement",
+      "Un groupe d’utilisateurs"
+    ],
+    "correctAnswers": [
+      "Une émulation logicielle d’un ordinateur physique"
+    ],
+    "explanation": "Une machine virtuelle fournit un processeur, de la mémoire, du stockage et un système d’exploitation virtualisés.",
+    "id": 33
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Machines virtuelles",
+    "question": "Quel modèle de service cloud correspond le mieux aux machines virtuelles Azure ?",
+    "answers": [
+      "IaaS (Infrastructure as a Service)",
+      "PaaS (Platform as a Service)",
+      "SaaS (Software as a Service)",
+      "DaaS uniquement"
+    ],
+    "correctAnswers": [
+      "IaaS (Infrastructure as a Service)"
+    ],
+    "explanation": "Les machines virtuelles Azure sont de l’IaaS, car le client gère notamment le système d’exploitation invité.",
+    "id": 34
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "VM Scale Sets",
+    "question": "Quel service permet de déployer et gérer un ensemble de machines virtuelles identiques ?",
+    "answers": [
+      "Microsoft Entra ID",
+      "Azure Blob Storage",
+      "VM Scale Sets (groupes de machines virtuelles identiques)",
+      "Azure Policy"
+    ],
+    "correctAnswers": [
+      "VM Scale Sets (groupes de machines virtuelles identiques)"
+    ],
+    "explanation": "Les VM Scale Sets permettent de créer, gérer et mettre à l’échelle plusieurs machines virtuelles identiques.",
+    "id": 35
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure App Service",
+    "question": "Quel service Azure est adapté pour héberger des applications web sans gérer directement les serveurs ?",
+    "answers": [
+      "Azure App Service",
+      "Azure Virtual Network",
+      "Azure Disk Storage",
+      "Azure Advisor"
+    ],
+    "correctAnswers": [
+      "Azure App Service"
+    ],
+    "explanation": "Azure App Service est une plateforme managée pour héberger des applications web, API et backends.",
+    "id": 36
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure Functions",
+    "question": "Quel service Azure permet d’exécuter du code serverless déclenché par des événements ?",
+    "answers": [
+      "Azure Files",
+      "Azure Virtual Machines",
+      "Azure Functions",
+      "Azure Firewall"
+    ],
+    "correctAnswers": [
+      "Azure Functions"
+    ],
+    "explanation": "Azure Functions exécute du code à la demande sans que le client gère l’infrastructure serveur.",
+    "id": 37
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Conteneurs",
+    "question": "Quel service permet d’exécuter rapidement un conteneur dans Azure sans gérer de cluster complet ?",
+    "answers": [
+      "Azure Container Instances",
+      "Azure Kubernetes Service",
+      "Azure Virtual Desktop",
+      "Azure Policy"
+    ],
+    "correctAnswers": [
+      "Azure Container Instances"
+    ],
+    "explanation": "Azure Container Instances permet d’exécuter des conteneurs isolés sans configurer une infrastructure de cluster.",
+    "id": 38
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Kubernetes",
+    "question": "Quel service Azure permet d’orchestrer des conteneurs avec Kubernetes managé ?",
+    "answers": [
+      "AKS (Azure Kubernetes Service)",
+      "Azure Files",
+      "Azure DNS",
+      "Azure Advisor"
+    ],
+    "correctAnswers": [
+      "AKS (Azure Kubernetes Service)"
+    ],
+    "explanation": "AKS fournit un service Kubernetes managé pour déployer et orchestrer des applications conteneurisées.",
+    "id": 39
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure Virtual Desktop",
+    "question": "Quel service permet de fournir des bureaux et applications Windows hébergés dans Azure ?",
+    "answers": [
+      "Azure Virtual Desktop",
+      "Azure Queue Storage",
+      "Azure Functions",
+      "Azure Load Balancer"
+    ],
+    "correctAnswers": [
+      "Azure Virtual Desktop"
+    ],
+    "explanation": "Azure Virtual Desktop fournit un environnement de bureau ou d’applications Windows accessible à distance.",
+    "id": 40
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Réseau virtuel",
+    "question": "À quoi sert Azure Virtual Network (réseau virtuel Azure) ?",
+    "answers": [
+      "Calculer les coûts prévisionnels",
+      "Créer des utilisateurs Microsoft Entra",
+      "Permettre aux ressources Azure de communiquer de manière isolée",
+      "Remplacer les abonnements"
+    ],
+    "correctAnswers": [
+      "Permettre aux ressources Azure de communiquer de manière isolée"
+    ],
+    "explanation": "Un réseau virtuel Azure fournit un espace réseau privé et isolé pour connecter des ressources Azure.",
+    "id": 41
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Sous-réseaux",
+    "question": "Pourquoi diviser un réseau virtuel Azure en sous-réseaux ?",
+    "answers": [
+      "Pour remplacer les groupes de ressources",
+      "Pour augmenter automatiquement le SLA",
+      "Pour segmenter les ressources réseau",
+      "Pour appliquer plus facilement des règles de sécurité"
+    ],
+    "correctAnswers": [
+      "Pour segmenter les ressources réseau",
+      "Pour appliquer plus facilement des règles de sécurité"
+    ],
+    "explanation": "Les sous-réseaux séparent logiquement les ressources et facilitent l’application de règles réseau.",
+    "id": 42
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Peering",
+    "question": "Que permet le peering de réseaux virtuels ?",
+    "answers": [
+      "Créer automatiquement un backup",
+      "Faire communiquer deux réseaux virtuels Azure",
+      "Fusionner deux abonnements",
+      "Remplacer Microsoft Entra ID"
+    ],
+    "correctAnswers": [
+      "Faire communiquer deux réseaux virtuels Azure"
+    ],
+    "explanation": "Le peering relie deux réseaux virtuels afin que leurs ressources puissent communiquer entre elles.",
+    "id": 43
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "VPN Gateway",
+    "question": "Quel service permet de connecter un réseau local à un réseau virtuel Azure via une connexion chiffrée sur Internet ?",
+    "answers": [
+      "Azure App Service",
+      "VPN Gateway (passerelle VPN)",
+      "Azure Monitor",
+      "Azure DNS"
+    ],
+    "correctAnswers": [
+      "VPN Gateway (passerelle VPN)"
+    ],
+    "explanation": "VPN Gateway permet une connexion site-à-site ou point-à-site chiffrée entre un réseau local et Azure.",
+    "id": 44
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "ExpressRoute",
+    "question": "Quel service fournit une connexion privée dédiée entre l’infrastructure locale et Azure ?",
+    "answers": [
+      "Azure Bastion",
+      "Azure Policy",
+      "Azure Functions",
+      "ExpressRoute"
+    ],
+    "correctAnswers": [
+      "ExpressRoute"
+    ],
+    "explanation": "ExpressRoute fournit une connexion privée à Azure via un fournisseur de connectivité, sans passer par Internet public.",
+    "id": 45
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure DNS",
+    "question": "Quel service Azure permet d’héberger des domaines DNS ?",
+    "answers": [
+      "Azure Queue Storage",
+      "Azure Advisor",
+      "Azure Files",
+      "Azure DNS"
+    ],
+    "correctAnswers": [
+      "Azure DNS"
+    ],
+    "explanation": "Azure DNS héberge les zones DNS et permet de gérer les enregistrements de noms de domaine.",
+    "id": 46
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "NSG",
+    "question": "À quoi sert un NSG (Network Security Group / groupe de sécurité réseau) ?",
+    "answers": [
+      "Afficher les coûts",
+      "Filtrer le trafic réseau entrant et sortant",
+      "Stocker des blobs",
+      "Créer des abonnements"
+    ],
+    "correctAnswers": [
+      "Filtrer le trafic réseau entrant et sortant"
+    ],
+    "explanation": "Un NSG contient des règles de sécurité qui autorisent ou refusent le trafic vers des interfaces réseau ou sous-réseaux.",
+    "id": 47
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure Firewall",
+    "question": "Quel service fournit un pare-feu réseau managé pour protéger les ressources Azure ?",
+    "answers": [
+      "Azure Firewall",
+      "Azure Resource Manager",
+      "Azure Blob Storage",
+      "Azure Monitor"
+    ],
+    "correctAnswers": [
+      "Azure Firewall"
+    ],
+    "explanation": "Azure Firewall est un service de pare-feu managé qui permet de contrôler le trafic réseau.",
+    "id": 48
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure Bastion",
+    "question": "Quel service permet de se connecter à une machine virtuelle en RDP ou SSH depuis le portail Azure sans exposer d’adresse IP publique ?",
+    "answers": [
+      "Azure Files",
+      "Azure Advisor",
+      "Azure DNS",
+      "Azure Bastion"
+    ],
+    "correctAnswers": [
+      "Azure Bastion"
+    ],
+    "explanation": "Azure Bastion permet l’accès sécurisé aux VM via le portail Azure sans ouvrir directement RDP ou SSH sur Internet.",
+    "id": 49
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Load Balancer",
+    "question": "Quel service distribue le trafic réseau entrant entre plusieurs ressources backend ?",
+    "answers": [
+      "Azure Policy",
+      "Azure Load Balancer",
+      "Azure Blob Storage",
+      "Microsoft Entra ID"
+    ],
+    "correctAnswers": [
+      "Azure Load Balancer"
+    ],
+    "explanation": "Azure Load Balancer répartit le trafic réseau pour améliorer la disponibilité et la répartition de charge.",
+    "id": 50
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Application Gateway",
+    "question": "Quel service fournit un équilibrage de charge au niveau applicatif avec des fonctions comme le routage HTTP/HTTPS ?",
+    "answers": [
+      "Azure Application Gateway",
+      "Azure Resource Manager",
+      "Azure Advisor",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Azure Application Gateway"
+    ],
+    "explanation": "Application Gateway agit au niveau applicatif et peut router le trafic HTTP/HTTPS selon des règles.",
+    "id": 51
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Content Delivery",
+    "question": "Quel service permet d’accélérer la distribution de contenu web aux utilisateurs à l’échelle mondiale ?",
+    "answers": [
+      "Azure VPN Gateway",
+      "Azure CDN",
+      "Azure Files",
+      "Azure Policy"
+    ],
+    "correctAnswers": [
+      "Azure CDN"
+    ],
+    "explanation": "Azure CDN met en cache du contenu près des utilisateurs afin de réduire la latence de consultation.",
+    "id": 52
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Points de terminaison de service",
+    "question": "À quoi servent les points de terminaison de service Azure ?",
+    "answers": [
+      "Créer une machine virtuelle Windows",
+      "Comparer les coûts cloud et locaux",
+      "Étendre un réseau virtuel vers certains services Azure",
+      "Gérer les utilisateurs Entra"
+    ],
+    "correctAnswers": [
+      "Étendre un réseau virtuel vers certains services Azure"
+    ],
+    "explanation": "Les points de terminaison de service permettent d’accéder à certains services Azure depuis un réseau virtuel de manière sécurisée.",
+    "id": 53
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Comptes de stockage",
+    "question": "Quel élément Azure est nécessaire pour utiliser des services comme Blob Storage ou Azure Files ?",
+    "answers": [
+      "Azure Bastion",
+      "Compte de stockage Azure",
+      "VM Scale Set",
+      "Azure Policy"
+    ],
+    "correctAnswers": [
+      "Compte de stockage Azure"
+    ],
+    "explanation": "Un compte de stockage fournit un espace de noms et un point de gestion pour les services de stockage Azure.",
+    "id": 54
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Blob Storage",
+    "question": "Quel service est adapté au stockage de grandes quantités de données non structurées comme des images ou vidéos ?",
+    "answers": [
+      "Azure SQL Database",
+      "Azure Functions",
+      "Azure Blob Storage",
+      "Azure Bastion"
+    ],
+    "correctAnswers": [
+      "Azure Blob Storage"
+    ],
+    "explanation": "Blob Storage est conçu pour stocker des objets non structurés tels que fichiers, images, vidéos ou sauvegardes.",
+    "id": 55
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Azure Files",
+    "question": "Quel service fournit des partages de fichiers accessibles via SMB ou NFS ?",
+    "answers": [
+      "Azure Queue Storage",
+      "Azure Cosmos DB",
+      "Azure Load Balancer",
+      "Azure Files"
+    ],
+    "correctAnswers": [
+      "Azure Files"
+    ],
+    "explanation": "Azure Files fournit des partages de fichiers cloud pouvant être montés par plusieurs systèmes.",
+    "id": 56
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Queue Storage",
+    "question": "Quel service de stockage sert à stocker des messages pour communiquer entre composants d’application ?",
+    "answers": [
+      "Azure DNS",
+      "Azure Disk Storage",
+      "Azure Queue Storage",
+      "Azure Advisor"
+    ],
+    "correctAnswers": [
+      "Azure Queue Storage"
+    ],
+    "explanation": "Queue Storage stocke des messages qui permettent de découpler les composants d’une application.",
+    "id": 57
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Table Storage",
+    "question": "Quel service stocke des données NoSQL clé/attribut dans Azure Storage ?",
+    "answers": [
+      "Azure Policy",
+      "Azure VPN Gateway",
+      "Azure Table Storage",
+      "Azure Files"
+    ],
+    "correctAnswers": [
+      "Azure Table Storage"
+    ],
+    "explanation": "Table Storage permet de stocker des données NoSQL structurées sous forme d’entités avec clés et propriétés.",
+    "id": 58
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Disk Storage",
+    "question": "Quel service fournit des disques persistants pour les machines virtuelles Azure ?",
+    "answers": [
+      "Azure Monitor",
+      "Azure Disk Storage",
+      "Azure DNS",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Azure Disk Storage"
+    ],
+    "explanation": "Azure Disk Storage fournit les disques managés utilisés comme stockage persistant par les machines virtuelles.",
+    "id": 59
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Niveaux d’accès Blob",
+    "question": "Quel niveau d’accès Blob est adapté aux données consultées fréquemment ?",
+    "answers": [
+      "Archive (archivage)",
+      "ZRS (stockage redondant interzone)",
+      "Cool (accès occasionnel)",
+      "Hot (accès fréquent)"
+    ],
+    "correctAnswers": [
+      "Hot (accès fréquent)"
+    ],
+    "explanation": "Le niveau Hot est conçu pour les données auxquelles on accède souvent, avec un coût d’accès plus faible.",
+    "id": 60
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Niveaux d’accès Blob",
+    "question": "Quel niveau d’accès Blob est adapté aux données rarement consultées mais devant rester disponibles en ligne ?",
+    "answers": [
+      "Hot (accès fréquent)",
+      "LRS (stockage localement redondant)",
+      "Archive (archivage)",
+      "Cool (accès occasionnel)"
+    ],
+    "correctAnswers": [
+      "Cool (accès occasionnel)"
+    ],
+    "explanation": "Le niveau Cool convient aux données moins consultées, mais encore accessibles sans réhydratation.",
+    "id": 61
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Niveaux d’accès Blob",
+    "question": "Quel niveau d’accès Blob est destiné aux données très rarement consultées et pouvant nécessiter une réhydratation ?",
+    "answers": [
+      "Premium",
+      "Hot (accès fréquent)",
+      "GRS (stockage géoredondant)",
+      "Archive (archivage)"
+    ],
+    "correctAnswers": [
+      "Archive (archivage)"
+    ],
+    "explanation": "Le niveau Archive réduit le coût de stockage pour les données rarement utilisées, mais leur récupération n’est pas immédiate.",
+    "id": 62
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Redondance du stockage",
+    "question": "Quelle option réplique les données dans un seul datacenter d’une région ?",
+    "answers": [
+      "ZRS (stockage redondant interzone)",
+      "LRS (stockage localement redondant)",
+      "GZRS (stockage géoredondant interzone)",
+      "GRS (stockage géoredondant)"
+    ],
+    "correctAnswers": [
+      "LRS (stockage localement redondant)"
+    ],
+    "explanation": "LRS conserve plusieurs copies des données dans un même datacenter ou emplacement local d’une région.",
+    "id": 63
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Redondance du stockage",
+    "question": "Quelle option réplique les données dans plusieurs zones de disponibilité d’une même région ?",
+    "answers": [
+      "GRS (stockage géoredondant)",
+      "ZRS (stockage redondant interzone)",
+      "LRS (stockage localement redondant)",
+      "RA-GRS (stockage géoredondant avec accès en lecture)"
+    ],
+    "correctAnswers": [
+      "ZRS (stockage redondant interzone)"
+    ],
+    "explanation": "ZRS réplique les données entre plusieurs zones de disponibilité dans une même région Azure.",
+    "id": 64
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Redondance du stockage",
+    "question": "Quelle option réplique les données vers une région secondaire ?",
+    "answers": [
+      "Azure Bastion",
+      "GRS (stockage géoredondant)",
+      "Hot (accès fréquent)",
+      "LRS (stockage localement redondant)"
+    ],
+    "correctAnswers": [
+      "GRS (stockage géoredondant)"
+    ],
+    "explanation": "GRS réplique les données vers une région secondaire afin d’améliorer la résilience régionale.",
+    "id": 65
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Migration de données",
+    "question": "Quel service peut être utilisé pour transférer de très grandes quantités de données vers Azure à l’aide d’un appareil physique ?",
+    "answers": [
+      "Azure Advisor",
+      "Azure Load Balancer",
+      "Azure Data Box",
+      "Azure DNS"
+    ],
+    "correctAnswers": [
+      "Azure Data Box"
+    ],
+    "explanation": "Azure Data Box permet d’envoyer physiquement un appareil de stockage à Microsoft pour importer de grands volumes de données.",
+    "id": 66
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Migration de données",
+    "question": "Quel outil permet de synchroniser des fichiers entre un serveur Windows local et Azure Files ?",
+    "answers": [
+      "Azure Policy",
+      "Microsoft Entra ID",
+      "Azure File Sync",
+      "Azure Firewall"
+    ],
+    "correctAnswers": [
+      "Azure File Sync"
+    ],
+    "explanation": "Azure File Sync synchronise des partages de fichiers locaux avec Azure Files tout en conservant un cache local.",
+    "id": 67
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Bases de données",
+    "question": "Quel service Azure fournit une base de données relationnelle SQL entièrement managée ?",
+    "answers": [
+      "Azure Queue Storage",
+      "Azure Blob Storage",
+      "Azure DNS",
+      "Azure SQL Database"
+    ],
+    "correctAnswers": [
+      "Azure SQL Database"
+    ],
+    "explanation": "Azure SQL Database est un service de base de données relationnelle managé basé sur SQL Server.",
+    "id": 68
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Bases de données",
+    "question": "Quel service est adapté aux bases de données NoSQL distribuées mondialement ?",
+    "answers": [
+      "Azure Cosmos DB",
+      "Azure Virtual Desktop",
+      "Azure Files",
+      "Azure Bastion"
+    ],
+    "correctAnswers": [
+      "Azure Cosmos DB"
+    ],
+    "explanation": "Azure Cosmos DB est un service NoSQL managé conçu pour la distribution mondiale et la faible latence.",
+    "id": 69
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Bases de données",
+    "question": "Quel service Azure est compatible avec PostgreSQL en mode managé ?",
+    "answers": [
+      "Azure Load Balancer",
+      "Azure DNS",
+      "Azure Database for PostgreSQL",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Azure Database for PostgreSQL"
+    ],
+    "explanation": "Azure Database for PostgreSQL fournit PostgreSQL comme base de données managée dans Azure.",
+    "id": 70
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Bases de données",
+    "question": "Quel service Azure est compatible avec MySQL en mode managé ?",
+    "answers": [
+      "Azure Table Storage",
+      "Azure Bastion",
+      "Azure Advisor",
+      "Azure Database for MySQL"
+    ],
+    "correctAnswers": [
+      "Azure Database for MySQL"
+    ],
+    "explanation": "Azure Database for MySQL fournit un moteur MySQL managé avec maintenance assurée par Azure.",
+    "id": 71
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Bases de données",
+    "question": "Quel avantage apporte une base de données managée comme Azure SQL Database ?",
+    "answers": [
+      "Moins de gestion de l’infrastructure serveur",
+      "Gestion du système physique par Microsoft",
+      "Suppression de toute configuration de sécurité",
+      "Obligation d’installer SQL Server manuellement sur une VM"
+    ],
+    "correctAnswers": [
+      "Moins de gestion de l’infrastructure serveur",
+      "Gestion du système physique par Microsoft"
+    ],
+    "explanation": "Un service de base de données managé réduit la gestion des serveurs et de l’infrastructure sous-jacente.",
+    "id": 72
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Microsoft Entra ID",
+    "question": "Quel service Azure gère les identités, les utilisateurs et les groupes ?",
+    "answers": [
+      "Azure Blob Storage",
+      "Azure Load Balancer",
+      "Microsoft Entra ID",
+      "Azure CDN"
+    ],
+    "correctAnswers": [
+      "Microsoft Entra ID"
+    ],
+    "explanation": "Microsoft Entra ID est le service de gestion des identités et accès utilisé avec Azure.",
+    "id": 73
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Authentification",
+    "question": "Que vérifie l’authentification ?",
+    "answers": [
+      "La région Azure utilisée",
+      "Le coût mensuel prévu",
+      "Les permissions exactes sur une ressource",
+      "L’identité de l’utilisateur ou du service"
+    ],
+    "correctAnswers": [
+      "L’identité de l’utilisateur ou du service"
+    ],
+    "explanation": "L’authentification consiste à prouver qui est l’utilisateur ou le service qui tente de se connecter.",
+    "id": 74
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Autorisation",
+    "question": "Que détermine l’autorisation ?",
+    "answers": [
+      "Le prix d’une machine virtuelle",
+      "L’identité exacte de l’utilisateur uniquement",
+      "Ce qu’un utilisateur ou service a le droit de faire",
+      "La réplication d’un compte de stockage"
+    ],
+    "correctAnswers": [
+      "Ce qu’un utilisateur ou service a le droit de faire"
+    ],
+    "explanation": "L’autorisation intervient après l’authentification pour déterminer les actions autorisées.",
+    "id": 75
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "MFA",
+    "question": "Quel est l’objectif de MFA (authentification multifacteur) ?",
+    "answers": [
+      "Ajouter une preuve d’identité supplémentaire",
+      "Réduire le risque lié au vol de mot de passe",
+      "Créer automatiquement une VM",
+      "Désactiver tous les contrôles d’accès"
+    ],
+    "correctAnswers": [
+      "Ajouter une preuve d’identité supplémentaire",
+      "Réduire le risque lié au vol de mot de passe"
+    ],
+    "explanation": "MFA renforce la connexion en demandant au moins un facteur supplémentaire en plus du mot de passe.",
+    "id": 76
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Conditional Access",
+    "question": "À quoi sert Conditional Access (accès conditionnel) ?",
+    "answers": [
+      "Exiger MFA dans certains scénarios",
+      "Créer des disques managés",
+      "Appliquer des règles d’accès selon des conditions",
+      "Répliquer des blobs entre régions"
+    ],
+    "correctAnswers": [
+      "Appliquer des règles d’accès selon des conditions",
+      "Exiger MFA dans certains scénarios"
+    ],
+    "explanation": "L’accès conditionnel applique des décisions d’accès selon des signaux comme l’utilisateur, l’appareil, le lieu ou le risque.",
+    "id": 77
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "RBAC",
+    "question": "Que permet RBAC (contrôle d’accès en fonction du rôle) dans Azure ?",
+    "answers": [
+      "Attribuer des permissions selon des rôles",
+      "Changer le niveau Hot d’un blob",
+      "Augmenter automatiquement la mémoire d’une VM",
+      "Limiter l’accès aux ressources Azure"
+    ],
+    "correctAnswers": [
+      "Attribuer des permissions selon des rôles",
+      "Limiter l’accès aux ressources Azure"
+    ],
+    "explanation": "RBAC permet d’accorder des droits précis à des utilisateurs, groupes ou services sur des ressources Azure.",
+    "id": 78
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Zero Trust",
+    "question": "Quel principe correspond au modèle Zero Trust ?",
+    "answers": [
+      "Faire confiance automatiquement au réseau interne",
+      "Vérifier explicitement les accès",
+      "Supprimer l’authentification",
+      "Ne jamais faire confiance par défaut"
+    ],
+    "correctAnswers": [
+      "Ne jamais faire confiance par défaut",
+      "Vérifier explicitement les accès"
+    ],
+    "explanation": "Zero Trust impose de vérifier chaque demande d’accès au lieu de faire confiance automatiquement à un emplacement ou réseau.",
+    "id": 79
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Défense en profondeur",
+    "question": "Que signifie la défense en profondeur ?",
+    "answers": [
+      "Protéger uniquement avec un mot de passe",
+      "Réduire l’impact si une couche est compromise",
+      "Utiliser plusieurs couches de sécurité",
+      "Supprimer les journaux de sécurité"
+    ],
+    "correctAnswers": [
+      "Utiliser plusieurs couches de sécurité",
+      "Réduire l’impact si une couche est compromise"
+    ],
+    "explanation": "La défense en profondeur combine plusieurs contrôles afin qu’une faille dans une couche ne compromette pas tout l’environnement.",
+    "id": 80
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Microsoft Defender for Cloud",
+    "question": "Quel service aide à évaluer et améliorer la posture de sécurité des ressources Azure ?",
+    "answers": [
+      "Azure CDN",
+      "Azure Pricing Calculator",
+      "Microsoft Defender for Cloud",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Microsoft Defender for Cloud"
+    ],
+    "explanation": "Microsoft Defender for Cloud fournit des recommandations et protections pour améliorer la sécurité des ressources cloud.",
+    "id": 81
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Microsoft Sentinel",
+    "question": "Quel service Azure correspond à une solution SIEM/SOAR cloud native ?",
+    "answers": [
+      "Azure Bastion",
+      "Azure Files",
+      "Azure Resource Manager",
+      "Microsoft Sentinel"
+    ],
+    "correctAnswers": [
+      "Microsoft Sentinel"
+    ],
+    "explanation": "Microsoft Sentinel centralise l’analyse de sécurité, la détection des menaces et l’automatisation des réponses.",
+    "id": 82
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Key Vault",
+    "question": "Quel service Azure est utilisé pour stocker des secrets, clés et certificats ?",
+    "answers": [
+      "Azure Load Balancer",
+      "Azure Advisor",
+      "Azure App Service Plan",
+      "Azure Key Vault"
+    ],
+    "correctAnswers": [
+      "Azure Key Vault"
+    ],
+    "explanation": "Azure Key Vault protège les secrets, clés de chiffrement et certificats utilisés par les applications et services.",
+    "id": 83
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Chiffrement",
+    "question": "Quel est l’objectif du chiffrement des données ?",
+    "answers": [
+      "Créer automatiquement des utilisateurs",
+      "Rendre les données illisibles sans clé appropriée",
+      "Augmenter la taille des VM",
+      "Supprimer le besoin de sauvegarde"
+    ],
+    "correctAnswers": [
+      "Rendre les données illisibles sans clé appropriée"
+    ],
+    "explanation": "Le chiffrement protège la confidentialité des données en les rendant inutilisables sans la clé nécessaire.",
+    "id": 84
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Policy",
+    "question": "Quel service permet d’imposer des règles de conformité sur les ressources Azure ?",
+    "answers": [
+      "Azure DNS",
+      "Azure Functions",
+      "Azure Files",
+      "Azure Policy"
+    ],
+    "correctAnswers": [
+      "Azure Policy"
+    ],
+    "explanation": "Azure Policy applique ou audite des règles pour aider les ressources à respecter les exigences de gouvernance.",
+    "id": 85
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Policy",
+    "question": "Quel exemple correspond à une utilisation d’Azure Policy ?",
+    "answers": [
+      "Stocker des messages applicatifs",
+      "Empêcher la création de ressources dans certaines régions",
+      "Exiger un tag sur les ressources",
+      "Se connecter à une VM en SSH"
+    ],
+    "correctAnswers": [
+      "Empêcher la création de ressources dans certaines régions",
+      "Exiger un tag sur les ressources"
+    ],
+    "explanation": "Azure Policy peut restreindre les régions autorisées ou imposer des conventions comme la présence de tags.",
+    "id": 86
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Verrous de ressources",
+    "question": "Pourquoi utiliser un verrou de ressource Azure ?",
+    "answers": [
+      "Empêcher certaines modifications selon le type de verrou",
+      "Réduire automatiquement la facture",
+      "Éviter la suppression accidentelle d’une ressource",
+      "Créer une adresse DNS"
+    ],
+    "correctAnswers": [
+      "Éviter la suppression accidentelle d’une ressource",
+      "Empêcher certaines modifications selon le type de verrou"
+    ],
+    "explanation": "Les verrous protègent les ressources critiques contre les suppressions ou modifications non souhaitées.",
+    "id": 87
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Tags",
+    "question": "À quoi servent les tags Azure ?",
+    "answers": [
+      "Remplacer les rôles RBAC",
+      "Classer les ressources",
+      "Faciliter le suivi des coûts par projet ou service",
+      "Créer des zones de disponibilité"
+    ],
+    "correctAnswers": [
+      "Classer les ressources",
+      "Faciliter le suivi des coûts par projet ou service"
+    ],
+    "explanation": "Les tags ajoutent des métadonnées aux ressources pour les organiser et analyser les coûts.",
+    "id": 88
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Microsoft Purview",
+    "question": "Quel service Microsoft aide à la gouvernance, la conformité et la gestion des données ?",
+    "answers": [
+      "Azure Load Balancer",
+      "Azure Functions",
+      "Azure Virtual Network",
+      "Microsoft Purview"
+    ],
+    "correctAnswers": [
+      "Microsoft Purview"
+    ],
+    "explanation": "Microsoft Purview aide à gérer, protéger et gouverner les données dans l’environnement Microsoft.",
+    "id": 89
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Blueprints",
+    "question": "Quel service permettait de déployer un ensemble répété de ressources, stratégies et rôles pour standardiser un environnement Azure ?",
+    "answers": [
+      "Azure DNS",
+      "Azure Bastion",
+      "Azure Blueprints",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Azure Blueprints"
+    ],
+    "explanation": "Azure Blueprints servait à définir des environnements standardisés combinant ressources, politiques et rôles.",
+    "id": 90
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Pricing Calculator",
+    "question": "Quel outil permet d’estimer le coût de services Azure avant leur déploiement ?",
+    "answers": [
+      "Azure Monitor",
+      "Azure Bastion",
+      "Azure Pricing Calculator",
+      "Microsoft Sentinel"
+    ],
+    "correctAnswers": [
+      "Azure Pricing Calculator"
+    ],
+    "explanation": "Azure Pricing Calculator aide à estimer le prix de services Azure selon la configuration prévue.",
+    "id": 91
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "TCO Calculator",
+    "question": "Quel outil permet de comparer le coût total d’un environnement local avec une migration vers Azure ?",
+    "answers": [
+      "Azure Files",
+      "Azure Policy",
+      "TCO Calculator (calculatrice du coût total de possession)",
+      "Azure DNS"
+    ],
+    "correctAnswers": [
+      "TCO Calculator (calculatrice du coût total de possession)"
+    ],
+    "explanation": "La calculatrice TCO estime les économies possibles en comparant les coûts locaux aux coûts Azure.",
+    "id": 92
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Cost Management",
+    "question": "Quel service permet de suivre et analyser les coûts Azure ?",
+    "answers": [
+      "Microsoft Cost Management",
+      "Azure Virtual Network",
+      "Azure Functions",
+      "Azure Key Vault"
+    ],
+    "correctAnswers": [
+      "Microsoft Cost Management"
+    ],
+    "explanation": "Microsoft Cost Management permet de consulter, analyser et contrôler les dépenses Azure.",
+    "id": 93
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Budgets",
+    "question": "Pourquoi créer un budget dans Cost Management ?",
+    "answers": [
+      "Déclencher des alertes de coût",
+      "Surveiller les dépenses par rapport à un seuil",
+      "Rendre une ressource hautement disponible",
+      "Créer une machine virtuelle"
+    ],
+    "correctAnswers": [
+      "Surveiller les dépenses par rapport à un seuil",
+      "Déclencher des alertes de coût"
+    ],
+    "explanation": "Les budgets permettent de suivre les dépenses et de recevoir des notifications lorsque les seuils sont atteints.",
+    "id": 94
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Advisor",
+    "question": "Quel service fournit des recommandations pour optimiser les ressources Azure ?",
+    "answers": [
+      "Azure DNS",
+      "Azure Virtual Desktop",
+      "Azure Advisor",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Azure Advisor"
+    ],
+    "explanation": "Azure Advisor analyse l’environnement et propose des recommandations de coût, sécurité, performance, fiabilité et excellence opérationnelle.",
+    "id": 95
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Optimisation des coûts",
+    "question": "Quelle action peut aider à réduire les coûts Azure ?",
+    "answers": [
+      "Garder toutes les VM allumées en permanence sans besoin",
+      "Supprimer les ressources inutilisées",
+      "Désactiver les budgets",
+      "Redimensionner les ressources surdimensionnées"
+    ],
+    "correctAnswers": [
+      "Supprimer les ressources inutilisées",
+      "Redimensionner les ressources surdimensionnées"
+    ],
+    "explanation": "Supprimer ou ajuster les ressources non utilisées évite de payer pour une capacité inutile.",
+    "id": 96
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Réservations",
+    "question": "Dans quel cas une réservation Azure peut-elle réduire les coûts ?",
+    "answers": [
+      "Lorsque les ressources sont utilisées seulement quelques secondes au hasard",
+      "Lorsque l’utilisation d’une ressource est prévisible sur une longue durée",
+      "Pour remplacer Azure Policy",
+      "Lorsque l’entreprise veut éviter tout engagement"
+    ],
+    "correctAnswers": [
+      "Lorsque l’utilisation d’une ressource est prévisible sur une longue durée"
+    ],
+    "explanation": "Les réservations offrent un meilleur prix en échange d’un engagement d’utilisation sur une durée définie.",
+    "id": 97
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Facteurs de coût",
+    "question": "Quels facteurs peuvent influencer le coût d’une ressource Azure ?",
+    "answers": [
+      "Le nom du groupe de ressources uniquement",
+      "La région choisie",
+      "Le niveau de service ou la taille de la ressource",
+      "La couleur du portail Azure"
+    ],
+    "correctAnswers": [
+      "La région choisie",
+      "Le niveau de service ou la taille de la ressource"
+    ],
+    "explanation": "Les prix varient selon des paramètres comme la région, le type de service, la taille et le niveau choisi.",
+    "id": 98
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "SLA",
+    "question": "Que peut entraîner le choix d’un niveau de service supérieur ?",
+    "answers": [
+      "La disparition des responsabilités client",
+      "Un SLA potentiellement plus élevé",
+      "La suppression du besoin de sécurité",
+      "Un coût potentiellement plus élevé"
+    ],
+    "correctAnswers": [
+      "Un SLA potentiellement plus élevé",
+      "Un coût potentiellement plus élevé"
+    ],
+    "explanation": "Des niveaux de service supérieurs peuvent offrir plus de disponibilité ou de performance, mais coûtent souvent plus cher.",
+    "id": 99
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Service Level Agreement",
+    "question": "Que décrit un SLA (contrat de niveau de service) ?",
+    "answers": [
+      "Le niveau de disponibilité ou de performance garanti",
+      "La liste des utilisateurs d’un tenant",
+      "Les compensations possibles si l’engagement n’est pas respecté",
+      "Le contenu d’un compte de stockage"
+    ],
+    "correctAnswers": [
+      "Le niveau de disponibilité ou de performance garanti",
+      "Les compensations possibles si l’engagement n’est pas respecté"
+    ],
+    "explanation": "Un SLA formalise les engagements de service et les recours possibles en cas de non-respect.",
+    "id": 100
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Monitor",
+    "question": "Quel service collecte et analyse les métriques et journaux des ressources Azure ?",
+    "answers": [
+      "Azure Blob Storage",
+      "Azure Virtual Network",
+      "Azure DNS",
+      "Azure Monitor"
+    ],
+    "correctAnswers": [
+      "Azure Monitor"
+    ],
+    "explanation": "Azure Monitor centralise les métriques, journaux et alertes pour observer l’état des ressources.",
+    "id": 101
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Log Analytics",
+    "question": "Quel outil permet d’interroger les journaux collectés par Azure Monitor ?",
+    "answers": [
+      "Azure Bastion",
+      "Azure Pricing Calculator",
+      "Log Analytics",
+      "Azure CDN"
+    ],
+    "correctAnswers": [
+      "Log Analytics"
+    ],
+    "explanation": "Log Analytics permet d’exécuter des requêtes sur les journaux envoyés vers un workspace.",
+    "id": 102
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Alertes",
+    "question": "Pourquoi configurer des alertes dans Azure Monitor ?",
+    "answers": [
+      "Réagir à un problème de performance ou disponibilité",
+      "Remplacer un compte de stockage",
+      "Créer automatiquement une région Azure",
+      "Être averti lorsqu’une condition définie est atteinte"
+    ],
+    "correctAnswers": [
+      "Être averti lorsqu’une condition définie est atteinte",
+      "Réagir à un problème de performance ou disponibilité"
+    ],
+    "explanation": "Les alertes surveillent des signaux comme métriques ou logs et préviennent lorsqu’un seuil ou événement est détecté.",
+    "id": 103
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Service Health",
+    "question": "Quel service informe sur les incidents Azure pouvant affecter les ressources d’un client ?",
+    "answers": [
+      "Azure Resource Manager",
+      "Azure Service Health",
+      "Azure Files",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Azure Service Health"
+    ],
+    "explanation": "Azure Service Health fournit des informations personnalisées sur les incidents, maintenances et problèmes de service Azure.",
+    "id": 104
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Status",
+    "question": "Quelle page donne une vue générale de l’état global des services Azure ?",
+    "answers": [
+      "Azure Blueprints",
+      "Azure Key Vault",
+      "Azure Pricing Calculator",
+      "Azure Status"
+    ],
+    "correctAnswers": [
+      "Azure Status"
+    ],
+    "explanation": "Azure Status affiche l’état global des services Azure, contrairement à Service Health qui est personnalisé pour un client.",
+    "id": 105
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Application Insights",
+    "question": "Quel service aide à surveiller les performances et erreurs d’une application ?",
+    "answers": [
+      "Azure DNS",
+      "Azure Files",
+      "Azure Bastion",
+      "Application Insights"
+    ],
+    "correctAnswers": [
+      "Application Insights"
+    ],
+    "explanation": "Application Insights collecte des données de télémétrie applicative pour diagnostiquer performances, erreurs et dépendances.",
+    "id": 106
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Portail Azure",
+    "question": "Quel outil fournit une interface graphique web pour gérer les ressources Azure ?",
+    "answers": [
+      "Portail Azure",
+      "PowerShell uniquement",
+      "Azure CLI uniquement",
+      "Azure Data Box"
+    ],
+    "correctAnswers": [
+      "Portail Azure"
+    ],
+    "explanation": "Le portail Azure est une interface web permettant de créer, configurer et superviser les ressources.",
+    "id": 107
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Cloud Shell",
+    "question": "Quel outil permet d’utiliser Azure CLI ou PowerShell depuis un navigateur ?",
+    "answers": [
+      "Azure Bastion",
+      "Azure CDN",
+      "Azure Cloud Shell",
+      "Azure Files"
+    ],
+    "correctAnswers": [
+      "Azure Cloud Shell"
+    ],
+    "explanation": "Azure Cloud Shell fournit un environnement shell accessible depuis le navigateur avec Azure CLI et PowerShell.",
+    "id": 108
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure CLI",
+    "question": "Quel outil en ligne de commande permet de gérer Azure avec des commandes multiplateformes ?",
+    "answers": [
+      "Azure Pricing Calculator",
+      "Azure Service Health",
+      "Azure CLI",
+      "Azure Table Storage"
+    ],
+    "correctAnswers": [
+      "Azure CLI"
+    ],
+    "explanation": "Azure CLI permet d’administrer Azure via des commandes utilisables sur Windows, macOS et Linux.",
+    "id": 109
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure PowerShell",
+    "question": "Quel outil permet de gérer Azure avec des cmdlets PowerShell ?",
+    "answers": [
+      "Azure Queue Storage",
+      "Azure Monitor uniquement",
+      "Azure CDN",
+      "Azure PowerShell"
+    ],
+    "correctAnswers": [
+      "Azure PowerShell"
+    ],
+    "explanation": "Azure PowerShell fournit des cmdlets permettant d’automatiser et gérer les ressources Azure.",
+    "id": 110
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Arc",
+    "question": "Quel service permet d’étendre la gestion Azure à des ressources situées en dehors d’Azure ?",
+    "answers": [
+      "Azure DNS",
+      "Azure Data Box",
+      "Azure Load Balancer",
+      "Azure Arc"
+    ],
+    "correctAnswers": [
+      "Azure Arc"
+    ],
+    "explanation": "Azure Arc permet d’appliquer des fonctions de gestion Azure à des serveurs, clusters ou services en environnement hybride ou multicloud.",
+    "id": 111
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Resource Manager",
+    "question": "Quel avantage apporte le déploiement via ARM plutôt que des actions manuelles répétées ?",
+    "answers": [
+      "La suppression des besoins de sécurité",
+      "Des déploiements cohérents et reproductibles",
+      "L’absence de facturation",
+      "Une description déclarative de l’infrastructure"
+    ],
+    "correctAnswers": [
+      "Des déploiements cohérents et reproductibles",
+      "Une description déclarative de l’infrastructure"
+    ],
+    "explanation": "ARM permet d’automatiser les déploiements et de reproduire la même configuration de ressources.",
+    "id": 112
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Abonnements et gouvernance",
+    "question": "Pourquoi une entreprise peut-elle utiliser plusieurs abonnements Azure ?",
+    "answers": [
+      "Séparer les coûts par environnement ou département",
+      "Créer automatiquement des régions",
+      "Éviter totalement la gouvernance",
+      "Séparer les limites de gestion et d’accès"
+    ],
+    "correctAnswers": [
+      "Séparer les coûts par environnement ou département",
+      "Séparer les limites de gestion et d’accès"
+    ],
+    "explanation": "Plusieurs abonnements permettent de mieux organiser la facturation, les accès et les limites de gestion.",
+    "id": 113
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Conformité",
+    "question": "Quelle ressource Microsoft peut aider à consulter les informations de conformité et de confiance des services cloud ?",
+    "answers": [
+      "Service Trust Portal",
+      "Azure Queue Storage",
+      "Azure Load Balancer",
+      "Azure DNS"
+    ],
+    "correctAnswers": [
+      "Service Trust Portal"
+    ],
+    "explanation": "Le Service Trust Portal fournit des documents liés à la conformité, la confidentialité et la sécurité des services Microsoft.",
+    "id": 114
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Outils de support",
+    "question": "Quel service permet de créer et gérer des demandes de support Azure ?",
+    "answers": [
+      "Azure Support",
+      "Azure Blob Storage",
+      "Azure Load Balancer",
+      "Azure Table Storage"
+    ],
+    "correctAnswers": [
+      "Azure Support"
+    ],
+    "explanation": "Azure Support permet d’ouvrir et suivre des demandes d’aide liées aux services Azure.",
+    "id": 115
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Plans de support",
+    "question": "Pourquoi choisir un plan de support Azure plus avancé ?",
+    "answers": [
+      "Obtenir des temps de réponse plus adaptés aux besoins de l’entreprise",
+      "Accéder à davantage d’options d’assistance",
+      "Supprimer tous les coûts Azure",
+      "Créer automatiquement des réseaux virtuels"
+    ],
+    "correctAnswers": [
+      "Obtenir des temps de réponse plus adaptés aux besoins de l’entreprise",
+      "Accéder à davantage d’options d’assistance"
+    ],
+    "explanation": "Les plans de support définissent le niveau d’assistance disponible et les délais de réponse selon la criticité.",
+    "id": 116
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Marketplace Azure",
+    "question": "À quoi sert Azure Marketplace ?",
+    "answers": [
+      "Remplacer Azure Policy",
+      "Stocker uniquement des blobs",
+      "Trouver et déployer des solutions proposées par Microsoft ou des partenaires",
+      "Créer des paires de régions"
+    ],
+    "correctAnswers": [
+      "Trouver et déployer des solutions proposées par Microsoft ou des partenaires"
+    ],
+    "explanation": "Azure Marketplace contient des applications, images et services prêts à être déployés dans Azure.",
+    "id": 117
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Azure Resource Health",
+    "question": "Quel service permet de diagnostiquer l’état de santé d’une ressource Azure spécifique ?",
+    "answers": [
+      "Azure Resource Health",
+      "Azure Pricing Calculator",
+      "Azure DNS",
+      "Azure Queue Storage"
+    ],
+    "correctAnswers": [
+      "Azure Resource Health"
+    ],
+    "explanation": "Azure Resource Health indique si une ressource précise est affectée par un problème Azure ou par une configuration locale.",
+    "id": 118
+  },
+  {
+    "module": "Module 3 - Gestion, gouvernance et coûts",
+    "category": "Gestion des coûts",
+    "question": "Quel outil peut proposer de redimensionner ou supprimer des ressources sous-utilisées pour réduire les coûts ?",
+    "answers": [
+      "Azure Bastion",
+      "Azure Data Box",
+      "Azure DNS",
+      "Azure Advisor"
+    ],
+    "correctAnswers": [
+      "Azure Advisor"
+    ],
+    "explanation": "Azure Advisor analyse l’utilisation des ressources et peut recommander des actions pour réduire les coûts.",
+    "id": 119
+  },
+  {
+    "module": "Module 2 - Architecture et services Azure",
+    "category": "Stockage",
+    "question": "Quel service Azure est adapté au stockage d’objets accessibles via HTTP ou HTTPS ?",
+    "answers": [
+      "Azure Bastion",
+      "Microsoft Entra ID",
+      "Azure VPN Gateway",
+      "Azure Blob Storage"
+    ],
+    "correctAnswers": [
+      "Azure Blob Storage"
+    ],
+    "explanation": "Azure Blob Storage stocke des objets non structurés et permet leur accès via des protocoles web comme HTTP ou HTTPS.",
+    "id": 120
+  }
+]

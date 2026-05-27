@@ -241,7 +241,7 @@ select {
 
 
 /* =========================
-   QUIZ PROGRESS
+   QUIZ
 ========================= */
 
 .progress-section {
@@ -292,14 +292,9 @@ select {
   background-color: rgba(239, 68, 68, 0.15);
 }
 
-
-/* =========================
-   QUIZ MENU
-========================= */
-
 .quiz-menu,
 .quiz-card {
-  max-width: 800px;
+  max-width: 850px;
   margin-top: 2rem;
   padding: 1.5rem;
   background-color: #1e293b;
@@ -399,20 +394,40 @@ select {
   color: #38bdf8;
 }
 
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: #94a3b8;
+}
+
 .quiz-header span:last-child {
   font-weight: bold;
   color: #38bdf8;
 }
 
-/* =========================
-   QUIZ QUESTIONS
-========================= */
-
-.quiz-header {
+.question-meta {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-bottom: 1rem;
-  color: #94a3b8;
+}
+
+.question-category {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.multiple-choice-info {
+  margin-bottom: 1rem;
+  color: #fbbf24;
 }
 
 .answers {
@@ -430,10 +445,16 @@ select {
   text-align: left;
   cursor: pointer;
   font-size: 1rem;
+  transition: 0.2s;
 }
 
 .answer-button:hover {
   border-color: #38bdf8;
+}
+
+.answer-button.selected {
+  border-color: #38bdf8;
+  background-color: rgba(56, 189, 248, 0.15);
 }
 
 .answer-button.correct {

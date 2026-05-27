@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import trainingQuestions from '../data/trainingQuestions.json';
-import examQuestions from '../data/examQuestions.json';
+import questionsData from '../data/questions.json';
 
-const REQUIRED_CORRECT_ANSWERS = 10;
+const REQUIRED_CORRECT_ANSWERS = 50;
 const EXAM_DURATION_SECONDS = 15 * 60;
 
 function shuffleArray(array) {
@@ -71,12 +70,7 @@ function Quiz() {
   }
 
   function startQuiz() {
-    const selectedQuestions =
-      mode === 'training'
-        ? shuffleArray(trainingQuestions)
-        : shuffleArray(examQuestions);
-
-    setQuestions(selectedQuestions);
+    setQuestions(shuffleArray(questionsData));
     setTimeLeft(EXAM_DURATION_SECONDS);
     resetQuizState();
     setHasStarted(true);
@@ -91,11 +85,7 @@ function Quiz() {
   }
 
   function getCorrectAnswers(question) {
-    if (question.correctAnswers) {
-      return question.correctAnswers;
-    }
-
-    return [question.correctAnswer];
+    return question.correctAnswers || [question.correctAnswer];
   }
 
   function isMultipleChoice(question) {
@@ -174,7 +164,7 @@ function Quiz() {
     const nextIndex = (currentQuestionIndex + 1) % questions.length;
 
     if (nextIndex === 0) {
-      setQuestions(shuffleArray(trainingQuestions));
+      setQuestions(shuffleArray(questionsData));
     }
 
     setCurrentQuestionIndex(nextIndex);
@@ -318,8 +308,8 @@ function Quiz() {
             <div className="mode-panel">
               <h2>Mode entraînement</h2>
               <p>
-                Les questions sont mélangées et tournent en boucle. Certaines questions
-                peuvent avoir plusieurs bonnes réponses.
+                Les questions sont mélangées et tournent en boucle parmi {questionsData.length} questions.
+                Certaines questions peuvent avoir plusieurs bonnes réponses.
               </p>
 
               <div className="mode-stats">
@@ -344,8 +334,9 @@ function Quiz() {
             <div className="mode-panel">
               <h2>Mode examen blanc</h2>
               <p>
-                Les questions sont mélangées. Tu disposes de {formatTime(EXAM_DURATION_SECONDS)}
-                pour répondre. Le score est affiché uniquement à la fin.
+                L’examen blanc utilise les mêmes {questionsData.length} questions, mélangées.
+                Tu disposes de {formatTime(EXAM_DURATION_SECONDS)} pour répondre.
+                Le score est affiché uniquement à la fin.
               </p>
 
               <div className="mode-stats">
@@ -377,6 +368,12 @@ function Quiz() {
           <p>
             Tu as obtenu {score} bonne(s) réponse(s) sur {questions.length}.
           </p>
+
+          {timeLeft <= 0 && (
+            <p className="locked-message">
+              Temps écoulé. L’examen blanc s’est terminé automatiquement.
+            </p>
+          )}
 
           <div className="quiz-actions">
             <button className="primary-button" onClick={restartQuiz}>

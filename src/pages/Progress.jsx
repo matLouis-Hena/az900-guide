@@ -1,6 +1,6 @@
 import concepts from '../data/concepts.json';
 
-const REQUIRED_CORRECT_ANSWERS = 10;
+const REQUIRED_CORRECT_ANSWERS = 50;
 
 function Progress() {
   const viewedConcepts =
