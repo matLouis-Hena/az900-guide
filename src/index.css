@@ -697,6 +697,76 @@ button:disabled {
   color: #38bdf8;
 }
 
+.exam-intro-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.exam-badge {
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.exam-rules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.exam-rules article {
+  padding: 1rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+}
+
+.exam-rules span {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.exam-rules strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #38bdf8;
+  font-size: 1.35rem;
+}
+
+.exam-rules p {
+  color: #cbd5e1;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.exam-warning {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 14px;
+}
+
+.exam-warning strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #fbbf24;
+}
+
+.exam-warning p {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
 .training-filters {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1246,6 +1316,14 @@ button:disabled {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+
+  .exam-intro-header {
+    flex-direction: column;
+  }
+
+  .exam-rules {
+    grid-template-columns: 1fr;
   }
 }
 

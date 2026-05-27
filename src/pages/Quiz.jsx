@@ -139,6 +139,11 @@ function Quiz() {
   function handleAnswer(answer) {
     if (isValidated) return;
 
+    if (mode === 'exam' && !isMultipleChoice(currentQuestion)) {
+      submitExamAnswer([answer]);
+      return;
+    }
+
     if (!isMultipleChoice(currentQuestion)) {
       setSelectedAnswers([answer]);
       return;
@@ -161,28 +166,48 @@ function Quiz() {
     return selectedAnswers.every((answer) => correctAnswers.includes(answer));
   }
 
+  function submitExamAnswer(answers) {
+    const correctAnswers = getCorrectAnswers(currentQuestion);
+
+    const isCorrect =
+      answers.length === correctAnswers.length &&
+      answers.every((answer) => correctAnswers.includes(answer));
+
+    const newScore = isCorrect ? score + 1 : score;
+
+    setScore(newScore);
+
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
+
+    if (isLastQuestion) {
+      finishExam(newScore);
+      return;
+    }
+
+    setCurrentQuestionIndex((previousIndex) => previousIndex + 1);
+    setSelectedAnswers([]);
+    setIsValidated(false);
+  }
+
   function validateAnswer() {
     if (selectedAnswers.length === 0 || isValidated) return;
+
+    if (mode === 'exam') {
+      submitExamAnswer(selectedAnswers);
+      return;
+    }
 
     const correct = isAnswerCorrect();
     setIsValidated(true);
 
-    if (mode === 'training') {
-      const newAttempts = trainingAttempts + 1;
-      setTrainingAttempts(newAttempts);
-      localStorage.setItem('trainingAttempts', newAttempts);
-
-      if (correct) {
-        const newCorrectAnswers = trainingCorrectAnswers + 1;
-        setTrainingCorrectAnswers(newCorrectAnswers);
-        localStorage.setItem('trainingCorrectAnswers', newCorrectAnswers);
-      }
-
-      return;
-    }
+    const newAttempts = trainingAttempts + 1;
+    setTrainingAttempts(newAttempts);
+    localStorage.setItem('trainingAttempts', newAttempts);
 
     if (correct) {
-      setScore((previousScore) => previousScore + 1);
+      const newCorrectAnswers = trainingCorrectAnswers + 1;
+      setTrainingCorrectAnswers(newCorrectAnswers);
+      localStorage.setItem('trainingCorrectAnswers', newCorrectAnswers);
     }
   }
 
@@ -216,10 +241,10 @@ function Quiz() {
     setIsValidated(false);
   }
 
-  function finishExam() {
+  function finishExam(finalScoreValue = score) {
     setIsFinished(true);
 
-    const finalScore = calculatePercentage(score, questions.length);
+    const finalScore = calculatePercentage(finalScoreValue, questions.length);
     const newCompletedExam = completedExam + 1;
 
     setCompletedExam(newCompletedExam);
@@ -246,7 +271,7 @@ function Quiz() {
     localStorage.removeItem('bestExamScore');
     localStorage.removeItem('completedExam');
 
-    setTrainingCorrectAnswers(0);
+    setTrainingCorrectAnswers(50);
     setTrainingAttempts(0);
     setBestExamScore(0);
     setCompletedExam(0);
@@ -269,6 +294,14 @@ function Quiz() {
   }
 
   function getAnswerClass(answer) {
+    if (mode === 'exam') {
+      if (selectedAnswers.includes(answer)) {
+        return 'answer-button selected';
+      }
+
+      return 'answer-button';
+    }
+
     if (!isValidated && selectedAnswers.includes(answer)) {
       return 'answer-button selected';
     }
@@ -438,12 +471,45 @@ function Quiz() {
 
           {mode === 'exam' && (
             <div className="mode-panel">
-              <h2>Mode examen blanc</h2>
-              <p>
-                L’examen blanc contient {EXAM_QUESTION_COUNT} questions tirées aléatoirement.
-                Tu disposes de {formatTime(EXAM_DURATION_SECONDS)} pour répondre.
-                Le score est affiché uniquement à la fin.
-              </p>
+              <div className="exam-intro-header">
+                <div>
+                  <h2>Mode examen blanc</h2>
+                  <p>
+                    Mets-toi dans des conditions proches de l’examen AZ-900 : temps limité,
+                    questions mélangées et résultat uniquement à la fin.
+                  </p>
+                </div>
+
+                <span className="exam-badge">Simulation</span>
+              </div>
+
+              <div className="exam-rules">
+                <article>
+                  <span>Questions</span>
+                  <strong>{EXAM_QUESTION_COUNT}</strong>
+                  <p>Tirées aléatoirement depuis la banque de questions.</p>
+                </article>
+
+                <article>
+                  <span>Durée</span>
+                  <strong>{formatTime(EXAM_DURATION_SECONDS)}</strong>
+                  <p>Le quiz se termine automatiquement à la fin du temps.</p>
+                </article>
+
+                <article>
+                  <span>Correction</span>
+                  <strong>Fin uniquement</strong>
+                  <p>Aucune explication n’est affichée pendant l’examen.</p>
+                </article>
+              </div>
+
+              <div className="exam-warning">
+                <strong>Avant de commencer</strong>
+                <p>
+                  Une fois lancé, l’examen blanc démarre directement. Réponds à chaque
+                  question puis valide pour passer à la suivante.
+                </p>
+              </div>
 
               <div className="mode-stats">
                 <div>
@@ -457,12 +523,8 @@ function Quiz() {
                 </div>
               </div>
 
-              <button
-                className="primary-button"
-                onClick={startQuiz}
-                disabled={filteredTrainingQuestions.length === 0}
-              >
-                Commencer l’entraînement
+              <button className="primary-button" onClick={startQuiz}>
+                Lancer l’examen blanc
               </button>
             </div>
           )}
@@ -525,7 +587,7 @@ function Quiz() {
 
           {isMultipleChoice(currentQuestion) && (
             <p className="multiple-choice-info">
-              Plusieurs réponses sont possibles.
+              Plusieurs réponses sont possibles. Sélectionne toutes les bonnes réponses.
             </p>
           )}
 
@@ -551,13 +613,13 @@ function Quiz() {
           )}
 
           <div className="quiz-actions">
-            {!isValidated && (
+            {!isValidated && (mode === 'training' || isMultipleChoice(currentQuestion)) && (
               <button
                 className="primary-button"
                 onClick={validateAnswer}
                 disabled={selectedAnswers.length === 0}
               >
-                Valider
+                {mode === 'exam' ? 'Valider et continuer' : 'Valider'}
               </button>
             )}
 
