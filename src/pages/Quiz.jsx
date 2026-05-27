@@ -3,12 +3,26 @@ import trainingQuestions from '../data/trainingQuestions.json';
 import examQuestions from '../data/examQuestions.json';
 
 const REQUIRED_CORRECT_ANSWERS = 10;
+const EXAM_DURATION_SECONDS = 15 * 60;
+
+function shuffleArray(array) {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+  }
+
+  return shuffled;
+}
 
 function Quiz() {
   const [mode, setMode] = useState('training');
   const [hasStarted, setHasStarted] = useState(false);
+  const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
+  const [isValidated, setIsValidated] = useState(false);
   const [score, setScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
 
@@ -16,24 +30,37 @@ function Quiz() {
   const [trainingAttempts, setTrainingAttempts] = useState(0);
   const [bestExamScore, setBestExamScore] = useState(0);
   const [completedExam, setCompletedExam] = useState(0);
-
-  const questions = mode === 'training' ? trainingQuestions : examQuestions;
-  const currentQuestion = questions[currentQuestionIndex];
+  const [timeLeft, setTimeLeft] = useState(EXAM_DURATION_SECONDS);
 
   const examUnlocked = trainingCorrectAnswers >= REQUIRED_CORRECT_ANSWERS;
+  const currentQuestion = questions[currentQuestionIndex];
+
   const unlockProgress = Math.min(
     (trainingCorrectAnswers / REQUIRED_CORRECT_ANSWERS) * 100,
     100
   );
 
   useEffect(() => {
-    setTrainingCorrectAnswers(
-      Number(localStorage.getItem('trainingCorrectAnswers')) || 0
-    );
+    setTrainingCorrectAnswers(Number(localStorage.getItem('trainingCorrectAnswers')) || 0);
     setTrainingAttempts(Number(localStorage.getItem('trainingAttempts')) || 0);
     setBestExamScore(Number(localStorage.getItem('bestExamScore')) || 0);
     setCompletedExam(Number(localStorage.getItem('completedExam')) || 0);
   }, []);
+
+  useEffect(() => {
+    if (mode !== 'exam' || !hasStarted || isFinished) return;
+
+    if (timeLeft <= 0) {
+      finishExam();
+      return;
+    }
+
+    const timer = setInterval(() => {
+      setTimeLeft((previousTime) => previousTime - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [mode, hasStarted, isFinished, timeLeft]);
 
   function selectMode(selectedMode) {
     if (selectedMode === 'exam' && !examUnlocked) return;
@@ -44,28 +71,74 @@ function Quiz() {
   }
 
   function startQuiz() {
+    const selectedQuestions =
+      mode === 'training'
+        ? shuffleArray(trainingQuestions)
+        : shuffleArray(examQuestions);
+
+    setQuestions(selectedQuestions);
+    setTimeLeft(EXAM_DURATION_SECONDS);
     resetQuizState();
     setHasStarted(true);
   }
 
   function resetQuizState() {
     setCurrentQuestionIndex(0);
-    setSelectedAnswer('');
+    setSelectedAnswers([]);
+    setIsValidated(false);
     setScore(0);
     setIsFinished(false);
   }
 
-  function handleAnswer(answer) {
-    if (selectedAnswer) return;
+  function getCorrectAnswers(question) {
+    if (question.correctAnswers) {
+      return question.correctAnswers;
+    }
 
-    setSelectedAnswer(answer);
+    return [question.correctAnswer];
+  }
+
+  function isMultipleChoice(question) {
+    return getCorrectAnswers(question).length > 1;
+  }
+
+  function handleAnswer(answer) {
+    if (isValidated) return;
+
+    if (!isMultipleChoice(currentQuestion)) {
+      setSelectedAnswers([answer]);
+      return;
+    }
+
+    if (selectedAnswers.includes(answer)) {
+      setSelectedAnswers(selectedAnswers.filter((selected) => selected !== answer));
+    } else {
+      setSelectedAnswers([...selectedAnswers, answer]);
+    }
+  }
+
+  function isAnswerCorrect() {
+    const correctAnswers = getCorrectAnswers(currentQuestion);
+
+    if (selectedAnswers.length !== correctAnswers.length) {
+      return false;
+    }
+
+    return selectedAnswers.every((answer) => correctAnswers.includes(answer));
+  }
+
+  function validateAnswer() {
+    if (selectedAnswers.length === 0 || isValidated) return;
+
+    const correct = isAnswerCorrect();
+    setIsValidated(true);
 
     if (mode === 'training') {
       const newAttempts = trainingAttempts + 1;
       setTrainingAttempts(newAttempts);
       localStorage.setItem('trainingAttempts', newAttempts);
 
-      if (answer === currentQuestion.correctAnswer) {
+      if (correct) {
         const newCorrectAnswers = trainingCorrectAnswers + 1;
         setTrainingCorrectAnswers(newCorrectAnswers);
         localStorage.setItem('trainingCorrectAnswers', newCorrectAnswers);
@@ -74,7 +147,7 @@ function Quiz() {
       return;
     }
 
-    if (answer === currentQuestion.correctAnswer) {
+    if (correct) {
       setScore((previousScore) => previousScore + 1);
     }
   }
@@ -93,14 +166,20 @@ function Quiz() {
     }
 
     setCurrentQuestionIndex((previousIndex) => previousIndex + 1);
-    setSelectedAnswer('');
+    setSelectedAnswers([]);
+    setIsValidated(false);
   }
 
   function goToNextTrainingQuestion() {
-    const nextIndex = (currentQuestionIndex + 1) % trainingQuestions.length;
+    const nextIndex = (currentQuestionIndex + 1) % questions.length;
+
+    if (nextIndex === 0) {
+      setQuestions(shuffleArray(trainingQuestions));
+    }
 
     setCurrentQuestionIndex(nextIndex);
-    setSelectedAnswer('');
+    setSelectedAnswers([]);
+    setIsValidated(false);
   }
 
   function finishExam() {
@@ -119,8 +198,7 @@ function Quiz() {
   }
 
   function restartQuiz() {
-    resetQuizState();
-    setHasStarted(true);
+    startQuiz();
   }
 
   function backToMenu() {
@@ -145,17 +223,33 @@ function Quiz() {
   }
 
   function calculatePercentage(value, total) {
+    if (total === 0) return 0;
     return Math.round((value / total) * 100);
   }
 
-  function getAnswerClass(answer) {
-    if (!selectedAnswer) return 'answer-button';
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
 
-    if (answer === currentQuestion.correctAnswer) {
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+
+  function getAnswerClass(answer) {
+    if (!isValidated && selectedAnswers.includes(answer)) {
+      return 'answer-button selected';
+    }
+
+    if (!isValidated) {
+      return 'answer-button';
+    }
+
+    const correctAnswers = getCorrectAnswers(currentQuestion);
+
+    if (correctAnswers.includes(answer)) {
       return 'answer-button correct';
     }
 
-    if (answer === selectedAnswer) {
+    if (selectedAnswers.includes(answer)) {
       return 'answer-button wrong';
     }
 
@@ -184,10 +278,7 @@ function Quiz() {
           </div>
 
           <div className="progress-bar">
-            <div
-              className="progress-fill"
-              style={{ width: `${unlockProgress}%` }}
-            />
+            <div className="progress-fill" style={{ width: `${unlockProgress}%` }} />
           </div>
         </div>
       )}
@@ -227,8 +318,8 @@ function Quiz() {
             <div className="mode-panel">
               <h2>Mode entraînement</h2>
               <p>
-                Les questions sont mélangées et tournent en boucle parmi 
-                 {trainingQuestions.length} questions.
+                Les questions sont mélangées et tournent en boucle. Certaines questions
+                peuvent avoir plusieurs bonnes réponses.
               </p>
 
               <div className="mode-stats">
@@ -253,11 +344,8 @@ function Quiz() {
             <div className="mode-panel">
               <h2>Mode examen blanc</h2>
               <p>
-                Réponds aux questions sans correction immédiate. Le score est affiché
-                uniquement à la fin.
-              </p>
-              <p>
-                L’examen blanc contient {examQuestions.length} questions mélangées.
+                Les questions sont mélangées. Tu disposes de {formatTime(EXAM_DURATION_SECONDS)}
+                pour répondre. Le score est affiché uniquement à la fin.
               </p>
 
               <div className="mode-stats">
@@ -276,12 +364,6 @@ function Quiz() {
                 Commencer l’examen blanc
               </button>
             </div>
-          )}
-
-          {!examUnlocked && (
-            <p className="locked-message">
-              Le mode examen blanc est verrouillé. Continue l’entraînement pour le débloquer.
-            </p>
           )}
         </div>
       )}
@@ -308,7 +390,7 @@ function Quiz() {
         </div>
       )}
 
-      {hasStarted && !isFinished && (
+      {hasStarted && !isFinished && currentQuestion && (
         <div className="quiz-card">
           <div className="quiz-header">
             <span>
@@ -320,9 +402,25 @@ function Quiz() {
             <span>
               {mode === 'training'
                 ? `${trainingCorrectAnswers} bonnes réponses`
-                : `Score : ${score}`}
+                : `Temps restant : ${formatTime(timeLeft)}`}
             </span>
           </div>
+
+          <div className="question-meta">
+            {currentQuestion.module && (
+              <span className="question-category">{currentQuestion.module}</span>
+            )}
+
+            {currentQuestion.category && (
+              <span className="question-category">{currentQuestion.category}</span>
+            )}
+          </div>
+
+          {isMultipleChoice(currentQuestion) && (
+            <p className="multiple-choice-info">
+              Plusieurs réponses sont possibles.
+            </p>
+          )}
 
           <h2>{currentQuestion.question}</h2>
 
@@ -338,22 +436,38 @@ function Quiz() {
             ))}
           </div>
 
-          {mode === 'training' && selectedAnswer && (
+          {mode === 'training' && isValidated && (
             <div className="explanation">
               <strong>Explication :</strong>
               <p>{currentQuestion.explanation}</p>
             </div>
           )}
 
-          {selectedAnswer && (
-            <button className="primary-button" onClick={handleNextQuestion}>
-              {mode === 'training'
-                ? 'Question suivante'
-                : currentQuestionIndex === questions.length - 1
+          <div className="quiz-actions">
+            {!isValidated && (
+              <button
+                className="primary-button"
+                onClick={validateAnswer}
+                disabled={selectedAnswers.length === 0}
+              >
+                Valider
+              </button>
+            )}
+
+            {isValidated && (
+              <button className="primary-button" onClick={handleNextQuestion}>
+                {mode === 'exam' && currentQuestionIndex === questions.length - 1
                   ? 'Voir le résultat'
                   : 'Question suivante'}
-            </button>
-          )}
+              </button>
+            )}
+
+            {mode === 'training' && (
+              <button className="secondary-button" onClick={backToMenu}>
+                Retour au menu
+              </button>
+            )}
+          </div>
         </div>
       )}
     </section>
