@@ -399,6 +399,10 @@ select {
   color: #38bdf8;
 }
 
+.quiz-header span:last-child {
+  font-weight: bold;
+  color: #38bdf8;
+}
 
 /* =========================
    QUIZ QUESTIONS
