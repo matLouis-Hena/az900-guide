@@ -227,8 +227,8 @@ function Quiz() {
             <div className="mode-panel">
               <h2>Mode entraînement</h2>
               <p>
-                Les questions tournent en boucle. Après chaque réponse, tu vois directement
-                la correction et l’explication.
+                Les questions sont mélangées et tournent en boucle parmi 
+                {trainingQuestions.length} questions.
               </p>
 
               <div className="mode-stats">
@@ -255,6 +255,9 @@ function Quiz() {
               <p>
                 Réponds aux questions sans correction immédiate. Le score est affiché
                 uniquement à la fin.
+              </p>
+              <p>
+                L’examen blanc contient {examQuestions.length} questions mélangées.
               </p>
 
               <div className="mode-stats">

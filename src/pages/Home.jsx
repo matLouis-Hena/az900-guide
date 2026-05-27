@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import concepts from '../data/concepts.json';
+import trainingQuestions from '../data/trainingQuestions.json';
+import examQuestions from '../data/examQuestions.json';
 
 function Home() {
+  const totalQuestions = trainingQuestions.length + examQuestions.length;
+  
   return (
     <section className="home-page">
       <div className="hero">
@@ -34,11 +40,11 @@ function Home() {
           <h3>Ce que le guide AZ-900 offre :</h3>
 
           <ul className="hero-list">
-            <li>10 notions fondamentales d’Azure</li>
-            <li>10 questions d’entraînement</li>
-            <li>Un mode d’examen préparatoire</li>
-            <li>Des explications détaillées</li>
-            <li>Une progression sauvegardée</li>
+            <li>{concepts.length} notions fondamentales d’Azure</li>
+            <li>{trainingQuestions.length} questions d’entraînement</li>
+            <li>{examQuestions.length} questions d’examen blanc</li>
+            <li>{totalQuestions} questions au total</li>
+            <li>Un suivi de progression personnalisé</li>
           </ul>
         </div>
       </div>
