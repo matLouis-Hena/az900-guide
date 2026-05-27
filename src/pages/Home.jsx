@@ -3,8 +3,6 @@ import concepts from '../data/concepts.json';
 import questionsData from '../data/questions.json';
 
 function Home() {
-  const totalQuestions = trainingQuestions.length + examQuestions.length;
-
   return (
     <section className="home-page">
       <div className="hero">
