@@ -16,6 +16,8 @@ function Navbar() {
         <NavLink to="/progression">Progression</NavLink>
         <NavLink to="/a-propos">À propos</NavLink>
       </div>
+
+      <div className="navbar-spacer" />
     </nav>
   );
 }

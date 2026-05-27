@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import concepts from '../data/concepts.json';
-import questionsData from '../data/questions.json';
+import questions from '../data/questions.json';
 
 function Home() {
   return (
@@ -33,13 +33,39 @@ function Home() {
         </div>
 
         <div className="hero-card">
-          <h3>Ce que le guide AZ-900 offre :</h3>
+          <div className="hero-card-header">
+            <span className="hero-card-icon">☁</span>
+
+            <div>
+              <h3>AZ-900 Guide</h3>
+              <p>Plateforme de révision interactive</p>
+            </div>
+          </div>
+
+          <div className="hero-card-stats">
+            <div>
+              <strong>{concepts.length}</strong>
+              <span>notions</span>
+            </div>
+
+            <div>
+              <strong>{questions.length}</strong>
+              <span>questions</span>
+            </div>
+          </div>
 
           <ul className="hero-list">
-            <li>{concepts.length} notions fondamentales d’Azure</li>
-            <li>{questionsData.length} questions d’entraînement</li>
-            <li>Un suivi de progression personnalisé</li>
+            <li>Fiches synthétiques Azure</li>
+            <li>Entraînement par module</li>
+            <li>Questions à choix multiples</li>
+            <li>Examen blanc de 50 questions</li>
+            <li>Suivi de progression sauvegardé</li>
           </ul>
+
+          <div className="hero-card-footer">
+            <span>Objectif</span>
+            <strong>Préparer l’AZ-900 efficacement</strong>
+          </div>
         </div>
       </div>
 
