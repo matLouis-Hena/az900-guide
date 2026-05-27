@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import questionsData from '../data/questions.json';
 
+const EXAM_QUESTION_COUNT = 50;
 const REQUIRED_CORRECT_ANSWERS = 50;
-const EXAM_DURATION_SECONDS = 15 * 60;
+const EXAM_DURATION_SECONDS = 45 * 60;
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -29,6 +30,7 @@ function Quiz() {
   const [trainingAttempts, setTrainingAttempts] = useState(0);
   const [bestExamScore, setBestExamScore] = useState(0);
   const [completedExam, setCompletedExam] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(EXAM_DURATION_SECONDS);
   const [selectedModule, setSelectedModule] = useState('Tous');
   const [selectedCategory, setSelectedCategory] = useState('Toutes');
 
@@ -102,7 +104,12 @@ function Quiz() {
         ? filteredTrainingQuestions
         : questionsData;
 
-    setQuestions(shuffleArray(sourceQuestions));
+    const selectedQuestions =
+      mode === 'exam'
+        ? shuffleArray(sourceQuestions).slice(0, EXAM_QUESTION_COUNT)
+        : shuffleArray(sourceQuestions);
+
+    setQuestions(selectedQuestions);
     setTimeLeft(EXAM_DURATION_SECONDS);
     resetQuizState();
     setHasStarted(true);
@@ -403,7 +410,7 @@ function Quiz() {
             <div className="mode-panel">
               <h2>Mode examen blanc</h2>
               <p>
-                L’examen blanc utilise les mêmes {questionsData.length} questions, mélangées.
+                L’examen blanc contient {EXAM_QUESTION_COUNT} questions tirées aléatoirement.
                 Tu disposes de {formatTime(EXAM_DURATION_SECONDS)} pour répondre.
                 Le score est affiché uniquement à la fin.
               </p>
