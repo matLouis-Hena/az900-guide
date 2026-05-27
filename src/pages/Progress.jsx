@@ -1,6 +1,8 @@
 import concepts from '../data/concepts.json';
+import questions from '../data/questions.json';
 
 const REQUIRED_CORRECT_ANSWERS = 50;
+const EXAM_QUESTION_COUNT = 50;
 
 function Progress() {
   const viewedConcepts =
@@ -19,6 +21,7 @@ function Progress() {
     Number(localStorage.getItem('completedExam')) || 0;
 
   const viewedConceptsCount = viewedConcepts.length;
+
   const conceptProgress = Math.round(
     (viewedConceptsCount / concepts.length) * 100
   );
@@ -30,30 +33,50 @@ function Progress() {
       ? Math.round((trainingCorrectAnswers / trainingAttempts) * 100)
       : 0;
 
+  const unlockProgress = Math.min(
+    Math.round((trainingCorrectAnswers / REQUIRED_CORRECT_ANSWERS) * 100),
+    100
+  );
+
   const globalProgress = Math.round(
-    (conceptProgress + Math.min(trainingCorrectAnswers * 10, 100) + bestExamScore) / 3
+    (conceptProgress + unlockProgress + bestExamScore) / 3
+  );
+
+  const remainingCorrectAnswers = Math.max(
+    REQUIRED_CORRECT_ANSWERS - trainingCorrectAnswers,
+    0
   );
 
   const badges = [
     {
-      title: 'Débutant Azure',
-      unlocked: trainingCorrectAnswers >= 5,
-      description: 'Obtenir au moins 5 bonnes réponses en entraînement.'
+      title: 'Premiers pas Azure',
+      unlocked: trainingCorrectAnswers >= 10,
+      description: 'Obtenir au moins 10 bonnes réponses en entraînement.'
     },
     {
       title: 'Explorateur Cloud',
-      unlocked: viewedConceptsCount >= 5,
-      description: 'Consulter au moins 5 notions Azure.'
+      unlocked: viewedConceptsCount >= 10,
+      description: 'Consulter au moins 10 notions Azure.'
     },
     {
       title: 'Examen débloqué',
       unlocked: examUnlocked,
-      description: 'Débloquer le mode examen blanc.'
+      description: 'Atteindre 50 bonnes réponses en entraînement.'
+    },
+    {
+      title: 'Bon niveau AZ-900',
+      unlocked: bestExamScore >= 70,
+      description: 'Obtenir au moins 70% à l’examen blanc.'
     },
     {
       title: 'Prêt pour l’AZ-900',
       unlocked: bestExamScore >= 80,
       description: 'Obtenir au moins 80% à l’examen blanc.'
+    },
+    {
+      title: 'Révision complète',
+      unlocked: conceptProgress === 100,
+      description: 'Avoir consulté toutes les notions disponibles.'
     }
   ];
 
@@ -62,7 +85,8 @@ function Progress() {
       <h1>Progression</h1>
 
       <p className="page-description">
-        Suis ton avancement dans la révision des notions Azure et dans les quiz.
+        Suis ton avancement dans les notions Azure, les questions d’entraînement
+        et l’examen blanc.
       </p>
 
       <div className="progress-overview">
@@ -89,19 +113,31 @@ function Progress() {
         </article>
 
         <article className="progress-card">
+          <span>Questions disponibles</span>
+          <strong>{questions.length}</strong>
+          <p>Questions utilisées pour l’entraînement et l’examen blanc.</p>
+        </article>
+
+        <article className="progress-card">
           <span>Bonnes réponses</span>
           <strong>{trainingCorrectAnswers}</strong>
           <p>{trainingAccuracy}% de réussite en entraînement.</p>
         </article>
 
         <article className="progress-card">
-          <span>Examen blanc</span>
-          <strong>{examUnlocked ? 'Débloqué' : 'Verrouillé'}</strong>
+          <span>Déblocage examen</span>
+          <strong>{examUnlocked ? 'Débloqué' : `${unlockProgress}%`}</strong>
           <p>
             {examUnlocked
-              ? 'Tu peux passer l’examen blanc.'
-              : `${REQUIRED_CORRECT_ANSWERS - trainingCorrectAnswers} bonnes réponses restantes.`}
+              ? 'Le mode examen blanc est disponible.'
+              : `${remainingCorrectAnswers} bonne(s) réponse(s) restante(s).`}
           </p>
+        </article>
+
+        <article className="progress-card">
+          <span>Format examen blanc</span>
+          <strong>{EXAM_QUESTION_COUNT}</strong>
+          <p>Questions aléatoires avec un score final.</p>
         </article>
 
         <article className="progress-card">
@@ -133,22 +169,30 @@ function Progress() {
 
         {!examUnlocked && (
           <p>
-            Continue le mode entraînement pour débloquer l’examen blanc. C’est la
-            meilleure étape pour renforcer les bases avant de te tester.
+            Continue le mode entraînement. L’objectif actuel est d’atteindre
+            {` ${REQUIRED_CORRECT_ANSWERS} `}bonnes réponses pour débloquer
+            l’examen blanc.
           </p>
         )}
 
-        {examUnlocked && bestExamScore < 80 && (
+        {examUnlocked && bestExamScore < 70 && (
           <p>
-            L’examen blanc est débloqué. Essaie maintenant d’atteindre au moins 80%
-            pour valider une bonne maîtrise des notions principales.
+            L’examen blanc est débloqué. Essaie maintenant d’obtenir au moins
+            70% pour valider une bonne base avant de viser plus haut.
+          </p>
+        )}
+
+        {bestExamScore >= 70 && bestExamScore < 80 && (
+          <p>
+            Tu as déjà un niveau correct. Pour renforcer ta préparation, vise
+            maintenant au moins 80% à l’examen blanc.
           </p>
         )}
 
         {bestExamScore >= 80 && (
           <p>
-            Très bon niveau. Tu peux maintenant revoir les notions où tu hésites encore
-            et refaire quelques questions pour consolider tes acquis.
+            Très bon niveau. Tu peux maintenant revoir les notions où tu hésites
+            encore et refaire quelques questions ciblées par module.
           </p>
         )}
       </div>

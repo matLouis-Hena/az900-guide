@@ -98,6 +98,11 @@ function Quiz() {
     setHasStarted(false);
   }
 
+  function resetTrainingFilters() {
+    setSelectedModule('Tous');
+    setSelectedCategory('Toutes');
+  }
+
   function startQuiz() {
     const sourceQuestions =
       mode === 'training'
@@ -347,9 +352,22 @@ function Quiz() {
             <div className="mode-panel">
               <h2>Mode entraînement</h2>
               <p>
-                Les questions sont mélangées et tournent en boucle parmi {questionsData.length} questions.
+                Les questions sont mélangées et tournent en boucle. Tu peux réviser tout le contenu
+                ou cibler un module précis de l’AZ-900.      
                 Certaines questions peuvent avoir plusieurs bonnes réponses.
               </p>
+
+              <div className="training-filters-header">
+                <h3>Révision ciblée</h3>
+
+                <button
+                  className="clear-filters-button"
+                  onClick={resetTrainingFilters}
+                  disabled={selectedModule === 'Tous' && selectedCategory === 'Toutes'}
+                >
+                  Réinitialiser les filtres
+                </button>
+              </div>
 
               <div className="training-filters">
                 <div>
@@ -384,9 +402,21 @@ function Quiz() {
                 </div>
               </div>
 
-              <p className="filter-summary">
-                {filteredTrainingQuestions.length} question(s) disponible(s) avec ce filtre.
-              </p>
+              <div className="active-filter-card">
+                <span>Filtre actif</span>
+
+                <strong>
+                  {selectedModule === 'Tous' && selectedCategory === 'Toutes'
+                    ? 'Toutes les questions'
+                    : `${selectedModule} ${
+                        selectedCategory !== 'Toutes' ? `— ${selectedCategory}` : ''
+                      }`}
+                </strong>
+
+                <p>
+                  {filteredTrainingQuestions.length} question(s) disponible(s) avec ce filtre.
+                </p>
+              </div>
 
               <div className="mode-stats">
                 <div>

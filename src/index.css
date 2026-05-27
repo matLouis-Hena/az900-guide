@@ -407,12 +407,40 @@ button:disabled {
 
 .filters input,
 .filters select {
+  min-height: 46px;
+
   padding: 0.8rem 1rem;
+
   background-color: #1e293b;
   color: #f8fafc;
+
   border: 1px solid #334155;
   border-radius: 12px;
+
   font-size: 1rem;
+  line-height: 1.2;
+}
+
+.filters select {
+  padding-right: 2.5rem;
+  cursor: pointer;
+
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #38bdf8 50%),
+    linear-gradient(135deg, #38bdf8 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+}
+
+.filters option {
+  background-color: #1e293b;
+  color: #f8fafc;
 }
 
 .filters input {
@@ -685,17 +713,108 @@ button:disabled {
 
 .training-filters select {
   width: 100%;
-  padding: 0.8rem 1rem;
+  min-height: 46px;
+
+  padding: 0.8rem 2.5rem 0.8rem 1rem;
+
   background-color: #1e293b;
   color: #f8fafc;
+
   border: 1px solid #334155;
   border-radius: 12px;
+
   font-size: 1rem;
+  line-height: 1.2;
+
+  cursor: pointer;
+  outline: none;
+
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #38bdf8 50%),
+    linear-gradient(135deg, #38bdf8 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+}
+
+.training-filters select:hover {
+  border-color: #38bdf8;
 }
 
 .training-filters select:focus {
-  outline: none;
   border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  outline: none;
+}
+
+.training-filters option {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+.training-filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 1.5rem;
+}
+
+.training-filters-header h3 {
+  font-size: 1.1rem;
+}
+
+.clear-filters-button {
+  padding: 0.6rem 0.9rem;
+  background-color: transparent;
+  color: #cbd5e1;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clear-filters-button:hover {
+  color: #38bdf8;
+  border-color: #38bdf8;
+}
+
+.clear-filters-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.active-filter-card {
+  margin-top: 1rem;
+  padding: 1rem;
+
+  background-color: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 14px;
+}
+
+.active-filter-card span {
+  display: block;
+  margin-bottom: 0.4rem;
+
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.active-filter-card strong {
+  display: block;
+  color: #38bdf8;
+}
+
+.active-filter-card p {
+  margin-top: 0.4rem;
+  color: #cbd5e1;
 }
 
 .filter-summary {
@@ -1098,6 +1217,15 @@ button:disabled {
 
   .training-filters {
     grid-template-columns: 1fr;
+  }
+
+  .training-filters-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .clear-filters-button {
+    width: 100%;
   }
 
   .filters input,
