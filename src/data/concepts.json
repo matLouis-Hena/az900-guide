@@ -3,80 +3,576 @@
     "id": 1,
     "title": "Cloud computing",
     "category": "Concepts cloud",
-    "definition": "Le cloud computing permet d'utiliser des ressources informatiques via Internet, sans devoir gérer toute l'infrastructure physique soi-même.",
-    "example": "Utiliser Azure pour héberger une application web au lieu d’installer un serveur dans son école ou son entreprise.",
-    "examTip": "Retenir que le cloud apporte flexibilité, scalabilité, haute disponibilité et paiement à l’usage."
+    "definition": "Le cloud computing permet d'utiliser des ressources informatiques via Internet sans gérer directement toute l'infrastructure physique.",
+    "example": "Héberger une application sur Azure App Service au lieu d'installer un serveur dans son entreprise.",
+    "examTip": "Le cloud apporte flexibilité, scalabilité, haute disponibilité et paiement à l’usage."
   },
   {
     "id": 2,
-    "title": "IaaS",
+    "title": "Cloud public",
     "category": "Concepts cloud",
-    "definition": "Infrastructure as a Service fournit des ressources comme des machines virtuelles, du stockage et du réseau.",
-    "example": "Créer une machine virtuelle Azure pour installer soi-même un serveur web.",
-    "examTip": "Avec IaaS, le client gère plus d’éléments : système d’exploitation, applications, données et configuration."
+    "definition": "Un cloud public fournit des services accessibles via Internet et gérés par un fournisseur cloud tiers.",
+    "example": "Utiliser Microsoft Azure pour héberger une application web accessible publiquement.",
+    "examTip": "Dans le cloud public, le matériel appartient au fournisseur cloud."
   },
   {
     "id": 3,
-    "title": "PaaS",
+    "title": "Cloud privé",
     "category": "Concepts cloud",
-    "definition": "Platform as a Service fournit une plateforme prête à l’emploi pour développer, exécuter et déployer des applications.",
-    "example": "Utiliser Azure App Service pour héberger une application sans gérer le serveur.",
-    "examTip": "Avec PaaS, Azure gère l’infrastructure et le système ; le client se concentre surtout sur l’application."
+    "definition": "Un cloud privé est utilisé exclusivement par une seule organisation, avec un contrôle plus important sur l'infrastructure.",
+    "example": "Une entreprise exploite son propre datacenter pour héberger ses applications internes.",
+    "examTip": "Le cloud privé implique souvent l’achat et la maintenance du matériel."
   },
   {
     "id": 4,
-    "title": "SaaS",
+    "title": "Cloud hybride",
     "category": "Concepts cloud",
-    "definition": "Software as a Service désigne une application prête à l’emploi accessible via Internet.",
-    "example": "Microsoft 365 est un exemple de SaaS.",
-    "examTip": "Avec SaaS, le client utilise simplement le logiciel. Le fournisseur gère presque tout."
+    "definition": "Le cloud hybride combine des ressources locales ou privées avec des services cloud publics.",
+    "example": "Garder certaines données sensibles en local tout en utilisant Azure pour la scalabilité.",
+    "examTip": "Le cloud hybride permet de connecter l’existant local avec le cloud."
   },
   {
     "id": 5,
-    "title": "Azure Resource Manager",
-    "category": "Gestion des ressources",
-    "definition": "Azure Resource Manager est la couche de gestion qui permet de créer, modifier, organiser et supprimer les ressources Azure.",
-    "example": "Créer un groupe de ressources, déployer une machine virtuelle ou appliquer un modèle ARM.",
-    "examTip": "ARM est le point central pour gérer les ressources Azure de manière cohérente."
+    "title": "Modèle basé sur la consommation",
+    "category": "Coûts",
+    "definition": "Modèle où l’on paie uniquement les ressources utilisées, sans coût initial important.",
+    "example": "Payer une machine virtuelle uniquement pendant son temps d’utilisation.",
+    "examTip": "Associer ce modèle à OpEx, pas CapEx."
   },
   {
     "id": 6,
-    "title": "Groupe de ressources",
-    "category": "Gestion des ressources",
-    "definition": "Un groupe de ressources est un conteneur logique qui regroupe des ressources Azure liées à un même projet ou service.",
-    "example": "Mettre une application web, sa base de données et son stockage dans le même groupe de ressources.",
-    "examTip": "Une ressource appartient à un seul groupe de ressources, mais un groupe peut contenir plusieurs types de ressources."
+    "title": "CapEx",
+    "category": "Coûts",
+    "definition": "Les dépenses en capital correspondent à des coûts initiaux importants, comme l’achat de matériel.",
+    "example": "Acheter des serveurs physiques pour un datacenter interne.",
+    "examTip": "CapEx = investissement initial, souvent lié au local/on-premise."
   },
   {
     "id": 7,
-    "title": "RBAC",
-    "category": "Sécurité",
-    "definition": "RBAC permet de gérer les accès aux ressources Azure en attribuant des rôles à des utilisateurs, groupes ou applications.",
-    "example": "Donner le rôle Reader à un utilisateur pour qu’il puisse consulter les ressources sans les modifier.",
-    "examTip": "Bien retenir la logique : utilisateur + rôle + scope."
+    "title": "OpEx",
+    "category": "Coûts",
+    "definition": "Les dépenses opérationnelles correspondent à des coûts réguliers liés à l’utilisation de services.",
+    "example": "Payer chaque mois les ressources consommées dans Azure.",
+    "examTip": "OpEx = paiement à l’usage, typique du cloud."
   },
   {
     "id": 8,
-    "title": "Microsoft Entra ID",
-    "category": "Sécurité",
-    "definition": "Microsoft Entra ID est le service de gestion des identités et des accès utilisé avec Azure.",
-    "example": "Gérer les utilisateurs, les groupes, l’authentification multifacteur et les connexions aux applications.",
-    "examTip": "Anciennement appelé Azure Active Directory. Il sert à gérer les identités, pas à stocker des fichiers."
+    "title": "Haute disponibilité",
+    "category": "Fiabilité",
+    "definition": "Capacité d’un service à rester disponible même en cas de panne ou d’incident.",
+    "example": "Déployer une application sur plusieurs zones de disponibilité.",
+    "examTip": "La haute disponibilité est souvent liée aux SLA."
   },
   {
     "id": 9,
-    "title": "Azure Policy",
-    "category": "Gouvernance",
-    "definition": "Azure Policy permet d’imposer des règles aux ressources Azure afin de respecter des standards de sécurité, de coût ou de conformité.",
-    "example": "Interdire la création de ressources dans certaines régions.",
-    "examTip": "Azure Policy sert à contrôler ce qui est autorisé ou non, contrairement à RBAC qui gère qui peut faire quoi."
+    "title": "SLA",
+    "category": "Fiabilité",
+    "definition": "Un Service Level Agreement définit le niveau de disponibilité garanti pour un service.",
+    "example": "Un service avec un SLA de 99,9 % promet une disponibilité élevée.",
+    "examTip": "Plusieurs services combinés peuvent modifier le SLA global."
   },
   {
     "id": 10,
+    "title": "Scalabilité",
+    "category": "Concepts cloud",
+    "definition": "Capacité d’un système à augmenter ou réduire ses ressources selon les besoins.",
+    "example": "Ajouter des ressources à une application lors d’un pic de trafic.",
+    "examTip": "La scalabilité peut être horizontale ou verticale."
+  },
+  {
+    "id": 11,
+    "title": "Mise à l’échelle horizontale",
+    "category": "Concepts cloud",
+    "definition": "Augmentation de la capacité en ajoutant des instances supplémentaires.",
+    "example": "Ajouter plusieurs machines virtuelles derrière un équilibreur de charge.",
+    "examTip": "Horizontal = ajouter des machines ou instances."
+  },
+  {
+    "id": 12,
+    "title": "Mise à l’échelle verticale",
+    "category": "Concepts cloud",
+    "definition": "Augmentation de la capacité en ajoutant plus de puissance à une instance existante.",
+    "example": "Ajouter plus de RAM ou de CPU à une machine virtuelle.",
+    "examTip": "Vertical = rendre une machine plus puissante."
+  },
+  {
+    "id": 13,
+    "title": "Élasticité",
+    "category": "Concepts cloud",
+    "definition": "Capacité à ajuster automatiquement les ressources selon la demande.",
+    "example": "Une application augmente automatiquement ses instances pendant les heures de pointe.",
+    "examTip": "Élasticité = mise à l’échelle automatique selon la charge."
+  },
+  {
+    "id": 14,
+    "title": "Agilité",
+    "category": "Concepts cloud",
+    "definition": "Capacité à déployer et configurer rapidement des ressources selon les besoins.",
+    "example": "Créer rapidement une base de données ou une application web dans Azure.",
+    "examTip": "Agilité = rapidité de déploiement et d’adaptation."
+  },
+  {
+    "id": 15,
+    "title": "Géodistribution",
+    "category": "Fiabilité",
+    "definition": "Déploiement de ressources dans plusieurs régions pour rapprocher les services des utilisateurs et améliorer la résilience.",
+    "example": "Déployer une application en Europe et en Amérique du Nord.",
+    "examTip": "La géodistribution améliore performances et continuité."
+  },
+  {
+    "id": 16,
+    "title": "Région Azure",
+    "category": "Architecture Azure",
+    "definition": "Zone géographique contenant un ou plusieurs datacenters Azure.",
+    "example": "France Central ou West Europe sont des régions Azure.",
+    "examTip": "Une région est un emplacement géographique de déploiement."
+  },
+  {
+    "id": 17,
+    "title": "Zone de disponibilité",
+    "category": "Architecture Azure",
+    "definition": "Datacenter physiquement séparé au sein d’une région Azure, avec alimentation, refroidissement et réseau indépendants.",
+    "example": "Déployer des machines virtuelles dans plusieurs zones pour éviter une panne locale.",
+    "examTip": "Une zone de disponibilité est dans une région, pas entre régions."
+  },
+  {
+    "id": 18,
+    "title": "Paire de régions",
+    "category": "Architecture Azure",
+    "definition": "Association de deux régions Azure dans la même géographie pour améliorer la continuité d’activité.",
+    "example": "Répliquer des ressources vers une région secondaire en cas de sinistre.",
+    "examTip": "Les paires de régions aident à la reprise après sinistre."
+  },
+  {
+    "id": 19,
+    "title": "Ressource Azure",
+    "category": "Gestion des ressources",
+    "definition": "Élément créé dans Azure, comme une machine virtuelle, une base de données ou un compte de stockage.",
+    "example": "Une Azure SQL Database ou une App Service sont des ressources Azure.",
+    "examTip": "Une ressource appartient à un groupe de ressources."
+  },
+  {
+    "id": 20,
+    "title": "Groupe de ressources",
+    "category": "Gestion des ressources",
+    "definition": "Conteneur logique permettant d’organiser des ressources Azure liées.",
+    "example": "Mettre une application web, sa base de données et son stockage dans le même groupe.",
+    "examTip": "Une ressource appartient à un seul groupe de ressources."
+  },
+  {
+    "id": 21,
+    "title": "Abonnement Azure",
+    "category": "Gestion des ressources",
+    "definition": "Un abonnement Azure sert de limite administrative, de facturation et de gestion des ressources.",
+    "example": "Une école ou entreprise peut avoir plusieurs abonnements Azure.",
+    "examTip": "Les ressources et groupes de ressources sont créés dans un abonnement."
+  },
+  {
+    "id": 22,
+    "title": "Groupes d’administration",
+    "category": "Gouvernance",
+    "definition": "Les groupes d’administration permettent d’organiser plusieurs abonnements et d’appliquer des règles à grande échelle.",
+    "example": "Appliquer une stratégie de sécurité à tous les abonnements d’une organisation.",
+    "examTip": "Management Groups = gouvernance sur plusieurs abonnements."
+  },
+  {
+    "id": 23,
+    "title": "Azure Resource Manager",
+    "category": "Gestion des ressources",
+    "definition": "Azure Resource Manager est la couche de gestion qui permet de créer, modifier, organiser et supprimer des ressources Azure.",
+    "example": "Déployer une machine virtuelle ou appliquer un modèle ARM.",
+    "examTip": "ARM est le service de déploiement et de gestion d’Azure."
+  },
+  {
+    "id": 24,
+    "title": "IaaS",
+    "category": "Modèles de service",
+    "definition": "Infrastructure as a Service fournit des ressources comme des machines virtuelles, du stockage et du réseau.",
+    "example": "Créer une machine virtuelle Azure et gérer son système d’exploitation.",
+    "examTip": "IaaS donne le plus de contrôle, mais aussi plus de responsabilités au client."
+  },
+  {
+    "id": 25,
+    "title": "PaaS",
+    "category": "Modèles de service",
+    "definition": "Platform as a Service fournit une plateforme prête à l’emploi pour développer et exécuter des applications.",
+    "example": "Héberger une application avec Azure App Service sans gérer le serveur.",
+    "examTip": "En PaaS, Microsoft gère l’infrastructure et le système d’exploitation."
+  },
+  {
+    "id": 26,
+    "title": "SaaS",
+    "category": "Modèles de service",
+    "definition": "Software as a Service est une application prête à l’emploi accessible via Internet.",
+    "example": "Microsoft 365 est un exemple de SaaS.",
+    "examTip": "En SaaS, le client gère surtout les données et les accès."
+  },
+  {
+    "id": 27,
+    "title": "Azure Virtual Machines",
+    "category": "Calcul",
+    "definition": "Service IaaS permettant de créer des machines virtuelles dans Azure.",
+    "example": "Créer une VM Linux pour héberger une application personnalisée.",
+    "examTip": "Les machines virtuelles sont associées au modèle IaaS."
+  },
+  {
+    "id": 28,
+    "title": "Virtual Machine Scale Sets",
+    "category": "Calcul",
+    "definition": "Service permettant de déployer et gérer un ensemble de machines virtuelles identiques.",
+    "example": "Mettre à l’échelle automatiquement plusieurs VM pour une application.",
+    "examTip": "Scale Sets = groupe de VM identiques et scalables."
+  },
+  {
+    "id": 29,
+    "title": "Azure App Service",
+    "category": "Calcul",
+    "definition": "Service PaaS permettant d’héberger des applications web, API et backends sans gérer l’infrastructure serveur.",
+    "example": "Déployer une application React ou Node.js sur Azure App Service.",
+    "examTip": "App Service est une offre PaaS."
+  },
+  {
+    "id": 30,
+    "title": "Azure Functions",
+    "category": "Calcul",
+    "definition": "Service serverless permettant d’exécuter du code déclenché par des événements.",
+    "example": "Exécuter une fonction lorsqu’un fichier est ajouté dans un stockage Blob.",
+    "examTip": "Functions = serverless orienté code et événements."
+  },
+  {
+    "id": 31,
+    "title": "Azure Logic Apps",
+    "category": "Calcul",
+    "definition": "Service serverless permettant d’automatiser des workflows via des connecteurs prédéfinis.",
+    "example": "Envoyer un email lorsqu’un formulaire est soumis.",
+    "examTip": "Logic Apps est plus orienté workflow, Functions plus orienté code."
+  },
+  {
+    "id": 32,
+    "title": "Azure Container Instances",
+    "category": "Calcul",
+    "definition": "Service permettant d’exécuter rapidement des conteneurs sans gérer de machines virtuelles.",
+    "example": "Lancer un conteneur Docker pour une tâche temporaire.",
+    "examTip": "ACI est simple et rapide pour exécuter des conteneurs."
+  },
+  {
+    "id": 33,
+    "title": "Azure Kubernetes Service",
+    "category": "Calcul",
+    "definition": "Service managé permettant d’orchestrer des conteneurs avec Kubernetes.",
+    "example": "Déployer une application composée de plusieurs microservices conteneurisés.",
+    "examTip": "AKS est utilisé pour orchestrer des conteneurs à grande échelle."
+  },
+  {
+    "id": 34,
+    "title": "Azure Virtual Desktop",
+    "category": "Calcul",
+    "definition": "Service permettant d’accéder à des bureaux et applications Windows hébergés dans Azure.",
+    "example": "Permettre à des utilisateurs Mac ou Android d’utiliser un environnement Windows.",
+    "examTip": "Virtual Desktop = virtualisation de postes de travail et d’applications."
+  },
+  {
+    "id": 35,
+    "title": "Réseau virtuel Azure",
+    "category": "Réseau",
+    "definition": "Un Virtual Network permet aux ressources Azure de communiquer entre elles, avec Internet ou avec un réseau local.",
+    "example": "Placer des machines virtuelles dans un réseau virtuel privé.",
+    "examTip": "Les VNets sont liés au modèle IaaS."
+  },
+  {
+    "id": 36,
+    "title": "Sous-réseau",
+    "category": "Réseau",
+    "definition": "Division logique d’un réseau virtuel permettant d’organiser les ressources réseau.",
+    "example": "Séparer les serveurs web et les bases de données dans deux sous-réseaux.",
+    "examTip": "Les sous-réseaux segmentent un VNet."
+  },
+  {
+    "id": 37,
+    "title": "Peering de réseaux virtuels",
+    "category": "Réseau",
+    "definition": "Le peering permet à deux réseaux virtuels Azure de communiquer entre eux.",
+    "example": "Connecter le VNet d’une application au VNet d’une base de données.",
+    "examTip": "Peering = communication entre VNets Azure."
+  },
+  {
+    "id": 38,
+    "title": "VPN Gateway",
+    "category": "Réseau",
+    "definition": "Service permettant de connecter un réseau local à Azure via un VPN chiffré.",
+    "example": "Connexion site à site entre un datacenter local et un VNet Azure.",
+    "examTip": "VPN Gateway utilise Internet, contrairement à ExpressRoute."
+  },
+  {
+    "id": 39,
+    "title": "ExpressRoute",
+    "category": "Réseau",
+    "definition": "Service permettant une connexion privée dédiée entre un réseau local et Azure.",
+    "example": "Connecter une entreprise à Azure sans passer par Internet public.",
+    "examTip": "ExpressRoute = connexion privée dédiée."
+  },
+  {
+    "id": 40,
+    "title": "Network Security Group",
+    "category": "Réseau",
+    "definition": "Un NSG filtre le trafic réseau entrant et sortant vers des ressources Azure.",
+    "example": "Autoriser le port 443 et bloquer le port 22 sur une machine virtuelle.",
+    "examTip": "NSG = règles réseau entrantes/sortantes."
+  },
+  {
+    "id": 41,
+    "title": "Azure Bastion",
+    "category": "Réseau",
+    "definition": "Service permettant de se connecter à des machines virtuelles via RDP ou SSH depuis le portail Azure sans exposer d’adresse IP publique.",
+    "example": "Administrer une VM Windows sans ouvrir le port RDP sur Internet.",
+    "examTip": "Bastion sécurise l’accès administratif aux VM."
+  },
+  {
+    "id": 42,
+    "title": "Service endpoints",
+    "category": "Réseau",
+    "definition": "Les points de terminaison de service permettent de connecter un VNet à certains services Azure de manière sécurisée.",
+    "example": "Permettre à un sous-réseau d’accéder directement à Azure SQL Database.",
+    "examTip": "Service endpoints exposent des services Azure à un VNet."
+  },
+  {
+    "id": 43,
+    "title": "Azure DNS",
+    "category": "Réseau",
+    "definition": "Service d’hébergement de domaines DNS dans Azure.",
+    "example": "Gérer les enregistrements DNS d’un domaine utilisé par une application.",
+    "examTip": "Azure DNS gère les zones et enregistrements DNS."
+  },
+  {
+    "id": 44,
+    "title": "Azure Blob Storage",
+    "category": "Stockage",
+    "definition": "Stockage d’objets destiné aux données non structurées comme images, vidéos, documents ou sauvegardes.",
+    "example": "Stocker des images affichées sur un site web.",
+    "examTip": "Blob Storage = données non structurées."
+  },
+  {
+    "id": 45,
+    "title": "Azure Files",
+    "category": "Stockage",
+    "definition": "Service de partages de fichiers managés accessibles via SMB ou NFS.",
+    "example": "Monter un partage Azure Files comme un dossier réseau.",
+    "examTip": "Azure Files = partages de fichiers cloud managés."
+  },
+  {
+    "id": 46,
+    "title": "Azure Disk Storage",
+    "category": "Stockage",
+    "definition": "Service fournissant des disques managés pour les machines virtuelles Azure.",
+    "example": "Attacher un disque de données à une VM.",
+    "examTip": "Disk Storage est principalement utilisé avec les VM."
+  },
+  {
+    "id": 47,
+    "title": "Niveaux d’accès Blob",
+    "category": "Stockage",
+    "definition": "Les niveaux Hot, Cool et Archive optimisent le coût selon la fréquence d’accès aux données.",
+    "example": "Stocker des fichiers consultés souvent en Hot et des archives en Archive.",
+    "examTip": "Hot = accès rapide et coût stockage élevé ; Archive = coût faible mais accès lent."
+  },
+  {
+    "id": 48,
+    "title": "Redondance du stockage",
+    "category": "Stockage",
+    "definition": "La redondance permet de répliquer les données pour améliorer disponibilité et durabilité.",
+    "example": "Utiliser GRS pour répliquer des données dans une autre région.",
+    "examTip": "LRS, ZRS, GRS et GZRS offrent différents niveaux de réplication."
+  },
+  {
+    "id": 49,
+    "title": "Microsoft Entra ID",
+    "category": "Identité et sécurité",
+    "definition": "Service cloud de gestion des identités et des accès utilisé avec Azure.",
+    "example": "Gérer les utilisateurs, groupes et connexions aux applications.",
+    "examTip": "Anciennement Azure Active Directory."
+  },
+  {
+    "id": 50,
+    "title": "MFA",
+    "category": "Identité et sécurité",
+    "definition": "L’authentification multifacteur demande plusieurs preuves d’identité pour se connecter.",
+    "example": "Mot de passe + code envoyé sur téléphone.",
+    "examTip": "MFA renforce l’authentification au-delà du mot de passe."
+  },
+  {
+    "id": 51,
+    "title": "Authentification unique",
+    "category": "Identité et sécurité",
+    "definition": "Le Single Sign-On permet à un utilisateur de se connecter une fois pour accéder à plusieurs applications.",
+    "example": "Se connecter une fois avec Entra ID et accéder à Microsoft 365 et d’autres apps.",
+    "examTip": "SSO = une connexion pour plusieurs applications."
+  },
+  {
+    "id": 52,
+    "title": "Accès conditionnel",
+    "category": "Identité et sécurité",
+    "definition": "Fonctionnalité Microsoft Entra permettant d’autoriser, bloquer ou renforcer l’accès selon des signaux.",
+    "example": "Exiger MFA si l’utilisateur se connecte depuis un pays spécifique.",
+    "examTip": "Conditional Access peut imposer MFA selon l’emplacement, le risque ou l’appareil."
+  },
+  {
+    "id": 53,
+    "title": "RBAC",
+    "category": "Identité et sécurité",
+    "definition": "Role-Based Access Control permet d’attribuer des permissions à des utilisateurs, groupes ou applications selon un rôle et un scope.",
+    "example": "Attribuer le rôle Reader sur un groupe de ressources.",
+    "examTip": "RBAC répond à : qui peut faire quoi et où ?"
+  },
+  {
+    "id": 54,
+    "title": "Zero Trust",
+    "category": "Identité et sécurité",
+    "definition": "Modèle de sécurité basé sur le principe ne jamais faire confiance par défaut et toujours vérifier.",
+    "example": "Vérifier identité, appareil et contexte avant d’autoriser l’accès.",
+    "examTip": "Zero Trust = vérifier explicitement, accès minimal, supposer une compromission."
+  },
+  {
+    "id": 55,
+    "title": "Défense en profondeur",
+    "category": "Identité et sécurité",
+    "definition": "Stratégie utilisant plusieurs couches de protection pour limiter les risques de sécurité.",
+    "example": "Pare-feu, MFA, chiffrement, RBAC et surveillance combinés.",
+    "examTip": "Défense en profondeur = sécurité par couches."
+  },
+  {
+    "id": 56,
+    "title": "Microsoft Defender for Cloud",
+    "category": "Identité et sécurité",
+    "definition": "Service de gestion de posture de sécurité et de protection des charges de travail cloud.",
+    "example": "Identifier des recommandations de sécurité pour des machines virtuelles.",
+    "examTip": "Defender for Cloud aide à renforcer la sécurité des ressources."
+  },
+  {
+    "id": 57,
+    "title": "Microsoft Entra Domain Services",
+    "category": "Identité et sécurité",
+    "definition": "Service fournissant des fonctionnalités AD DS managées sans déployer de contrôleurs de domaine.",
+    "example": "Permettre à des applications compatibles AD DS d’utiliser l’authentification domaine dans Azure.",
+    "examTip": "À utiliser quand des applications ont besoin d’AD DS sans gérer de DC."
+  },
+  {
+    "id": 58,
+    "title": "Microsoft Entra Connect",
+    "category": "Identité et sécurité",
+    "definition": "Outil permettant de synchroniser des identités locales AD DS avec Microsoft Entra ID.",
+    "example": "Créer des identités hybrides entre un Active Directory local et Azure.",
+    "examTip": "Entra Connect = synchronisation d’identités hybrides."
+  },
+  {
+    "id": 59,
+    "title": "Azure Policy",
+    "category": "Gouvernance",
+    "definition": "Service permettant d’imposer des règles de conformité sur les ressources Azure.",
+    "example": "Interdire la création de ressources dans certaines régions.",
+    "examTip": "Policy contrôle ce qui est autorisé ; RBAC contrôle qui peut faire quoi."
+  },
+  {
+    "id": 60,
+    "title": "Tags",
+    "category": "Gouvernance",
+    "definition": "Étiquettes clé-valeur utilisées pour organiser, filtrer et catégoriser les ressources.",
+    "example": "Taguer une ressource avec Environment=Production ou Service=Finance.",
+    "examTip": "Les tags sont très utiles pour la répartition des coûts."
+  },
+  {
+    "id": 61,
+    "title": "Resource Locks",
+    "category": "Gouvernance",
+    "definition": "Les verrous empêchent la suppression ou modification accidentelle de ressources Azure.",
+    "example": "Appliquer un verrou CanNotDelete sur une base de données critique.",
+    "examTip": "Locks protègent contre suppression/modification accidentelle."
+  },
+  {
+    "id": 62,
+    "title": "Azure Blueprints",
+    "category": "Gouvernance",
+    "definition": "Service permettant de définir un environnement Azure reproductible avec policies, rôles et ressources.",
+    "example": "Créer un modèle standard pour les abonnements d’une entreprise.",
+    "examTip": "Blueprints aide à standardiser des environnements gouvernés."
+  },
+  {
+    "id": 63,
     "title": "Azure Monitor",
     "category": "Supervision",
-    "definition": "Azure Monitor permet de collecter, analyser et visualiser des données de performance et de disponibilité des ressources Azure.",
-    "example": "Surveiller l’utilisation CPU d’une machine virtuelle ou recevoir une alerte en cas de problème.",
-    "examTip": "Azure Monitor sert à observer l’état des ressources et déclencher des alertes."
+    "definition": "Service de collecte, analyse et visualisation des métriques et journaux Azure.",
+    "example": "Surveiller le CPU d’une machine virtuelle et créer une alerte.",
+    "examTip": "Monitor = supervision des performances et disponibilité."
+  },
+  {
+    "id": 64,
+    "title": "Log Analytics",
+    "category": "Supervision",
+    "definition": "Service permettant d’analyser des journaux collectés dans Azure Monitor.",
+    "example": "Rechercher des erreurs dans les logs d’une application.",
+    "examTip": "Log Analytics permet d’interroger les logs."
+  },
+  {
+    "id": 65,
+    "title": "Alertes Azure",
+    "category": "Supervision",
+    "definition": "Fonctionnalité permettant d’être notifié lorsqu’une condition est atteinte.",
+    "example": "Recevoir une alerte si l’utilisation CPU dépasse 90 %.",
+    "examTip": "Les alertes réagissent à des métriques ou logs."
+  },
+  {
+    "id": 66,
+    "title": "Azure Advisor",
+    "category": "Optimisation",
+    "definition": "Service qui fournit des recommandations pour améliorer coûts, sécurité, performance, fiabilité et excellence opérationnelle.",
+    "example": "Recommander de redimensionner une VM sous-utilisée.",
+    "examTip": "Advisor donne des recommandations personnalisées."
+  },
+  {
+    "id": 67,
+    "title": "Azure Pricing Calculator",
+    "category": "Coûts",
+    "definition": "Outil permettant d’estimer les coûts mensuels avant le déploiement de ressources Azure.",
+    "example": "Estimer le prix d’une solution App Service + Azure SQL.",
+    "examTip": "Pricing Calculator = estimation avant déploiement."
+  },
+  {
+    "id": 68,
+    "title": "TCO Calculator",
+    "category": "Coûts",
+    "definition": "Outil permettant d’estimer les économies potentielles en migrant des charges locales vers Azure.",
+    "example": "Comparer le coût d’un datacenter local avec Azure.",
+    "examTip": "TCO Calculator = comparaison local vs cloud."
+  },
+  {
+    "id": 69,
+    "title": "Azure Cost Management",
+    "category": "Coûts",
+    "definition": "Service permettant d’analyser, suivre et optimiser les dépenses Azure.",
+    "example": "Créer un budget et surveiller les coûts d’un abonnement.",
+    "examTip": "Cost Management = suivi et gestion des coûts après utilisation."
+  },
+  {
+    "id": 70,
+    "title": "Budgets Azure",
+    "category": "Coûts",
+    "definition": "Fonctionnalité permettant de fixer des limites de dépenses et d’envoyer des alertes.",
+    "example": "Recevoir une alerte quand 80 % du budget mensuel est atteint.",
+    "examTip": "Les budgets alertent mais ne bloquent pas forcément automatiquement les dépenses."
+  },
+  {
+    "id": 71,
+    "title": "Reserved Instances",
+    "category": "Coûts",
+    "definition": "Option permettant de réduire les coûts en s’engageant sur une durée d’utilisation de ressources.",
+    "example": "Réserver des VM pour un usage stable sur un ou trois ans.",
+    "examTip": "Réservations = économies pour charges prévisibles et continues."
+  },
+  {
+    "id": 72,
+    "title": "Désallocation de VM",
+    "category": "Coûts",
+    "definition": "Arrêter et désallouer une VM permet d’éviter les coûts de calcul tout en conservant les disques.",
+    "example": "Désallouer une VM utilisée uniquement de 9h à 17h.",
+    "examTip": "Désallouer réduit les coûts de calcul, mais le stockage reste facturé."
   }
 ]
