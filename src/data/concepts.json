@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Cloud computing",
+    "category": "Concepts cloud",
+    "definition": "Le cloud computing permet d'utiliser des ressources informatiques via Internet, sans devoir gérer toute l'infrastructure physique soi-même.",
+    "example": "Utiliser Azure pour héberger une application web au lieu d’installer un serveur dans son école ou son entreprise.",
+    "examTip": "Retenir que le cloud apporte flexibilité, scalabilité, haute disponibilité et paiement à l’usage."
+  },
+  {
+    "id": 2,
+    "title": "IaaS",
+    "category": "Concepts cloud",
+    "definition": "Infrastructure as a Service fournit des ressources comme des machines virtuelles, du stockage et du réseau.",
+    "example": "Créer une machine virtuelle Azure pour installer soi-même un serveur web.",
+    "examTip": "Avec IaaS, le client gère plus d’éléments : système d’exploitation, applications, données et configuration."
+  },
+  {
+    "id": 3,
+    "title": "PaaS",
+    "category": "Concepts cloud",
+    "definition": "Platform as a Service fournit une plateforme prête à l’emploi pour développer, exécuter et déployer des applications.",
+    "example": "Utiliser Azure App Service pour héberger une application sans gérer le serveur.",
+    "examTip": "Avec PaaS, Azure gère l’infrastructure et le système ; le client se concentre surtout sur l’application."
+  },
+  {
+    "id": 4,
+    "title": "SaaS",
+    "category": "Concepts cloud",
+    "definition": "Software as a Service désigne une application prête à l’emploi accessible via Internet.",
+    "example": "Microsoft 365 est un exemple de SaaS.",
+    "examTip": "Avec SaaS, le client utilise simplement le logiciel. Le fournisseur gère presque tout."
+  },
+  {
+    "id": 5,
+    "title": "Azure Resource Manager",
+    "category": "Gestion des ressources",
+    "definition": "Azure Resource Manager est la couche de gestion qui permet de créer, modifier, organiser et supprimer les ressources Azure.",
+    "example": "Créer un groupe de ressources, déployer une machine virtuelle ou appliquer un modèle ARM.",
+    "examTip": "ARM est le point central pour gérer les ressources Azure de manière cohérente."
+  },
+  {
+    "id": 6,
+    "title": "Groupe de ressources",
+    "category": "Gestion des ressources",
+    "definition": "Un groupe de ressources est un conteneur logique qui regroupe des ressources Azure liées à un même projet ou service.",
+    "example": "Mettre une application web, sa base de données et son stockage dans le même groupe de ressources.",
+    "examTip": "Une ressource appartient à un seul groupe de ressources, mais un groupe peut contenir plusieurs types de ressources."
+  },
+  {
+    "id": 7,
+    "title": "RBAC",
+    "category": "Sécurité",
+    "definition": "RBAC permet de gérer les accès aux ressources Azure en attribuant des rôles à des utilisateurs, groupes ou applications.",
+    "example": "Donner le rôle Reader à un utilisateur pour qu’il puisse consulter les ressources sans les modifier.",
+    "examTip": "Bien retenir la logique : utilisateur + rôle + scope."
+  },
+  {
+    "id": 8,
+    "title": "Microsoft Entra ID",
+    "category": "Sécurité",
+    "definition": "Microsoft Entra ID est le service de gestion des identités et des accès utilisé avec Azure.",
+    "example": "Gérer les utilisateurs, les groupes, l’authentification multifacteur et les connexions aux applications.",
+    "examTip": "Anciennement appelé Azure Active Directory. Il sert à gérer les identités, pas à stocker des fichiers."
+  },
+  {
+    "id": 9,
+    "title": "Azure Policy",
+    "category": "Gouvernance",
+    "definition": "Azure Policy permet d’imposer des règles aux ressources Azure afin de respecter des standards de sécurité, de coût ou de conformité.",
+    "example": "Interdire la création de ressources dans certaines régions.",
+    "examTip": "Azure Policy sert à contrôler ce qui est autorisé ou non, contrairement à RBAC qui gère qui peut faire quoi."
+  },
+  {
+    "id": 10,
+    "title": "Azure Monitor",
+    "category": "Supervision",
+    "definition": "Azure Monitor permet de collecter, analyser et visualiser des données de performance et de disponibilité des ressources Azure.",
+    "example": "Surveiller l’utilisation CPU d’une machine virtuelle ou recevoir une alerte en cas de problème.",
+    "examTip": "Azure Monitor sert à observer l’état des ressources et déclencher des alertes."
+  }
+]

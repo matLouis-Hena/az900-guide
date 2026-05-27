@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "Quel modèle cloud permet au client de gérer le système d’exploitation ?",
+    "answers": ["SaaS", "PaaS", "IaaS", "Serverless"],
+    "correctAnswer": "IaaS",
+    "explanation": "Avec IaaS, Azure fournit l’infrastructure, mais le client garde plus de responsabilités, dont le système d’exploitation."
+  },
+  {
+    "id": 2,
+    "question": "Quel service permet de gérer les identités et les accès dans Azure ?",
+    "answers": ["Azure Monitor", "Microsoft Entra ID", "Azure Policy", "Azure Storage"],
+    "correctAnswer": "Microsoft Entra ID",
+    "explanation": "Microsoft Entra ID permet de gérer les utilisateurs, groupes, authentification et accès aux applications."
+  },
+  {
+    "id": 3,
+    "question": "Quelle fonctionnalité permet d’attribuer des permissions selon un rôle ?",
+    "answers": ["RBAC", "Azure Monitor", "Azure Advisor", "Blob Storage"],
+    "correctAnswer": "RBAC",
+    "explanation": "RBAC permet d’attribuer des rôles à des utilisateurs, groupes ou applications sur un scope donné."
+  },
+  {
+    "id": 4,
+    "question": "À quoi sert principalement Azure Policy ?",
+    "answers": [
+      "Créer des machines virtuelles",
+      "Surveiller les performances",
+      "Imposer des règles de conformité",
+      "Stocker des fichiers"
+    ],
+    "correctAnswer": "Imposer des règles de conformité",
+    "explanation": "Azure Policy permet de contrôler ce qui est autorisé ou non dans un environnement Azure."
+  },
+  {
+    "id": 5,
+    "question": "Quel service permet de surveiller les ressources Azure ?",
+    "answers": ["Azure Monitor", "Azure SQL", "Azure Blob Storage", "Azure Functions"],
+    "correctAnswer": "Azure Monitor",
+    "explanation": "Azure Monitor collecte et analyse les métriques, logs et alertes liés aux ressources Azure."
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "question": "Une entreprise veut héberger une application sans gérer les serveurs. Quel modèle cloud correspond le mieux ?",
+    "answers": ["IaaS", "PaaS", "SaaS", "Cloud privé"],
+    "correctAnswer": "PaaS"
+  },
+  {
+    "id": 2,
+    "question": "Quel élément Azure sert de conteneur logique pour regrouper des ressources liées ?",
+    "answers": ["Abonnement", "Groupe de ressources", "Azure Policy", "Microsoft Entra ID"],
+    "correctAnswer": "Groupe de ressources"
+  },
+  {
+    "id": 3,
+    "question": "Quelle solution permet de limiter les régions dans lesquelles les ressources peuvent être créées ?",
+    "answers": ["RBAC", "Azure Monitor", "Azure Policy", "Azure App Service"],
+    "correctAnswer": "Azure Policy"
+  },
+  {
+    "id": 4,
+    "question": "Quel service est utilisé pour gérer les utilisateurs et l’authentification ?",
+    "answers": ["Microsoft Entra ID", "Azure Monitor", "Azure Advisor", "Azure SQL"],
+    "correctAnswer": "Microsoft Entra ID"
+  },
+  {
+    "id": 5,
+    "question": "Quel service permet d’héberger une application web sans gérer directement l’infrastructure serveur ?",
+    "answers": ["Azure App Service", "Azure Blob Storage", "Azure Policy", "Azure Monitor"],
+    "correctAnswer": "Azure App Service"
+  }
+]
