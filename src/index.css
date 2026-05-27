@@ -715,3 +715,152 @@ select {
   color: #cbd5e1;
   line-height: 1.7;
 }
+
+.concept-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+
+  cursor: pointer;
+}
+
+.expand-button {
+  width: 36px;
+  height: 36px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #0f172a;
+  color: #38bdf8;
+
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.concept-details {
+  margin-top: 1rem;
+}
+
+.concept-card.opened {
+  border-color: #38bdf8;
+}
+
+/* =========================
+   PROGRESS PAGE
+========================= */
+
+.progress-overview {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+}
+
+.progress-overview div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.progress-overview span {
+  color: #94a3b8;
+}
+
+.progress-overview strong {
+  font-size: 2.5rem;
+  color: #38bdf8;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.progress-card {
+  padding: 1.5rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 18px;
+}
+
+.progress-card span {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #94a3b8;
+}
+
+.progress-card strong {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #38bdf8;
+}
+
+.progress-card p {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.badges-section {
+  margin-top: 3rem;
+}
+
+.badges-section h2 {
+  margin-bottom: 1rem;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.badge-card {
+  padding: 1.5rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  opacity: 0.55;
+}
+
+.badge-card.unlocked {
+  opacity: 1;
+  border-color: #38bdf8;
+}
+
+.badge-card span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.badge-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.badge-card p {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.recommendation-card {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #0f172a;
+  border: 1px solid #38bdf8;
+  border-radius: 20px;
+}
+
+.recommendation-card h2 {
+  margin-bottom: 1rem;
+}
+
+.recommendation-card p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
