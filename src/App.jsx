@@ -5,6 +5,7 @@ import Concepts from './pages/Concepts';
 import Quiz from './pages/Quiz';
 import ExamTips from './pages/ExamTips';
 import Progress from './pages/Progress';
+import About from './pages/About';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/conseils" element={<ExamTips />} />
           <Route path="/progression" element={<Progress />} />
+          <Route path="/a-propos" element={<About />} />
         </Routes>
       </main>
 

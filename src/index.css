@@ -864,3 +864,35 @@ select {
   color: #cbd5e1;
   line-height: 1.7;
 }
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.about-card {
+  padding: 1.5rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+}
+
+.about-card h2 {
+  margin-bottom: 1rem;
+}
+
+.about-card p,
+.about-card li {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.about-card ul {
+  padding-left: 1.2rem;
+}

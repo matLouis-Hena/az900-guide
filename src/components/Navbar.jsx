@@ -14,6 +14,7 @@ function Navbar() {
         <NavLink to="/quiz">Quiz</NavLink>
         <NavLink to="/conseils">Conseils</NavLink>
         <NavLink to="/progression">Progression</NavLink>
+        <NavLink to="/a-propos">À propos</NavLink>
       </div>
     </nav>
   );
