@@ -12,13 +12,13 @@ function Home() {
           </span>
 
           <h1>
-            Un guide simple pour réviser l’AZ-900 sans se perdre dans la théorie.
+            Un guide simple pour réviser l’AZ-900 sans se noyer dans la théorie.
           </h1>
 
           <p>
-            AZ-900 Guide reprend les notions importantes de Microsoft Azure
-            Fundamentals et les transforme en fiches, questions d’entraînement,
-            suivi de progression et examen blanc.
+            Ce site reprend les notions importantes de la formation Azure Fundamentals
+            et les organise sous forme de fiches, de quiz et d’examen blanc. L’objectif
+            est de rendre la révision plus directe, plus pratique et plus facile à suivre.
           </p>
 
           <div className="hero-buttons">
@@ -38,7 +38,7 @@ function Home() {
 
             <div>
               <h3>AZ-900 Guide</h3>
-              <p>Révision Azure interactive</p>
+              <p>Support de révision interactif</p>
             </div>
           </div>
 
@@ -55,15 +55,15 @@ function Home() {
           </div>
 
           <ul className="hero-list">
-            <li>Entraînement par module</li>
-            <li>Questions à choix multiples</li>
+            <li>Questions classées par module</li>
+            <li>Correction immédiate en entraînement</li>
             <li>Examen blanc de 50 questions</li>
-            <li>Progression sauvegardée</li>
+            <li>Progression sauvegardée dans le navigateur</li>
           </ul>
 
           <div className="hero-card-footer">
             <span>Objectif</span>
-            <strong>Réviser efficacement avant l’examen</strong>
+            <strong>Réviser Azure de manière plus active</strong>
           </div>
         </div>
       </div>
@@ -77,33 +77,36 @@ function Home() {
         <div className="steps-list">
           <article className="step-item">
             <span>01</span>
+
             <div>
               <h3>Revoir les notions</h3>
               <p>
-                Commence par parcourir les fiches pour retrouver les concepts
-                essentiels : cloud, services Azure, sécurité, gouvernance et coûts.
+                Commence par parcourir les fiches pour retrouver les concepts importants :
+                modèles cloud, services Azure, sécurité, gouvernance, coûts et supervision.
               </p>
             </div>
           </article>
 
           <article className="step-item">
             <span>02</span>
+
             <div>
               <h3>S’entraîner par module</h3>
               <p>
-                Utilise le mode entraînement pour cibler un module précis et recevoir
-                une correction immédiate après chaque réponse.
+                Le mode entraînement permet de cibler un module précis et d’obtenir une
+                correction directement après chaque réponse.
               </p>
             </div>
           </article>
 
           <article className="step-item">
             <span>03</span>
+
             <div>
               <h3>Passer l’examen blanc</h3>
               <p>
-                Une fois débloqué, le mode examen blanc permet de tester tes acquis
-                avec 50 questions en temps limité.
+                Une fois débloqué, l’examen blanc permet de tester ses acquis avec
+                50 questions, un temps limité et un résultat affiché à la fin.
               </p>
             </div>
           </article>
@@ -117,10 +120,9 @@ function Home() {
           <h2>Ce que tu peux réviser</h2>
 
           <p>
-            Le contenu est organisé autour des grands modules de l’AZ-900 pour
-            permettre une révision plus ciblée. L’idée n’est pas de remplacer la
-            formation Microsoft, mais de proposer une autre manière de revoir les
-            points importants.
+            Le contenu suit les grands thèmes de l’AZ-900. Le but n’est pas de remplacer
+            la formation officielle Microsoft, mais de proposer un support complémentaire
+            pour revoir les points importants autrement.
           </p>
 
           <div className="module-list">
@@ -145,9 +147,9 @@ function Home() {
           <h3>Mode examen</h3>
 
           <p>
-            Le mode examen blanc reprend les questions de la banque principale,
-            sans correction immédiate, pour garder une logique plus proche d’un
-            vrai test.
+            L’examen blanc reprend les questions de la banque principale, mais sans
+            afficher la correction pendant le test. Le résumé complet est disponible
+            uniquement à la fin.
           </p>
 
           <ul>
@@ -165,16 +167,16 @@ function Home() {
         <h2>Pourquoi ce projet ?</h2>
 
         <p>
-          Ce site a été développé après ma formation Azure Fundamentals. L’objectif
-          était de créer un support personnel plus interactif qu’un simple résumé :
-          un outil qui permet de relire les notions, de s’entraîner, de suivre sa
-          progression et de simuler un examen blanc.
+          Ce projet a été réalisé après ma formation Azure Fundamentals. Je voulais
+          créer quelque chose d’utile pour réviser, plutôt qu’un simple résumé statique.
+          Le site me permet de retravailler les notions vues en formation tout en les
+          présentant sous une forme plus interactive.
         </p>
 
         <p>
-          Le projet m’a aussi permis de travailler le déploiement d’une application
-          web sur Azure, l’utilisation de GitHub Actions et la structuration d’un
-          projet React autour d’un vrai besoin de révision.
+          Il m’a aussi permis de pratiquer le développement React, le versioning avec
+          GitHub, le déploiement sur Azure App Service et l’automatisation avec GitHub
+          Actions.
         </p>
       </div>
     </section>
