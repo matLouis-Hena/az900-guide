@@ -51,11 +51,45 @@ function Progress() {
     return Math.min(value, max);
   }
 
+  function getRecommendation() {
+    if (!examUnlocked) {
+      return {
+        title: 'Débloquer l’examen blanc',
+        text: `Continue le mode entraînement. Il te reste ${remainingCorrectAnswers} bonne(s) réponse(s) pour débloquer l’examen blanc.`,
+        action: 'Objectif actuel : atteindre 50 bonnes réponses.'
+      };
+    }
+
+    if (bestExamScore < 70) {
+      return {
+        title: 'Faire un premier vrai score',
+        text: 'L’examen blanc est débloqué. Essaie maintenant d’atteindre au moins 70% pour valider les bases.',
+        action: 'Objectif conseillé : 70%.'
+      };
+    }
+
+    if (bestExamScore < 80) {
+      return {
+        title: 'Consolider avant l’examen',
+        text: 'Tu as déjà une bonne base. Vise maintenant 80% pour être plus à l’aise.',
+        action: 'Objectif conseillé : 80%.'
+      };
+    }
+
+    return {
+      title: 'Renforcer les derniers points faibles',
+      text: 'Ton score est solide. Le mieux maintenant est de refaire quelques questions ciblées par module.',
+      action: 'Objectif : garder un score stable.'
+    };
+  }
+
+  const recommendation = getRecommendation();
+
   const badges = [
     {
       title: 'Premiers pas Azure',
       unlocked: trainingCorrectAnswers >= 10,
-      description: `${capValue(trainingCorrectAnswers, 10)} / 10 bonnes réponses en entraînement.`
+      description: `${capValue(trainingCorrectAnswers, 10)} / 10 bonnes réponses.`
     },
     {
       title: 'Explorateur Cloud',
@@ -65,7 +99,7 @@ function Progress() {
     {
       title: 'Examen débloqué',
       unlocked: examUnlocked,
-      description: `${capValue(trainingCorrectAnswers, REQUIRED_CORRECT_ANSWERS)} / ${REQUIRED_CORRECT_ANSWERS} bonnes réponses nécessaires.`
+      description: `${capValue(trainingCorrectAnswers, REQUIRED_CORRECT_ANSWERS)} / ${REQUIRED_CORRECT_ANSWERS} bonnes réponses.`
     },
     {
       title: 'Bon niveau AZ-900',
@@ -86,119 +120,108 @@ function Progress() {
 
   return (
     <section>
-      <h1>Progression</h1>
-
-      <p className="page-description">
-        Suis ton avancement dans les notions Azure, les questions d’entraînement
-        et l’examen blanc.
-      </p>
-
-      <div className="progress-overview">
+      <div className="progress-hero">
         <div>
+          <span className="section-label">Suivi personnel</span>
+
+          <h1>Progression</h1>
+
+          <p>
+            Cette page regroupe ton avancement dans les notions, l’entraînement
+            et l’examen blanc. L’objectif est de savoir rapidement quoi travailler ensuite.
+          </p>
+        </div>
+
+        <div className="progress-score-block">
           <span>Progression globale</span>
           <strong>{globalProgress}%</strong>
-        </div>
 
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${globalProgress}%` }}
-          />
+          <div className="progress-bar">
+            <div
+              className="progress-fill"
+              style={{ width: `${globalProgress}%` }}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="progress-grid">
-        <article className="progress-card">
-          <span>Notions consultées</span>
-          <strong>
-            {viewedConceptsCount} / {concepts.length}
-          </strong>
-          <p>{conceptProgress}% des notions ont été ouvertes.</p>
-        </article>
+      <div className="progress-layout">
+        <div className="progress-main-panel">
+          <h2>État actuel</h2>
 
-        <article className="progress-card">
-          <span>Questions disponibles</span>
-          <strong>{questions.length}</strong>
-          <p>Questions utilisées pour l’entraînement et l’examen blanc.</p>
-        </article>
+          <div className="progress-lines">
+            <div>
+              <span>Notions consultées</span>
+              <strong>{viewedConceptsCount} / {concepts.length}</strong>
+              <small>{conceptProgress}% des notions ouvertes</small>
+            </div>
 
-        <article className="progress-card">
-          <span>Bonnes réponses</span>
-          <strong>{trainingCorrectAnswers}</strong>
-          <p>{trainingAccuracy}% de réussite en entraînement.</p>
-        </article>
+            <div>
+              <span>Questions disponibles</span>
+              <strong>{questions.length}</strong>
+              <small>Utilisées pour l’entraînement et l’examen blanc</small>
+            </div>
 
-        <article className="progress-card">
-          <span>Déblocage examen</span>
-          <strong>{examUnlocked ? 'Débloqué' : `${unlockProgress}%`}</strong>
-          <p>
-            {examUnlocked
-              ? 'Le mode examen blanc est disponible.'
-              : `${remainingCorrectAnswers} bonne(s) réponse(s) restante(s).`}
-          </p>
-        </article>
+            <div>
+              <span>Entraînement</span>
+              <strong>{trainingCorrectAnswers} bonnes réponses</strong>
+              <small>{trainingAccuracy}% de réussite sur {trainingAttempts} tentative(s)</small>
+            </div>
 
-        <article className="progress-card">
-          <span>Format examen blanc</span>
-          <strong>{EXAM_QUESTION_COUNT}</strong>
-          <p>Questions aléatoires avec un score final.</p>
-        </article>
+            <div>
+              <span>Examen blanc</span>
+              <strong>{examUnlocked ? 'Débloqué' : `${unlockProgress}%`}</strong>
+              <small>
+                {examUnlocked
+                  ? `${EXAM_QUESTION_COUNT} questions en temps limité`
+                  : `${remainingCorrectAnswers} bonne(s) réponse(s) restante(s)`}
+              </small>
+            </div>
 
-        <article className="progress-card">
-          <span>Meilleur score examen</span>
-          <strong>{bestExamScore}%</strong>
-          <p>{completedExam} tentative(s) terminée(s).</p>
-        </article>
+            <div>
+              <span>Meilleur score</span>
+              <strong>{bestExamScore}%</strong>
+              <small>{completedExam} tentative(s) terminée(s)</small>
+            </div>
+          </div>
+        </div>
+
+        <aside className="next-step-panel">
+          <span className="section-label">Prochaine étape</span>
+
+          <h2>{recommendation.title}</h2>
+
+          <p>{recommendation.text}</p>
+
+          <div className="next-step-note">
+            {recommendation.action}
+          </div>
+        </aside>
       </div>
 
-      <div className="badges-section">
-        <h2>Badges</h2>
+      <div className="badges-section redesigned">
+        <div className="section-heading">
+          <span>Badges</span>
+          <h2>Repères de progression</h2>
+        </div>
 
-        <div className="badges-grid">
+        <div className="badges-list">
           {badges.map((badge) => (
             <article
-              className={badge.unlocked ? 'badge-card unlocked' : 'badge-card'}
+              className={badge.unlocked ? 'badge-row unlocked' : 'badge-row'}
               key={badge.title}
             >
-              <span>{badge.unlocked ? '✓' : '🔒'}</span>
-              <h3>{badge.title}</h3>
-              <p>{badge.description}</p>
+              <span className="badge-status">
+                {badge.unlocked ? '✓' : '🔒'}
+              </span>
+
+              <div>
+                <h3>{badge.title}</h3>
+                <p>{badge.description}</p>
+              </div>
             </article>
           ))}
         </div>
-      </div>
-
-      <div className="recommendation-card">
-        <h2>Recommandation</h2>
-
-        {!examUnlocked && (
-          <p>
-            Continue le mode entraînement. L’objectif actuel est d’atteindre
-            {` ${REQUIRED_CORRECT_ANSWERS} `}bonnes réponses pour débloquer
-            l’examen blanc.
-          </p>
-        )}
-
-        {examUnlocked && bestExamScore < 70 && (
-          <p>
-            L’examen blanc est débloqué. Essaie maintenant d’obtenir au moins
-            70% pour valider une bonne base avant de viser plus haut.
-          </p>
-        )}
-
-        {bestExamScore >= 70 && bestExamScore < 80 && (
-          <p>
-            Tu as déjà un niveau correct. Pour renforcer ta préparation, vise
-            maintenant au moins 80% à l’examen blanc.
-          </p>
-        )}
-
-        {bestExamScore >= 80 && (
-          <p>
-            Très bon niveau. Tu peux maintenant revoir les notions où tu hésites
-            encore et refaire quelques questions ciblées par module.
-          </p>
-        )}
       </div>
     </section>
   );

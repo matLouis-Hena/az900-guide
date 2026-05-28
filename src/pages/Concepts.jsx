@@ -62,11 +62,27 @@ function Concepts() {
 
   return (
     <section>
-      <h1>Notions Azure</h1>
+      <div className="concepts-hero">
+        <div>
+          <span className="section-label">Fiches de révision</span>
 
-      <p className="page-description">
-        Retrouve ici les notions importantes à connaître pour l’examen AZ-900.
-      </p>
+          <h1>Notions Azure</h1>
+
+          <p>
+            Parcours les concepts importants de l’AZ-900, filtre par catégorie et ouvre
+            les fiches pour consulter les exemples et les points à retenir.
+          </p>
+        </div>
+
+        <aside className="concepts-focus-card">
+          <span>Contenu disponible</span>
+          <strong>{concepts.length} notions</strong>
+          <p>
+            Les fiches sont triées par ordre alphabétique pour retrouver plus facilement
+            une notion précise.
+          </p>
+        </aside>
+      </div>
 
       <div className="filters">
         <input

@@ -399,28 +399,36 @@ function Quiz() {
 
   return (
     <section>
-      <h1>Quiz AZ-900</h1>
+      <div className="quiz-hero">
+        <div>
+          <span className="section-label">Entraînement</span>
 
-      <p className="page-description">
-        {examUnlocked
-          ? 'Examen blanc débloqué. Tu peux maintenant tester tes connaissances dans des conditions plus proches de l’examen.'
-          : `Réponds correctement à ${REQUIRED_CORRECT_ANSWERS} questions en entraînement pour débloquer l’examen blanc.`}
-      </p>
+          <h1>Quiz AZ-900</h1>
 
-      {!examUnlocked && (
-        <div className="progress-section">
-          <div className="progress-header">
-            <span>Déblocage examen blanc</span>
-            <span>
-              {trainingCorrectAnswers} / {REQUIRED_CORRECT_ANSWERS} bonnes réponses
-            </span>
-          </div>
+          <p>
+            Entraîne-toi sur les notions Azure, révise par module, puis passe un
+            examen blanc quand tu as assez progressé.
+          </p>
+        </div>
+
+        <div className="quiz-unlock-card">
+          <span>Déblocage examen blanc</span>
+
+          <strong>
+            {examUnlocked ? 'Débloqué' : `${trainingCorrectAnswers} / ${REQUIRED_CORRECT_ANSWERS}`}
+          </strong>
 
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: `${unlockProgress}%` }} />
           </div>
+
+          <p>
+            {examUnlocked
+              ? 'Tu peux maintenant lancer une simulation d’examen.'
+              : 'Continue l’entraînement pour débloquer le mode examen blanc.'}
+          </p>
         </div>
-      )}
+      </div>
 
       <div className="reset-section">
         <button className="reset-button" onClick={resetProgress}>
@@ -429,177 +437,194 @@ function Quiz() {
       </div>
 
       {!hasStarted && (
-        <div className="quiz-menu">
-          <div className="mode-tabs">
-            <button
-              className={mode === 'training' ? 'mode-tab active' : 'mode-tab'}
-              onClick={() => selectMode('training')}
-            >
-              Entraînement
-            </button>
+        <div className="quiz-selection-layout">
+          <div className="quiz-mode-panel">
+            <div className="mode-tabs">
+              <button
+                className={mode === 'training' ? 'mode-tab active' : 'mode-tab'}
+                onClick={() => selectMode('training')}
+              >
+                Entraînement
+              </button>
 
-            <button
-              className={
-                mode === 'exam'
-                  ? 'mode-tab active unlocked-highlight'
-                  : examUnlocked
-                    ? 'mode-tab unlocked-highlight'
-                    : 'mode-tab'
-              }
-              onClick={() => selectMode('exam')}
-              disabled={!examUnlocked}
-            >
-              Examen blanc
-            </button>
-          </div>
-
-          {mode === 'training' && (
-            <div className="mode-panel">
-              <h2>Mode entraînement</h2>
-              <p>
-                Les questions sont mélangées et tournent en boucle. Tu peux réviser tout le contenu
-                ou cibler un module précis de l’AZ-900.      
-                Certaines questions peuvent avoir plusieurs bonnes réponses.
-              </p>
-
-              <div className="training-filters-header">
-                <h3>Révision ciblée</h3>
-
-                <button
-                  className="clear-filters-button"
-                  onClick={resetTrainingFilters}
-                  disabled={selectedModule === 'Tous' && selectedCategory === 'Toutes'}
-                >
-                  Réinitialiser les filtres
-                </button>
-              </div>
-
-              <div className="training-filters">
-                <div>
-                  <label>Module</label>
-                  <select
-                    value={selectedModule}
-                    onChange={(event) => {
-                      setSelectedModule(event.target.value);
-                      setSelectedCategory('Toutes');
-                    }}
-                  >
-                    {modules.map((module) => (
-                      <option value={module} key={module}>
-                        {module}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label>Catégorie</label>
-                  <select
-                    value={selectedCategory}
-                    onChange={(event) => setSelectedCategory(event.target.value)}
-                  >
-                    {categories.map((category) => (
-                      <option value={category} key={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="active-filter-card">
-                <span>Filtre actif</span>
-
-                <strong>
-                  {selectedModule === 'Tous' && selectedCategory === 'Toutes'
-                    ? 'Toutes les questions'
-                    : `${selectedModule} ${
-                        selectedCategory !== 'Toutes' ? `— ${selectedCategory}` : ''
-                      }`}
-                </strong>
-
-                <p>
-                  {filteredTrainingQuestions.length} question(s) disponible(s) avec ce filtre.
-                </p>
-              </div>
-
-              <div className="mode-stats">
-                <div>
-                  <span>Bonnes réponses</span>
-                  <strong>{trainingCorrectAnswers}</strong>
-                </div>
-
-                <div>
-                  <span>Questions tentées</span>
-                  <strong>{trainingAttempts}</strong>
-                </div>
-              </div>
-
-              <button className="primary-button" onClick={startQuiz}>
-                Commencer l’entraînement
+              <button
+                className={
+                  mode === 'exam'
+                    ? 'mode-tab active unlocked-highlight'
+                    : examUnlocked
+                      ? 'mode-tab unlocked-highlight'
+                      : 'mode-tab'
+                }
+                onClick={() => selectMode('exam')}
+                disabled={!examUnlocked}
+              >
+                Examen blanc
               </button>
             </div>
-          )}
 
-          {mode === 'exam' && (
-            <div className="mode-panel">
-              <div className="exam-intro-header">
-                <div>
-                  <h2>Mode examen blanc</h2>
+            {mode === 'training' && (
+              <div className="mode-content">
+                <span className="section-label">Mode libre</span>
+
+                <h2>Réviser à ton rythme</h2>
+
+                <p>
+                  Les questions sont mélangées et corrigées directement. Tu peux réviser
+                  toute la banque de questions ou cibler un module précis.
+                </p>
+
+                <div className="training-filters-header">
+                  <h3>Révision ciblée</h3>
+
+                  <button
+                    className="clear-filters-button"
+                    onClick={resetTrainingFilters}
+                    disabled={selectedModule === 'Tous' && selectedCategory === 'Toutes'}
+                  >
+                    Réinitialiser les filtres
+                  </button>
+                </div>
+
+                <div className="training-filters">
+                  <div>
+                    <label>Module</label>
+                    <select
+                      value={selectedModule}
+                      onChange={(event) => {
+                        setSelectedModule(event.target.value);
+                        setSelectedCategory('Toutes');
+                      }}
+                    >
+                      {modules.map((module) => (
+                        <option value={module} key={module}>
+                          {module}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label>Catégorie</label>
+                    <select
+                      value={selectedCategory}
+                      onChange={(event) => setSelectedCategory(event.target.value)}
+                    >
+                      {categories.map((category) => (
+                        <option value={category} key={category}>
+                          {category}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="active-filter-card">
+                  <span>Filtre actif</span>
+
+                  <strong>
+                    {selectedModule === 'Tous' && selectedCategory === 'Toutes'
+                      ? 'Toutes les questions'
+                      : `${selectedModule} ${
+                          selectedCategory !== 'Toutes' ? `— ${selectedCategory}` : ''
+                        }`}
+                  </strong>
+
                   <p>
-                    Mets-toi dans des conditions proches de l’examen AZ-900 : temps limité,
-                    questions mélangées et résultat uniquement à la fin.
+                    {filteredTrainingQuestions.length} question(s) disponible(s) avec ce filtre.
                   </p>
                 </div>
 
-                <span className="exam-badge">Simulation</span>
+                <button
+                  className="primary-button"
+                  onClick={startQuiz}
+                  disabled={filteredTrainingQuestions.length === 0}
+                >
+                  Commencer l’entraînement
+                </button>
               </div>
+            )}
 
-              <div className="exam-rules">
-                <article>
-                  <span>Questions</span>
-                  <strong>{EXAM_QUESTION_COUNT}</strong>
-                  <p>Tirées aléatoirement depuis la banque de questions.</p>
-                </article>
+            {mode === 'exam' && (
+              <div className="mode-content">
+                <div className="exam-intro-header">
+                  <div>
+                    <span className="section-label">Simulation</span>
 
-                <article>
-                  <span>Durée</span>
-                  <strong>{formatTime(EXAM_DURATION_SECONDS)}</strong>
-                  <p>Le quiz se termine automatiquement à la fin du temps.</p>
-                </article>
+                    <h2>Examen blanc</h2>
 
-                <article>
-                  <span>Correction</span>
-                  <strong>Fin uniquement</strong>
-                  <p>Aucune explication n’est affichée pendant l’examen.</p>
-                </article>
-              </div>
+                    <p>
+                      Mets-toi dans des conditions proches de l’AZ-900 : temps limité,
+                      questions mélangées et score uniquement à la fin.
+                    </p>
+                  </div>
 
-              <div className="exam-warning">
-                <strong>Avant de commencer</strong>
-                <p>
-                  Une fois lancé, l’examen blanc démarre directement. Réponds à chaque
-                  question puis valide pour passer à la suivante.
-                </p>
-              </div>
-
-              <div className="mode-stats">
-                <div>
-                  <span>Meilleur score</span>
-                  <strong>{bestExamScore}%</strong>
+                  <span className="exam-badge">Examen</span>
                 </div>
 
-                <div>
-                  <span>Tentatives</span>
-                  <strong>{completedExam}</strong>
+                <div className="exam-rules">
+                  <article>
+                    <span>Questions</span>
+                    <strong>{EXAM_QUESTION_COUNT}</strong>
+                    <p>Tirées aléatoirement depuis la banque principale.</p>
+                  </article>
+
+                  <article>
+                    <span>Durée</span>
+                    <strong>{formatTime(EXAM_DURATION_SECONDS)}</strong>
+                    <p>Le quiz se termine automatiquement à la fin du temps.</p>
+                  </article>
+
+                  <article>
+                    <span>Correction</span>
+                    <strong>Fin uniquement</strong>
+                    <p>Aucune correction n’est affichée pendant l’examen.</p>
+                  </article>
                 </div>
+
+                <div className="exam-warning">
+                  <strong>Avant de commencer</strong>
+                  <p>
+                    Une fois lancé, l’examen blanc démarre directement. Quitter la page
+                    abandonne la tentative en cours.
+                  </p>
+                </div>
+
+                <button className="primary-button" onClick={startQuiz}>
+                  Lancer l’examen blanc
+                </button>
+              </div>
+            )}
+          </div>
+
+          <aside className="quiz-side-panel">
+            <h2>Ton avancement</h2>
+
+            <div className="quiz-side-list">
+              <div>
+                <span>Bonnes réponses</span>
+                <strong>{trainingCorrectAnswers}</strong>
               </div>
 
-              <button className="primary-button" onClick={startQuiz}>
-                Lancer l’examen blanc
-              </button>
+              <div>
+                <span>Questions tentées</span>
+                <strong>{trainingAttempts}</strong>
+              </div>
+
+              <div>
+                <span>Meilleur score examen</span>
+                <strong>{bestExamScore}%</strong>
+              </div>
+
+              <div>
+                <span>Tentatives examen</span>
+                <strong>{completedExam}</strong>
+              </div>
             </div>
-          )}
+
+            <button className="reset-button" onClick={resetProgress}>
+              Réinitialiser la progression
+            </button>
+          </aside>
         </div>
       )}
 
@@ -701,83 +726,109 @@ function Quiz() {
       )}
 
       {hasStarted && !isFinished && currentQuestion && (
-        <div className="quiz-card">
-          <div className="quiz-header">
-            <span>
-              {mode === 'training'
-                ? `Question d’entraînement ${currentQuestionIndex + 1}`
-                : `Question ${currentQuestionIndex + 1} / ${questions.length}`}
-            </span>
+        <div className="quiz-active-layout">
+          <div className="quiz-question-panel">
+            <div className="quiz-header">
+              <span>
+                {mode === 'training'
+                  ? `Question d’entraînement ${currentQuestionIndex + 1}`
+                  : `Question ${currentQuestionIndex + 1} / ${questions.length}`}
+              </span>
 
-            <span>
-              {mode === 'training'
-                ? `${trainingCorrectAnswers} bonnes réponses`
-                : `Temps restant : ${formatTime(timeLeft)}`}
-            </span>
-          </div>
-
-          <div className="question-meta">
-            {currentQuestion.module && (
-              <span className="question-category">{currentQuestion.module}</span>
-            )}
-
-            {currentQuestion.category && (
-              <span className="question-category">{currentQuestion.category}</span>
-            )}
-          </div>
-
-          {isMultipleChoice(currentQuestion) && (
-            <p className="multiple-choice-info">
-              Plusieurs réponses sont possibles. Sélectionne toutes les bonnes réponses.
-            </p>
-          )}
-
-          <h2>{currentQuestion.question}</h2>
-
-          <div className="answers">
-            {currentQuestion.answers.map((answer) => (
-              <button
-                key={answer}
-                className={getAnswerClass(answer)}
-                onClick={() => handleAnswer(answer)}
-              >
-                {answer}
-              </button>
-            ))}
-          </div>
-
-          {mode === 'training' && isValidated && (
-            <div className="explanation">
-              <strong>Explication :</strong>
-              <p>{currentQuestion.explanation}</p>
+              <span>
+                {mode === 'training'
+                  ? `${trainingCorrectAnswers} bonnes réponses`
+                  : `Temps restant : ${formatTime(timeLeft)}`}
+              </span>
             </div>
-          )}
 
-          <div className="quiz-actions">
-            {!isValidated && (mode === 'training' || isMultipleChoice(currentQuestion)) && (
-              <button
-                className="primary-button"
-                onClick={validateAnswer}
-                disabled={selectedAnswers.length === 0}
-              >
-                {mode === 'exam' ? 'Valider et continuer' : 'Valider'}
-              </button>
+            <div className="question-meta">
+              {currentQuestion.module && (
+                <span className="question-category">{currentQuestion.module}</span>
+              )}
+
+              {currentQuestion.category && (
+                <span className="question-category">{currentQuestion.category}</span>
+              )}
+            </div>
+
+            {isMultipleChoice(currentQuestion) && (
+              <p className="multiple-choice-info">
+                Plusieurs réponses sont possibles. Sélectionne toutes les bonnes réponses.
+              </p>
             )}
 
-            {isValidated && (
-              <button className="primary-button" onClick={handleNextQuestion}>
-                {mode === 'exam' && currentQuestionIndex === questions.length - 1
-                  ? 'Voir le résultat'
-                  : 'Question suivante'}
-              </button>
+            <h2>{currentQuestion.question}</h2>
+
+            <div className="answers">
+              {currentQuestion.answers.map((answer) => (
+                <button
+                  key={answer}
+                  className={getAnswerClass(answer)}
+                  onClick={() => handleAnswer(answer)}
+                >
+                  {answer}
+                </button>
+              ))}
+            </div>
+
+            {mode === 'training' && isValidated && (
+              <div className="explanation">
+                <strong>Explication :</strong>
+                <p>{currentQuestion.explanation}</p>
+              </div>
             )}
 
-            {mode === 'training' && (
-              <button className="secondary-button" onClick={backToMenu}>
-                Retour au menu
-              </button>
-            )}
+            <div className="quiz-actions">
+              {!isValidated && (mode === 'training' || isMultipleChoice(currentQuestion)) && (
+                <button
+                  className="primary-button"
+                  onClick={validateAnswer}
+                  disabled={selectedAnswers.length === 0}
+                >
+                  {mode === 'exam' ? 'Valider et continuer' : 'Valider'}
+                </button>
+              )}
+
+              {isValidated && (
+                <button className="primary-button" onClick={handleNextQuestion}>
+                  {mode === 'exam' && currentQuestionIndex === questions.length - 1
+                    ? 'Voir le résultat'
+                    : 'Question suivante'}
+                </button>
+              )}
+
+              {mode === 'training' && (
+                <button className="secondary-button" onClick={backToMenu}>
+                  Retour au menu
+                </button>
+              )}
+            </div>
           </div>
+
+          <aside className="quiz-context-panel">
+            <span className="section-label">
+              {mode === 'training' ? 'Correction immédiate' : 'Examen en cours'}
+            </span>
+
+            <h3>
+              {mode === 'training'
+                ? 'Entraînement'
+                : 'Simulation AZ-900'}
+            </h3>
+
+            <p>
+              {mode === 'training'
+                ? 'Chaque réponse validée affiche directement la correction pour apprendre progressivement.'
+                : 'Aucune correction n’est affichée pendant l’examen. Le résumé complet arrive à la fin.'}
+            </p>
+
+            <div className="quiz-context-note">
+              {mode === 'training'
+                ? 'Tu peux quitter l’entraînement à tout moment.'
+                : 'Quitter la page abandonne la tentative.'}
+            </div>
+          </aside>
         </div>
       )}
     </section>

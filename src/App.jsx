@@ -1,5 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
 import Home from './pages/Home';
 import Concepts from './pages/Concepts';
 import Quiz from './pages/Quiz';
@@ -9,7 +12,7 @@ import About from './pages/About';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
 
       <main>
@@ -23,12 +26,8 @@ function App() {
         </Routes>
       </main>
 
-      <footer className="footer">
-        <p>
-          AZ-900 Guide — Projet personnel autour de Microsoft Azure Fundamentals.
-        </p>
-      </footer>
-    </BrowserRouter>
+      <Footer />
+    </>
   );
 }
 
