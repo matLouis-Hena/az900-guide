@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import questionsData from '../data/questions.json';
 
-const EXAM_QUESTION_COUNT = 50;
+const EXAM_QUESTION_COUNT = 5;
 const REQUIRED_CORRECT_ANSWERS = 50;
-const EXAM_DURATION_SECONDS = 45 * 60;
+const EXAM_DURATION_SECONDS = 1 * 60;
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -33,8 +33,8 @@ function Quiz() {
   const [timeLeft, setTimeLeft] = useState(EXAM_DURATION_SECONDS);
   const [selectedModule, setSelectedModule] = useState('Tous');
   const [selectedCategory, setSelectedCategory] = useState('Toutes');
-
   const examUnlocked = trainingCorrectAnswers >= REQUIRED_CORRECT_ANSWERS;
+  const [examAnswersSummary, setExamAnswersSummary] = useState([]);
   
   const currentQuestion = questions[currentQuestionIndex];
   const modules = [
@@ -90,6 +90,23 @@ function Quiz() {
     return () => clearInterval(timer);
   }, [mode, hasStarted, isFinished, timeLeft]);
 
+  useEffect(() => {
+    if (mode !== 'exam' || !hasStarted || isFinished) {
+      return;
+    }
+
+    const handleBeforeUnload = (event) => {
+      event.preventDefault();
+      event.returnValue = '';
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [mode, hasStarted, isFinished]);
+
   function selectMode(selectedMode) {
     if (selectedMode === 'exam' && !examUnlocked) return;
 
@@ -117,6 +134,11 @@ function Quiz() {
     setQuestions(selectedQuestions);
     setTimeLeft(EXAM_DURATION_SECONDS);
     resetQuizState();
+
+    if (mode === 'exam') {
+      localStorage.setItem('examInProgress', 'true');
+    }
+
     setHasStarted(true);
   }
 
@@ -126,6 +148,7 @@ function Quiz() {
     setIsValidated(false);
     setScore(0);
     setIsFinished(false);
+    setExamAnswersSummary([]);
   }
 
   function getCorrectAnswers(question) {
@@ -174,6 +197,22 @@ function Quiz() {
       answers.every((answer) => correctAnswers.includes(answer));
 
     const newScore = isCorrect ? score + 1 : score;
+
+    const answerSummary = {
+      id: currentQuestion.id,
+      module: currentQuestion.module,
+      category: currentQuestion.category,
+      question: currentQuestion.question,
+      selectedAnswers: answers,
+      correctAnswers,
+      explanation: currentQuestion.explanation,
+      isCorrect
+    };
+
+    setExamAnswersSummary((previousSummary) => [
+      ...previousSummary,
+      answerSummary
+    ]);
 
     setScore(newScore);
 
@@ -242,6 +281,8 @@ function Quiz() {
   }
 
   function finishExam(finalScoreValue = score) {
+    localStorage.removeItem('examInProgress');
+
     setIsFinished(true);
 
     const finalScore = calculatePercentage(finalScoreValue, questions.length);
@@ -263,6 +304,7 @@ function Quiz() {
   function backToMenu() {
     resetQuizState();
     setHasStarted(false);
+    localStorage.removeItem('examInProgress');
   }
 
   function resetProgress() {
@@ -270,6 +312,7 @@ function Quiz() {
     localStorage.removeItem('trainingAttempts');
     localStorage.removeItem('bestExamScore');
     localStorage.removeItem('completedExam');
+    localStorage.removeItem('examInProgress');
 
     setTrainingCorrectAnswers(50);
     setTrainingAttempts(0);
@@ -324,6 +367,35 @@ function Quiz() {
   }
 
   const currentExamScorePercentage = calculatePercentage(score, questions.length);
+  const examFeedback = getExamFeedback(currentExamScorePercentage);
+  
+  function getExamFeedback(scorePercentage) {
+    if (scorePercentage >= 80) {
+      return {
+        title: 'Très bon résultat',
+        text: 'Tu as un bon niveau sur les notions principales. Continue à t’entraîner pour consolider les points où tu hésites encore.'
+      };
+    }
+
+    if (scorePercentage >= 70) {
+      return {
+        title: 'Bon résultat',
+        text: 'Tu es sur une bonne base. Vise maintenant au moins 80% pour être plus à l’aise.'
+      };
+    }
+
+    if (scorePercentage >= 50) {
+      return {
+        title: 'Résultat moyen',
+        text: 'Les bases sont là, mais certaines notions doivent encore être retravaillées.'
+      };
+    }
+
+    return {
+      title: 'À retravailler',
+      text: 'Reprends l’entraînement par module pour renforcer les notions avant de retenter l’examen blanc.'
+    };
+  }
 
   return (
     <section>
@@ -535,11 +607,80 @@ function Quiz() {
         <div className="quiz-card">
           <h2>Résultat de l’examen blanc</h2>
 
-          <p className="final-score">{currentExamScorePercentage}%</p>
+          <div className="exam-result-summary">
+            <p className="final-score">{currentExamScorePercentage}%</p>
 
-          <p>
-            Tu as obtenu {score} bonne(s) réponse(s) sur {questions.length}.
-          </p>
+            <div>
+              <strong>
+                {score} / {questions.length} bonnes réponses
+              </strong>
+
+              <span>
+                Objectif conseillé : 70% minimum, 80% pour être plus à l’aise.
+              </span>
+            </div>
+          </div>
+
+          <div className="exam-feedback-card">
+            <h3>{examFeedback.title}</h3>
+            <p>{examFeedback.text}</p>
+          </div>
+
+          <div className="exam-review">
+            <h3>Résumé des réponses</h3>
+
+            <div className="exam-review-list">
+              {examAnswersSummary.map((answer, index) => (
+                <article
+                  className={
+                    answer.isCorrect
+                      ? 'exam-review-card correct'
+                      : 'exam-review-card wrong'
+                  }
+                  key={`${answer.id}-${index}`}
+                >
+                  <div className="exam-review-header">
+                    <span>Question {index + 1}</span>
+                    <strong>{answer.isCorrect ? 'Correct' : 'Incorrect'}</strong>
+                  </div>
+
+                  <div className="question-meta">
+                    {answer.module && (
+                      <span className="question-category">{answer.module}</span>
+                    )}
+
+                    {answer.category && (
+                      <span className="question-category">{answer.category}</span>
+                    )}
+                  </div>
+
+                  <h4>{answer.question}</h4>
+
+                  <div className="review-answer-block">
+                    <span>Ta réponse</span>
+                    <ul>
+                      {answer.selectedAnswers.map((selectedAnswer) => (
+                        <li key={selectedAnswer}>{selectedAnswer}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="review-answer-block">
+                    <span>Bonne réponse</span>
+                    <ul>
+                      {answer.correctAnswers.map((correctAnswer) => (
+                        <li key={correctAnswer}>{correctAnswer}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <p className="review-explanation">
+                    {answer.explanation}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
 
           {timeLeft <= 0 && (
             <p className="locked-message">

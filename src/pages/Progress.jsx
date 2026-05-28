@@ -47,36 +47,40 @@ function Progress() {
     0
   );
 
+  function capValue(value, max) {
+    return Math.min(value, max);
+  }
+
   const badges = [
     {
       title: 'Premiers pas Azure',
       unlocked: trainingCorrectAnswers >= 10,
-      description: 'Obtenir au moins 10 bonnes réponses en entraînement.'
+      description: `${capValue(trainingCorrectAnswers, 10)} / 10 bonnes réponses en entraînement.`
     },
     {
       title: 'Explorateur Cloud',
       unlocked: viewedConceptsCount >= 10,
-      description: 'Consulter au moins 10 notions Azure.'
+      description: `${capValue(viewedConceptsCount, 10)} / 10 notions consultées.`
     },
     {
       title: 'Examen débloqué',
       unlocked: examUnlocked,
-      description: 'Atteindre 50 bonnes réponses en entraînement.'
+      description: `${capValue(trainingCorrectAnswers, REQUIRED_CORRECT_ANSWERS)} / ${REQUIRED_CORRECT_ANSWERS} bonnes réponses nécessaires.`
     },
     {
       title: 'Bon niveau AZ-900',
       unlocked: bestExamScore >= 70,
-      description: 'Obtenir au moins 70% à l’examen blanc.'
+      description: `${capValue(bestExamScore, 70)} / 70% atteint.`
     },
     {
       title: 'Prêt pour l’AZ-900',
       unlocked: bestExamScore >= 80,
-      description: 'Obtenir au moins 80% à l’examen blanc.'
+      description: `${capValue(bestExamScore, 80)} / 80% atteint.`
     },
     {
       title: 'Révision complète',
       unlocked: conceptProgress === 100,
-      description: 'Avoir consulté toutes les notions disponibles.'
+      description: `${capValue(viewedConceptsCount, concepts.length)} / ${concepts.length} notions consultées.`
     }
   ];
 

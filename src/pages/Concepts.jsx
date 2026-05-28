@@ -5,12 +5,13 @@ function Concepts() {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Toutes');
   const [openedConcepts, setOpenedConcepts] = useState([]);
+  const [viewedConcepts, setViewedConcepts] = useState([]);
 
   useEffect(() => {
-    const savedConcepts =
+    const savedViewedConcepts =
       JSON.parse(localStorage.getItem('viewedConcepts')) || [];
 
-    setOpenedConcepts(savedConcepts);
+    setViewedConcepts(savedViewedConcepts);
   }, []);
 
   const sortedConcepts = [...concepts].sort((a, b) =>
@@ -42,16 +43,21 @@ function Concepts() {
   });
 
   function toggleConcept(conceptId) {
-    let updatedConcepts;
-
     if (openedConcepts.includes(conceptId)) {
-      updatedConcepts = openedConcepts.filter((id) => id !== conceptId);
+      setOpenedConcepts(openedConcepts.filter((id) => id !== conceptId));
     } else {
-      updatedConcepts = [...openedConcepts, conceptId];
-    }
+      setOpenedConcepts([...openedConcepts, conceptId]);
 
-    setOpenedConcepts(updatedConcepts);
-    localStorage.setItem('viewedConcepts', JSON.stringify(updatedConcepts));
+      if (!viewedConcepts.includes(conceptId)) {
+        const updatedViewedConcepts = [...viewedConcepts, conceptId];
+
+        setViewedConcepts(updatedViewedConcepts);
+        localStorage.setItem(
+          'viewedConcepts',
+          JSON.stringify(updatedViewedConcepts)
+        );
+      }
+    }
   }
 
   return (
