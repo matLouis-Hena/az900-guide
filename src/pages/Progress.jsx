@@ -54,31 +54,31 @@ function Progress() {
   function getRecommendation() {
     if (!examUnlocked) {
       return {
-        title: 'Débloquer l’examen blanc',
-        text: `Continue le mode entraînement. Il te reste ${remainingCorrectAnswers} bonne(s) réponse(s) pour débloquer l’examen blanc.`,
+        title: 'Continuer l’entraînement',
+        text: `Il te reste ${remainingCorrectAnswers} bonne(s) réponse(s) pour débloquer l’examen blanc.`,
         action: 'Objectif actuel : atteindre 50 bonnes réponses.'
       };
     }
 
     if (bestExamScore < 70) {
       return {
-        title: 'Faire un premier vrai score',
-        text: 'L’examen blanc est débloqué. Essaie maintenant d’atteindre au moins 70% pour valider les bases.',
+        title: 'Passer un premier examen blanc',
+        text: 'L’examen blanc est débloqué. Le prochain objectif est d’obtenir au moins 70%.',
         action: 'Objectif conseillé : 70%.'
       };
     }
 
     if (bestExamScore < 80) {
       return {
-        title: 'Consolider avant l’examen',
-        text: 'Tu as déjà une bonne base. Vise maintenant 80% pour être plus à l’aise.',
+        title: 'Stabiliser ton score',
+        text: 'Tu as déjà une bonne base. Viser 80% permet d’être plus à l’aise avec les notions principales.',
         action: 'Objectif conseillé : 80%.'
       };
     }
 
     return {
-      title: 'Renforcer les derniers points faibles',
-      text: 'Ton score est solide. Le mieux maintenant est de refaire quelques questions ciblées par module.',
+      title: 'Travailler les derniers points faibles',
+      text: 'Ton score est solide. Le plus utile maintenant est de refaire quelques questions ciblées par module.',
       action: 'Objectif : garder un score stable.'
     };
   }
@@ -122,13 +122,13 @@ function Progress() {
     <section>
       <div className="progress-hero">
         <div>
-          <span className="section-label">Suivi personnel</span>
+          <span className="section-label">Progression</span>
 
-          <h1>Progression</h1>
+          <h1>Où tu en es</h1>
 
           <p>
-            Cette page regroupe ton avancement dans les notions, l’entraînement
-            et l’examen blanc. L’objectif est de savoir rapidement quoi travailler ensuite.
+            Cette page regroupe ton avancement dans les fiches, l’entraînement
+            et l’examen blanc. Elle sert surtout à savoir quoi travailler ensuite.
           </p>
         </div>
 
@@ -147,25 +147,25 @@ function Progress() {
 
       <div className="progress-layout">
         <div className="progress-main-panel">
-          <h2>État actuel</h2>
+          <h2>Résumé actuel</h2>
 
           <div className="progress-lines">
             <div>
-              <span>Notions consultées</span>
+              <span>Notions ouvertes</span>
               <strong>{viewedConceptsCount} / {concepts.length}</strong>
-              <small>{conceptProgress}% des notions ouvertes</small>
+              <small>{conceptProgress}% des fiches consultées</small>
             </div>
 
             <div>
               <span>Questions disponibles</span>
               <strong>{questions.length}</strong>
-              <small>Utilisées pour l’entraînement et l’examen blanc</small>
+              <small>Utilisées en entraînement et en examen blanc</small>
             </div>
 
             <div>
               <span>Entraînement</span>
               <strong>{trainingCorrectAnswers} bonnes réponses</strong>
-              <small>{trainingAccuracy}% de réussite sur {trainingAttempts} tentative(s)</small>
+              <small>{trainingAccuracy}% de réussite sur {trainingAttempts} réponse(s)</small>
             </div>
 
             <div>

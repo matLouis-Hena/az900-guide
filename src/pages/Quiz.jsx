@@ -401,13 +401,14 @@ function Quiz() {
     <section>
       <div className="quiz-hero">
         <div>
-          <span className="section-label">Entraînement</span>
+          <span className="section-label">Quiz</span>
 
-          <h1>Quiz AZ-900</h1>
+          <h1>Teste tes connaissances Azure</h1>
 
           <p>
-            Entraîne-toi sur les notions Azure, révise par module, puis passe un
-            examen blanc quand tu as assez progressé.
+            Utilise le mode entraînement pour progresser question par question, puis
+            passe l’examen blanc quand tu veux te tester dans des conditions plus proches
+            de l’AZ-900.
           </p>
         </div>
 
@@ -424,8 +425,8 @@ function Quiz() {
 
           <p>
             {examUnlocked
-              ? 'Tu peux maintenant lancer une simulation d’examen.'
-              : 'Continue l’entraînement pour débloquer le mode examen blanc.'}
+              ? 'Le mode examen blanc est disponible.'
+              : 'Atteins 50 bonnes réponses en entraînement pour débloquer l’examen blanc.'}
           </p>
         </div>
       </div>
@@ -464,13 +465,14 @@ function Quiz() {
 
             {mode === 'training' && (
               <div className="mode-content">
-                <span className="section-label">Mode libre</span>
+                <span className="section-label">Entraînement</span>
 
-                <h2>Réviser à ton rythme</h2>
+                <h2>Réviser sans pression</h2>
 
                 <p>
-                  Les questions sont mélangées et corrigées directement. Tu peux réviser
-                  toute la banque de questions ou cibler un module précis.
+                  Ici, chaque réponse est corrigée directement. Tu peux travailler toutes les
+                  questions ou te concentrer sur un module précis si tu veux revoir un thème en
+                  particulier.
                 </p>
 
                 <div className="training-filters-header">
@@ -519,7 +521,7 @@ function Quiz() {
                 </div>
 
                 <div className="active-filter-card">
-                  <span>Filtre actif</span>
+                  <span>Révision sélectionné</span>
 
                   <strong>
                     {selectedModule === 'Tous' && selectedCategory === 'Toutes'
@@ -530,7 +532,7 @@ function Quiz() {
                   </strong>
 
                   <p>
-                    {filteredTrainingQuestions.length} question(s) disponible(s) avec ce filtre.
+                    {filteredTrainingQuestions.length} question(s) disponible(s) pour cette sélection.
                   </p>
                 </div>
 
@@ -548,13 +550,13 @@ function Quiz() {
               <div className="mode-content">
                 <div className="exam-intro-header">
                   <div>
-                    <span className="section-label">Simulation</span>
+                    <span className="section-label">Examen blanc</span>
 
-                    <h2>Examen blanc</h2>
+                    <h2>Simulation AZ-900</h2>
 
                     <p>
-                      Mets-toi dans des conditions proches de l’AZ-900 : temps limité,
-                      questions mélangées et score uniquement à la fin.
+                      Ce mode sert à te tester sans correction immédiate. Les questions sont
+                      mélangées, le temps est limité, et le résumé arrive seulement à la fin.
                     </p>
                   </div>
 
@@ -584,8 +586,8 @@ function Quiz() {
                 <div className="exam-warning">
                   <strong>Avant de commencer</strong>
                   <p>
-                    Une fois lancé, l’examen blanc démarre directement. Quitter la page
-                    abandonne la tentative en cours.
+                    Une fois lancé, l’examen démarre directement. Si tu quittes la page pendant
+                    la tentative, elle sera abandonnée.
                   </p>
                 </div>
 
@@ -597,7 +599,7 @@ function Quiz() {
           </div>
 
           <aside className="quiz-side-panel">
-            <h2>Ton avancement</h2>
+            <h2>Suivi rapide</h2>
 
             <div className="quiz-side-list">
               <div>
@@ -819,14 +821,14 @@ function Quiz() {
 
             <p>
               {mode === 'training'
-                ? 'Chaque réponse validée affiche directement la correction pour apprendre progressivement.'
-                : 'Aucune correction n’est affichée pendant l’examen. Le résumé complet arrive à la fin.'}
+                ? 'La correction s’affiche après validation pour comprendre directement l’erreur ou confirmer la bonne réponse.'
+                : 'Pendant l’examen, aucune correction n’est affichée. Le détail des réponses sera disponible à la fin.'}
             </p>
 
             <div className="quiz-context-note">
               {mode === 'training'
-                ? 'Tu peux quitter l’entraînement à tout moment.'
-                : 'Quitter la page abandonne la tentative.'}
+                ? 'L’entraînement peut être interrompu à tout moment.'
+                : 'Une tentative quittée en cours n’est pas conservée.'}
             </div>
           </aside>
         </div>
