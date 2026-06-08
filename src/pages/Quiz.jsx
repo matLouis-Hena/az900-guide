@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import questionsData from '../data/questions.json';
 
-const EXAM_QUESTION_COUNT = 5;
+const EXAM_QUESTION_COUNT = 50;
 const REQUIRED_CORRECT_ANSWERS = 50;
-const EXAM_DURATION_SECONDS = 1 * 60;
+const EXAM_DURATION_SECONDS = 45 * 60;
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -307,21 +307,11 @@ function Quiz() {
     localStorage.removeItem('examInProgress');
   }
 
-  function resetProgress() {
-    localStorage.removeItem('trainingCorrectAnswers');
-    localStorage.removeItem('trainingAttempts');
-    localStorage.removeItem('bestExamScore');
-    localStorage.removeItem('completedExam');
-    localStorage.removeItem('examInProgress');
+  function giveExam() {
+    const requiredAnswers = REQUIRED_CORRECT_ANSWERS;
 
-    setTrainingCorrectAnswers(50);
-    setTrainingAttempts(0);
-    setBestExamScore(0);
-    setCompletedExam(0);
-
-    setMode('training');
-    setHasStarted(false);
-    resetQuizState();
+    setTrainingCorrectAnswers(requiredAnswers);
+    localStorage.setItem("trainingCorrectAnswers", String(requiredAnswers));
   }
 
   function calculatePercentage(value, total) {
@@ -428,6 +418,11 @@ function Quiz() {
               ? 'Le mode examen blanc est disponible.'
               : 'Atteins 50 bonnes réponses en entraînement pour débloquer l’examen blanc.'}
           </p>
+
+          <button type="button" className="secondary-button" onClick={giveExam}>
+            Mode démo : débloquer l’examen
+          </button>
+
         </div>
       </div>
 
@@ -616,10 +611,6 @@ function Quiz() {
                 <strong>{completedExam}</strong>
               </div>
             </div>
-
-            <button className="reset-button" onClick={resetProgress}>
-              Réinitialiser la progression
-            </button>
           </aside>
         </div>
       )}
