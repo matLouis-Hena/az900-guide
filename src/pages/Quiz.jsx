@@ -431,12 +431,6 @@ function Quiz() {
         </div>
       </div>
 
-      <div className="reset-section">
-        <button className="reset-button" onClick={resetProgress}>
-          Réinitialiser la progression
-        </button>
-      </div>
-
       {!hasStarted && (
         <div className="quiz-selection-layout">
           <div className="quiz-mode-panel">
